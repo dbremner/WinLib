@@ -317,7 +317,6 @@
     <ClCompile Include="Xml\XmlTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Algo.h" />
     <ClInclude Include="array_vector.h" />
     <ClInclude Include="auto_array.h" />
     <ClInclude Include="auto_vector.h" />

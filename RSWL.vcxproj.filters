@@ -942,7 +942,6 @@
     <ClInclude Include="Ex\WinEx.h">
       <Filter>Ex</Filter>
     </ClInclude>
-    <ClInclude Include="Algo.h" />
     <ClInclude Include="array_vector.h" />
     <ClInclude Include="auto_array.h" />
     <ClInclude Include="auto_vector.h" />
