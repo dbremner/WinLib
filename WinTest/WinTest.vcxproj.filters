@@ -25,9 +25,9 @@
     <ClInclude Include="WinTestRegistry.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\Rs.ico">
+    <Image Include="Resource\Rs.ico">
       <Filter>Resource Files</Filter>
-    </None>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource\WinTest.rc">
