@@ -21,7 +21,6 @@ namespace ShellMan
 		~Ptr ()
 		{
 			Free ();
-			_shellMalloc->Release ();
 		}
 		T * operator->() { return _p; }
 		T const * operator->() const { return _p; }
@@ -31,22 +30,15 @@ namespace ShellMan
 	protected:
 		Ptr () : _p (0) 
 		{
-			// Obtain malloc here, rather than
-			// in the destructor. 
-			// Destructor must be fail-proof.
-			// Revisit: Would static LPMALLOC _shellMalloc work?
-			if (SHGetMalloc (&_shellMalloc) == E_FAIL)
-				throw Win::Exception ("Internal error: Cannot obtain shell Malloc"); 
 		}
 		void Free ()
 		{
 			if (_p != 0)
-				_shellMalloc->Free (_p);
+				CoTaskMemFree (_p);
 			_p = 0;
 		}
 
 		T       * _p;
-		IMalloc * _shellMalloc;
 	private:
 		Ptr (Ptr const & p) {}
 		void operator = (Ptr const & p) {}
