@@ -80,7 +80,7 @@ namespace Win
 	class FileDragger
 	{
 	public:
-		FileDragger::FileDragger (std::vector<std::string> const & files,
+		FileDragger (std::vector<std::string> const & files,
 									bool isRightButtonDrag);
 		void Do ();
 	private:

@@ -121,7 +121,7 @@ namespace Schannel
 	class SecurityContext
 	{
 	public:
-		SecurityContext::SecurityContext ()
+		SecurityContext ()
 			: _connectionParams (0)
 		{
 			SecInvalidateHandle (&_context);

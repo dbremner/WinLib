@@ -82,7 +82,7 @@ namespace Win
 			return retVal & 0xffff;
 		}
 
-		std::string StatusBar::GetString (int idx = 0) const;
+		std::string GetString (int idx = 0) const;
 		bool GetPartRect (Win::Rect & partRect, int idx = 0)
 		{
 			return SendMsg (SB_GETRECT, idx, reinterpret_cast<LPARAM>(&partRect)) != 0;
