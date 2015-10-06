@@ -54,6 +54,7 @@ public:
 
 	typedef std::string & reference;
 	typedef std::string const & const_reference;
+	using value_type = std::string;
 
 private:
 	void Validate ();
