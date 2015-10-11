@@ -4,7 +4,6 @@
 #include <WinLibBase.h>
 #include "NetShare.h"
 #include "NetShareNT.h"
-#include "NetShare98.h"
 #include "ShareEx.h"
 #include <Sys/SysVer.h>
 
@@ -12,17 +11,7 @@ using namespace Net;
 
 Share::Share ()
 {
-	SystemVersion ver;
-	if (!ver.IsOK ())
-		throw Win::Exception ("Get system version failed");
-
-	// create implementation depending on the operating system
-	if (ver.IsWin32Windows ())
-		_impl.reset (new Net::Share98 ());
-	else if (ver.IsWinNT ())
-		_impl.reset (new Net::ShareNT ());
-	else
-		throw Win::Exception ("NetShare not supported on this platform");
+	_impl.reset (new Net::ShareNT ());
 }
 
 void Share::Add (Net::SharedObject const & object) 

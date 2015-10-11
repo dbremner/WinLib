@@ -544,12 +544,6 @@ bool Schannel::Codec::DecryptReceivedData ()
 bool SecureSocket::IsSupported ()
 {
 	// EncryptMessage, DecryptMessage APIs supported on Windows 2000 and XP
-	SystemVersion sysVer;
-	if (sysVer.IsWin32Windows () ||					  // Win95, 98, Me
-		sysVer.IsWinNT () && sysVer.MajorVer () == 4) // WinNT
-	{
-		return false;
-	}
 	return true;
 }
 
@@ -557,9 +551,6 @@ SecureSocket::SecureSocket (SimpleSocket & s)
 : _socket (s),
   _schannelCodec (_socket)
 {
-	if (!IsSupported ())
-		throw Win::InternalException ("Secure internet connections (SSL) are not supported by the operating system.");
-
 	_schannelCodec.Negotiate ();
 }
 

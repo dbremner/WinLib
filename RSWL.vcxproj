@@ -257,11 +257,6 @@
     <ClCompile Include="Net\FtpUploader.cpp" />
     <ClCompile Include="Net\Internet.cpp" />
     <ClCompile Include="Net\NetShare.cpp" />
-    <ClCompile Include="Net\NetShare98.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Beta|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Net\NetShareNT.cpp" />
     <ClCompile Include="Net\SecureSocket.cpp" />
     <ClCompile Include="Net\ShareEx.cpp" />
@@ -436,21 +431,11 @@
     <ClInclude Include="Net\FtpUploader.h" />
     <ClInclude Include="Net\Internet.h" />
     <ClInclude Include="Net\NetShare.h" />
-    <ClInclude Include="Net\NetShare98.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Beta|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="Net\NetShareImpl.h" />
     <ClInclude Include="Net\NetShareNT.h" />
     <ClInclude Include="Net\SecureSocket.h" />
     <ClInclude Include="Net\SharedObject.h" />
     <ClInclude Include="Net\ShareEx.h" />
-    <ClInclude Include="Net\ShareInfo98.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Beta|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="Net\ShareInfoNT.h" />
     <ClInclude Include="Net\SimpleSocket.h" />
     <ClInclude Include="Net\Socket.h" />

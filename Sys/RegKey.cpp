@@ -635,10 +635,7 @@ namespace RegKey
 	}
 	std::string System::GetRegisteredOwner ()
 	{
-		SystemVersion osVer;
-		bool isNT = osVer.IsOK () && osVer.IsWinNT ();
-
-		ReadOnly keyWindows (_keyMicrosoft, isNT ? "Windows NT" : "Windows");
+		ReadOnly keyWindows (_keyMicrosoft, "Windows NT");
 		ReadOnly keyCurVer  (keyWindows, "CurrentVersion");
 
 		return keyCurVer.GetStringVal ("RegisteredOwner");

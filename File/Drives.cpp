@@ -37,40 +37,11 @@ DriveInfo::DriveInfo (std::string const & rootPath)
 
 int DriveInfo::MbytesFree () const
 {
-	SystemVersion ver;
-	if (!ver.IsOK ())
-		throw Win::Exception ("Get system version failed");
-
 	int mbFree = 0;
-	if (ver.IsWin32Windows ())
-	{
-		DWORD secPerClu, bytePerSec, freeClu, totalClu;
-		::GetDiskFreeSpace (_rootPath.c_str (), &secPerClu, &bytePerSec, &freeClu, &totalClu);
-		mbFree = MulDiv (freeClu, bytePerSec * secPerClu, 1024 * 1024);
-	}
-	else if (ver.IsWinNT ())
-	{
-		//	GetDiskFreeSpaceEx is not available on Windows 95, so we can't call
-		//	it directly.  Instead, now that we know we're running on NT, get
-		//	the function address from kernel32.dll
-		
-		//	declaration from winbase.h
-		typedef BOOL WINAPI PFNGetDiskFreeSpaceExA(LPCSTR,
-												   PULARGE_INTEGER,
-												   PULARGE_INTEGER,
-												   PULARGE_INTEGER);
-		PFNGetDiskFreeSpaceExA *pGetDiskFreeSpaceExA;
-		pGetDiskFreeSpaceExA = (PFNGetDiskFreeSpaceExA *)
-			::GetProcAddress(::GetModuleHandle("kernel32.dll"),
-							 "GetDiskFreeSpaceExA");
-		Assert(pGetDiskFreeSpaceExA != 0);	//	must always exist on NT platforms
 
-		ULARGE_INTEGER bytesAvail, bytesTotal, bytesFree;
-		pGetDiskFreeSpaceExA (_rootPath.c_str (), &bytesAvail, &bytesTotal, &bytesFree);
-		mbFree = (bytesAvail.HighPart << (32 - 20)) + (bytesAvail.LowPart >> 20);
-	}
-	else
-		throw Win::Exception ("Unknown operating system version.");
+	ULARGE_INTEGER bytesAvail, bytesTotal, bytesFree;
+	GetDiskFreeSpaceExA (_rootPath.c_str (), &bytesAvail, &bytesTotal, &bytesFree);
+	mbFree = (bytesAvail.HighPart << (32 - 20)) + (bytesAvail.LowPart >> 20);
 	return mbFree;
 }
 

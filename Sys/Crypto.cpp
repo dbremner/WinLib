@@ -12,11 +12,7 @@ namespace Crypt
 {
 	void CheckVersion ()
 	{
-		SystemVersion ver;
-		if (!ver.IsOK ())
-			throw Win::Exception ("Get system version failed");
-		if (!ver.IsWinNT ())
-			throw Win::Exception ("Password encryption not supported on this platform");
+		//All supported OSes allow encryption
 	}
 }
 

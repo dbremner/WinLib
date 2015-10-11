@@ -69,7 +69,7 @@ namespace PropPage
 	void Sheet::Header::SetNoContextHelp ()
 	{
 		SystemVersion sysVer;
-		if (sysVer.IsWin95 () || (sysVer.IsWinNT () && sysVer.MajorVer () == 4))
+		if ((sysVer.IsWinNT () && sysVer.MajorVer () == 4))
 		{
 			//	Revisit: Emergency fix for Bug #711
 			return;

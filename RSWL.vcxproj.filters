@@ -333,9 +333,6 @@
     <ClCompile Include="Net\NetShare.cpp">
       <Filter>Net</Filter>
     </ClCompile>
-    <ClCompile Include="Net\NetShare98.cpp">
-      <Filter>Net</Filter>
-    </ClCompile>
     <ClCompile Include="Net\NetShareNT.cpp">
       <Filter>Net</Filter>
     </ClCompile>
@@ -831,9 +828,6 @@
     <ClInclude Include="Net\NetShare.h">
       <Filter>Net</Filter>
     </ClInclude>
-    <ClInclude Include="Net\NetShare98.h">
-      <Filter>Net</Filter>
-    </ClInclude>
     <ClInclude Include="Net\NetShareImpl.h">
       <Filter>Net</Filter>
     </ClInclude>
@@ -847,9 +841,6 @@
       <Filter>Net</Filter>
     </ClInclude>
     <ClInclude Include="Net\ShareEx.h">
-      <Filter>Net</Filter>
-    </ClInclude>
-    <ClInclude Include="Net\ShareInfo98.h">
       <Filter>Net</Filter>
     </ClInclude>
     <ClInclude Include="Net\ShareInfoNT.h">

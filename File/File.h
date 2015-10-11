@@ -120,17 +120,6 @@ public:
 		File::Offset GetPosition () const;
 		File::Offset SetPosition (File::Offset pos);
 	private:
-		Dll	_dll;
-	};
-
-	class Sizer32: public Sizer
-	{
-	public:
-		Sizer32 (HANDLE hFile);
-		bool Rewind ();
-		File::Size GetSize () const;
-		File::Offset GetPosition () const;
-		File::Offset SetPosition (File::Offset pos);
 	};
 
 	class LegalizeChar : public std::unary_function<char, char>
