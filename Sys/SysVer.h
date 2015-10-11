@@ -17,10 +17,10 @@ public:
     }
 
     bool IsOK () const { return _isOK; }
-    bool IsWin95 () const { return dwPlatformId == VER_PLATFORM_WIN32_WINDOWS && dwMinorVersion == 0; }
-    bool IsWin98 () const { return dwPlatformId == VER_PLATFORM_WIN32_WINDOWS && dwMinorVersion == 10; }
-    bool IsWin32Windows () const { return dwPlatformId == VER_PLATFORM_WIN32_WINDOWS; }
-    bool IsWinNT () const { return dwPlatformId == VER_PLATFORM_WIN32_NT; }
+    bool IsWin95 () const { return false; }
+    bool IsWin98 () const { return false; }
+    bool IsWin32Windows () const { return false; }
+    bool IsWinNT () const { return true; }
     int  MajorVer () const { return dwMajorVersion; }
     int  MinorVer () const { return dwMinorVersion; }
 	int  BuildNum () const { return IsWinNT () ? dwBuildNumber : LOWORD(dwBuildNumber); }
