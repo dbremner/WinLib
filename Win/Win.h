@@ -201,7 +201,7 @@ namespace Win
 		void SendInterprocessPackage (RegisteredMessage & msg) const;
 		Win::Instance GetInstance () const
 		{ 
-			return reinterpret_cast<HINSTANCE> (::GetWindowLongPtr (H (), GWL_HINSTANCE));		
+			return reinterpret_cast<HINSTANCE> (::GetWindowLongPtr (H (), GWLP_HINSTANCE));		
 		}
 		//	return the window that defines the drawing origin
 		window_handle GetParent () const
@@ -229,7 +229,7 @@ namespace Win
 		}
 		Win::Controller * GetController ()
 		{
-			return reinterpret_cast<Win::Controller *>(::GetWindowLongPtr (H (), GWL_USERDATA));
+			return reinterpret_cast<Win::Controller *>(::GetWindowLongPtr (H (), GWLP_USERDATA));
 		}
 		void SetParent (Handle<HWND> hwndParent)
 		{
