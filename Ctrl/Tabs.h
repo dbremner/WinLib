@@ -25,7 +25,7 @@ namespace Tab
 		{
 			pszText = const_cast<char *>(text);
 		}
-		void SetParam (long param)
+		void SetParam (LPARAM param)
 		{
 			mask |= TCIF_PARAM;
 			lParam = param;
@@ -43,7 +43,7 @@ namespace Tab
 		{}
 
 		int GetCount () const;
-		int AddTab (int cmdId, char const * caption, long param = -1);
+		int AddTab (int cmdId, char const * caption, LPARAM param = -1);
 		int AddTab (int cmdId, Tab::Item const & tabItem);
 		void DeleteTab (int itemIdx);
 		void Clear ()
@@ -64,7 +64,7 @@ namespace Tab
 		{
 			SendMsg (TCM_SETCURSEL, itemIdx);
 		}
-		long GetParam (int itemIdx) const;
+		LPARAM GetParam (int itemIdx) const;
 
 		template<class E>
 		E GetParam (int itemIdx) const
@@ -184,7 +184,7 @@ namespace Notify
 			{ return false; }
 
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result);
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 	};
 }
 

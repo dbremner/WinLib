@@ -601,7 +601,7 @@ Win::FileDropHandle::FileDropHandle (Win::StorageMedium const & storageMedium)
 	: Handle<HDROP> (reinterpret_cast<HDROP>(storageMedium.GetHandle ()))
 {}
 
-Win::FileDropHandle::FileDropHandle (unsigned long handle)
+Win::FileDropHandle::FileDropHandle (ULONG_PTR handle)
 	: Handle<HDROP> (reinterpret_cast<HDROP>(handle))
 {}
 

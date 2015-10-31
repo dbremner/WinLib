@@ -35,7 +35,7 @@ private:
 void Win::Controller::Attach (Win::Dow::Handle win, Win::Controller * ctrl)
 {
 	ctrl->SetWindowHandle (win);
-	win.SetLong<Controller *> (ctrl);
+	win.SetLongPtr<Controller *> (ctrl);
 }
 
 void Win::Controller::AddDrawHandler (OwnerDraw::Handler * handler)
@@ -275,7 +275,7 @@ bool Win::Controller::Dispatch (UINT message, WPARAM wParam, LPARAM lParam, LRES
 			{
 				if (pHandler->OnNotify (hdr, result))
 				{
-					_h.SetLong (result, DWL_MSGRESULT);
+					_h.SetLongPtr (result, DWLP_MSGRESULT);
 					return true;
 				}
 			}

@@ -140,7 +140,7 @@ namespace Win
 		}
 		// Get/Set Window Long
 		template <class T>
-		inline T GetLong (int which = GWL_USERDATA)
+		inline T GetLong (int which)
 		{
 			return reinterpret_cast<T> (::GetWindowLong (H (), which));
 		}
@@ -150,8 +150,19 @@ namespace Win
 			return ::GetWindowLong (H (), which);
 		}
 
+		// Get/Set Window Long
 		template <class T>
-		inline T SetLong (T value, int which = GWL_USERDATA)
+		inline T GetLongPtr(int which = GWLP_USERDATA)
+		{
+			return reinterpret_cast<T> (::GetWindowLongPtr(H(), which));
+		}
+		template<>	// specialization for long
+		inline LONG_PTR GetLongPtr(int which)
+		{
+			return ::GetWindowLongPtr(H(), which);
+		}
+		template <class T>
+		inline T SetLong (T value, int which)
 		{
 			return reinterpret_cast<T> (::SetWindowLong (H (), which, reinterpret_cast<long> (value)));
 		}
@@ -165,6 +176,22 @@ namespace Win
 		inline unsigned long SetLong<unsigned long> (unsigned long value, int which)
 		{
 			return static_cast<unsigned long> (::SetWindowLong (H (), which, static_cast<long> (value)));
+		}
+		template <class T>
+		inline T SetLongPtr(T value, int which = GWLP_USERDATA)
+		{
+			return reinterpret_cast<T> (::SetWindowLongPtr(H(), which, reinterpret_cast<LONG_PTR> (value)));
+		}
+
+		template<>	// specialization for LONG_PTR
+		inline LONG_PTR SetLongPtr<>(LONG_PTR value, int which)
+		{
+			return ::SetWindowLongPtr(H(), which, value);
+		}
+		template<>	// specialization for ULONG_PTR
+		inline ULONG_PTR SetLongPtr<ULONG_PTR>(ULONG_PTR value, int which)
+		{
+			return static_cast<ULONG_PTR> (::SetWindowLongPtr(H(), which, static_cast<LONG_PTR> (value)));
 		}
 		void SetProperty (char const * propName, long value);
 		bool GetProperty (char const * propName, long & value);
@@ -263,7 +290,7 @@ namespace Win
 		void ClientToScreen (Win::Point & pt) const;
 		void ScreenToClient (Win::Point & pt) const;
 		// Messages
-		long SendMessageTo (int idChild, UINT msg, WPARAM wparam = 0, LPARAM lparam = 0) const
+		LRESULT SendMessageTo (int idChild, UINT msg, WPARAM wparam = 0, LPARAM lparam = 0) const
 		{
 			return ::SendDlgItemMessage (H (), idChild, msg, wparam, lparam);
 		}

@@ -33,19 +33,19 @@ namespace Notify
 		{
 			_navigator = navigator;
 		}
-		virtual void OnSetActive (long & result) throw (Win::Exception)	{}
-		virtual void OnKillActive (long & result) throw (Win::Exception) {}
-		virtual void OnFinish (long & result) throw (Win::Exception) {}
-		virtual void OnCancel (long & result) throw (Win::Exception) {}
-		virtual void OnApply (long & result) throw (Win::Exception) {}
+		virtual void OnSetActive (LRESULT & result) throw (Win::Exception)	{}
+		virtual void OnKillActive (LRESULT & result) throw (Win::Exception) {}
+		virtual void OnFinish (LRESULT & result) throw (Win::Exception) {}
+		virtual void OnCancel (LRESULT & result) throw (Win::Exception) {}
+		virtual void OnApply (LRESULT & result) throw (Win::Exception) {}
 		virtual void OnReset () throw (Win::Exception) {}
 		virtual void OnHelp () const throw (Win::Exception) {}
-		virtual void OnPrev (long & result) throw (Win::Exception);
-		virtual void OnNext (long & result) throw (Win::Exception);
+		virtual void OnPrev (LRESULT & result) throw (Win::Exception);
+		virtual void OnNext (LRESULT & result) throw (Win::Exception);
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result) throw (Win::Exception);
+		bool OnNotify (NMHDR * hdr, LRESULT & result) throw (Win::Exception);
 		// For use in wizards
-		virtual bool GoNext (long & nextPage) { return false; }
+		virtual bool GoNext (LRESULT & nextPage) { return false; }
 		virtual bool GoPrevious () { return false; }
 	protected:
 		PropPage::Navigator * _navigator;
@@ -130,7 +130,7 @@ namespace PropPage
 	//---------------------
 	class Controller: public Dialog::Controller
 	{
-		friend BOOL CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
+		friend INT_PTR CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
 	public:
 		Controller (unsigned id) : Dialog::Controller (id) {}
 		static PropPage::Controller * GetController (LPARAM lParam)

@@ -41,6 +41,7 @@ Win::StatusBarMaker::StatusBarMaker (Win::Dow::Handle winParent, int id)
 
 Win::Dow::Handle Win::StatusBarMaker::Create ()
 {
+	// Revisit: replace with CreateWindow, the reinterpret_cast will not work x64
 	Win::Dow::Handle h = ::CreateStatusWindow (_style.GetStyleBits (),
 												"", 
 												_hWndParent.ToNative (), 

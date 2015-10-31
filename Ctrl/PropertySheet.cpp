@@ -10,7 +10,7 @@
 #include <Sys/SysVer.h>
 #include <Ctrl/Output.h>
 
-void Notify::PageHandler::OnPrev (long & result) throw (Win::Exception)
+void Notify::PageHandler::OnPrev (LRESULT & result) throw (Win::Exception)
 {
 	result = -1;
 	if (_navigator)
@@ -19,7 +19,7 @@ void Notify::PageHandler::OnPrev (long & result) throw (Win::Exception)
 			result = _navigator->Prev ();
 	}
 }
-void Notify::PageHandler::OnNext (long & result) throw (Win::Exception)
+void Notify::PageHandler::OnNext (LRESULT & result) throw (Win::Exception)
 {
 	result = -1;
 	if (_navigator)
@@ -34,10 +34,10 @@ void Notify::PageHandler::OnNext (long & result) throw (Win::Exception)
 
 namespace PropPage
 {
-	BOOL CALLBACK Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+	INT_PTR CALLBACK Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		Win::Dow::Handle win (hwnd);
-		PropPage::Controller * ctrl = win.GetLong<PropPage::Controller *> ();
+		PropPage::Controller * ctrl = win.GetLongPtr<PropPage::Controller *> ();
 		try
 		{
 			if (Dialog::DispatchMsg (ctrl, win, message, wParam, lParam))
@@ -149,7 +149,7 @@ namespace PropPage
 		// Exit critical section while running property sheet
 		Assert (Dbg::IsMainThread ());
 		Win::UnlockPtr unlock (critSect);
-		int result = ::PropertySheet (&_header);
+		INT_PTR result = ::PropertySheet (&_header);
 		if (result == -1)
 			throw Win::Exception ("Property Sheet creation failed.");
 		return result > 0;	// result == 0 -- user ended with Cancel button
@@ -173,7 +173,7 @@ namespace PropPage
 
 namespace Notify
 {
-	bool PageHandler::OnNotify (NMHDR * hdr, long & result) throw (Win::Exception)
+	bool PageHandler::OnNotify (NMHDR * hdr, LRESULT & result) throw (Win::Exception)
 	{
 		// hdr->code
 		// hdr->idFrom;

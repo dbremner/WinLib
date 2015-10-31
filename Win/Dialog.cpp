@@ -48,10 +48,10 @@ bool Dialog::ControlHandler::OnHelp () throw ()
 	return false;
 }
 
-BOOL CALLBACK Dialog::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+INT_PTR CALLBACK Dialog::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	Dialog::Handle win (hwnd);
-	Dialog::Controller * ctrl = win.GetLong<Dialog::Controller *> ();
+	Dialog::Controller * ctrl = win.GetLongPtr<Dialog::Controller *> ();
 	LRESULT result = 0;
 	try
 	{

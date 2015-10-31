@@ -157,9 +157,9 @@ namespace Notify
 								 bool changeDetected) throw () { return false; }
 		virtual bool OnChevronPushed (unsigned bandIdx,
 									  unsigned bandId,
-									  unsigned appParam,
+									  LPARAM appParam,
 									  Win::Rect const & chevronRect,
-									  unsigned notificationParam) throw () { return false; }
+									  LPARAM notificationParam) throw () { return false; }
 		virtual bool OnChildSize (unsigned bandIdx,
 								  unsigned bandId,
 								  Win::Rect & newChildRect,

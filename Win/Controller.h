@@ -49,7 +49,7 @@ namespace Win
 		virtual ~Controller ()
 		{
 			// detach this controller from window
-			_h.SetLong<Controller *> (0);
+			_h.SetLongPtr<Controller *> (0);
 		}
 		Win::Dow::Handle GetWindow () const { return _h; }
 		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()

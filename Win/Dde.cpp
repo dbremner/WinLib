@@ -16,7 +16,7 @@ using namespace DDE;
 LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	Win::Dow::Handle win (hwnd);
-	DDE::Controller * pCtrl = win.GetLong<DDE::Controller *> ();
+	DDE::Controller * pCtrl = win.GetLongPtr<DDE::Controller *> ();
 	switch (message)
 	{
     case WM_NCCREATE:
@@ -26,7 +26,7 @@ LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
                 reinterpret_cast<Win::CreateData const *> (lParam);
             pCtrl = static_cast<DDE::Controller *> (create->GetCreationData ());
             pCtrl->SetWindowHandle (win);
-			win.SetLong<DDE::Controller *> (pCtrl);
+			win.SetLongPtr<DDE::Controller *> (pCtrl);
         }
         break;
 	case WM_CREATE:
@@ -85,8 +85,8 @@ LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 			HGLOBAL globalMem;
 			ATOM item;
 			::UnpackDDElParam (WM_DDE_DATA, lParam,
-							   reinterpret_cast<unsigned int *>(&globalMem),
-							   reinterpret_cast<unsigned int *>(&item));
+							   reinterpret_cast<PUINT_PTR>(&globalMem),
+							   reinterpret_cast<PUINT_PTR>(&item));
 			{
 				// Scope for DDE::Data
 				ATOM dataItem (item);
@@ -134,8 +134,8 @@ LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 			HGLOBAL globalMem;
 			ATOM item;
 			::UnpackDDElParam (WM_DDE_POKE, lParam,
-							   reinterpret_cast<unsigned int *>(&globalMem),
-							   reinterpret_cast<unsigned int *>(&item));
+							   reinterpret_cast<PUINT_PTR>(&globalMem),
+							   reinterpret_cast<PUINT_PTR>(&item));
 			DDE::Poke poke (globalMem);
 			if (pCtrl->OnPoke (client, item, poke))
 			{
@@ -149,8 +149,8 @@ LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 			int format;
 			ATOM item;
 			::UnpackDDElParam (WM_DDE_REQUEST, lParam,
-							   reinterpret_cast<unsigned int *>(&format),
-							   reinterpret_cast<unsigned int *>(&item));
+							   reinterpret_cast<PUINT_PTR>(&format),
+							   reinterpret_cast<PUINT_PTR>(&item));
 			if (!pCtrl->OnRequest (client, item, static_cast<Clipboard::Format>(format)))
 			{
 				// Server cannot satisfy the request -- send negative ack to client
@@ -177,8 +177,8 @@ LRESULT CALLBACK DDE::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 			int format;
 			ATOM item;
 			::UnpackDDElParam (WM_DDE_REQUEST, lParam,
-							   reinterpret_cast<unsigned int *>(&format),
-							   reinterpret_cast<unsigned int *>(&item));
+							   reinterpret_cast<PUINT_PTR>(&format),
+							   reinterpret_cast<PUINT_PTR>(&item));
 			if (pCtrl->OnUnadvise (client, item, static_cast<Clipboard::Format>(format)))
 			{
 				// Revisit: post ACK
@@ -211,7 +211,7 @@ bool DDE::Controller::ProcessTimer (int id)
 	}
 }
 
-void DDE::Controller::ProcessAck (Win::Dow::Handle partner, long lParam)
+void DDE::Controller::ProcessAck (Win::Dow::Handle partner, LPARAM lParam)
 {
 	if (IsInitiatingDdeConversation ())
 	{
@@ -224,7 +224,7 @@ void DDE::Controller::ProcessAck (Win::Dow::Handle partner, long lParam)
 	else
 	{
 		// Acknowledgement received during conversation
-		unsigned int lo, hi;
+		UINT_PTR lo, hi;
 		::UnpackDDElParam (WM_DDE_ACK, lParam, &lo, &hi);
 		Ack ack (lo);
 		OnAck (partner, ack, hi);

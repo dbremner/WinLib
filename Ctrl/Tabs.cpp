@@ -13,7 +13,7 @@ int Tab::Handle::GetCount () const
 	return SendMsg (TCM_GETITEMCOUNT);
 }
 
-int Tab::Handle::AddTab (int itemIdx, char const * caption, long param)
+int Tab::Handle::AddTab (int itemIdx, char const * caption, LPARAM param)
 {
     TC_ITEM tie;
 
@@ -45,7 +45,7 @@ void Tab::Handle::DeleteTab (int itemIdx)
 		throw Win::Exception ("Cannot delete tab item");
 }
 
-long Tab::Handle::GetParam (int itemIdx) const
+LPARAM Tab::Handle::GetParam (int itemIdx) const
 {
 	TC_ITEM tie;
 	tie.mask = TCIF_PARAM;
@@ -84,7 +84,7 @@ void Tab::Handle::GetWindowRect (Win::Rect & bigRectangle)
 	SendMsg (TCM_ADJUSTRECT, (WPARAM) TRUE, (LPARAM) &bigRectangle);
 }
 
-bool TabHandler::OnNotify (NMHDR * hdr, long & result)
+bool TabHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 {
 	// hdr->code
 	// hdr->idFrom;

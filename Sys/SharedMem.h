@@ -26,7 +26,7 @@ public:
 
 	void Create (unsigned int size, std::string const & name = std::string (), bool quiet = false);
 	void Open (std::string const & name, unsigned int size, bool quiet = false);
-
+	// Revisit: x64
 	unsigned int GetHandle () const { return reinterpret_cast<unsigned int>(_handle); }
 	std::string const & GetName () const { return _name; }
 	unsigned int GetSize () const { return _size; }

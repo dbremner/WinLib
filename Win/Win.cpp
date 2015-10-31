@@ -117,7 +117,7 @@ void Dow::Handle::Scroll (Win::Rect & rect, int xAmount, int yAmount)
 
 void Dow::Handle::SendInterprocessPackage (RegisteredMessage & msg) const
 {
-	unsigned int packageLen = msg.GetWParam ();
+	WPARAM packageLen = msg.GetWParam ();
 	void const * package = reinterpret_cast<void const *>(msg.GetLParam ());
 	Assert (package != 0);
 	SharedMem buf (packageLen);
@@ -132,12 +132,12 @@ void Dow::Handle::SendInterprocessPackage (RegisteredMessage & msg) const
 
 Brush::Handle Dow::Handle::GetBgBrush() const
 {
-	return reinterpret_cast<HBRUSH> (::GetClassLong(H (), GCL_HBRBACKGROUND));
+	return reinterpret_cast<HBRUSH> (::GetClassLongPtr(H (), GCLP_HBRBACKGROUND));
 }
 
 void Dow::Handle::SetClassBgBrush (Brush::Handle brush)
 {
-	::SetClassLongPtr (H (), GCLP_HBRBACKGROUND, reinterpret_cast <long> (brush.ToNative ()));
+	::SetClassLongPtr (H (), GCLP_HBRBACKGROUND, reinterpret_cast <LONG_PTR> (brush.ToNative ()));
 }
 
 void Dow::Handle::PostSetText (char const * text)
@@ -283,24 +283,24 @@ void Dow::Handle::SetTopMost (bool isTopMost)
 void Dow::Handle::SubClass (SubController * subCtrl)
 {
 	// get previous window procedure and controller (if any)
-	ProcPtr prevProc = GetLong<ProcPtr>(GWL_WNDPROC);
+	ProcPtr prevProc = GetLongPtr<ProcPtr>(GWLP_WNDPROC);
 
-	Controller * prevCtrl = GetLong<Controller *> ();
+	Controller * prevCtrl = GetLongPtr<Controller *> ();
 	// remember them in the new controller
 	subCtrl->Init (H (), prevProc, prevCtrl);
 	// attach new controller to window
-	SetLong<SubController *>(subCtrl);
+	SetLongPtr<SubController *>(subCtrl);
 	// attach new window procedure to window
-	SetLong(reinterpret_cast<long> (SubProcedure), GWL_WNDPROC);
+	SetLongPtr(reinterpret_cast<LONG_PTR> (SubProcedure), GWLP_WNDPROC);
 }
 
 void Dow::Handle::UnSubClass ()
 {
 	// Get the current subclass controller
-	SubController * pCtrl = GetLong<SubController *>();
+	SubController * pCtrl = GetLongPtr<SubController *>();
 	// restore previous window procedure and controller (if any)
-	SetLong<Win::ProcPtr> (pCtrl->GetPrevProc(), GWL_WNDPROC);
-	SetLong<Win::Controller *> (pCtrl->GetPrevController ());
+	SetLongPtr<Win::ProcPtr> (pCtrl->GetPrevProc(), GWLP_WNDPROC);
+	SetLongPtr<Win::Controller *> (pCtrl->GetPrevController ());
 }
 
 //-----------------------

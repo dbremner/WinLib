@@ -183,7 +183,7 @@ namespace DDE
 	public:
 		ExecuteMsg (Win::Dow::Handle win, GlobalMem const & buf)
 			: Win::Message (WM_DDE_EXECUTE, 0,
-							::PackDDElParam (WM_DDE_EXECUTE, 0, reinterpret_cast<unsigned int>(buf.GetHandle ())))
+							::PackDDElParam (WM_DDE_EXECUTE, 0, reinterpret_cast<UINT_PTR>(buf.GetHandle ())))
 		{
 			SetWParam (win);
 		}
@@ -195,7 +195,7 @@ namespace DDE
 		DataMsg (Win::Dow::Handle win, ATOM const & item, GlobalMem const & buf)
 			: Win::Message (WM_DDE_DATA, 0,
 							::PackDDElParam (WM_DDE_DATA,
-											 reinterpret_cast<unsigned int>(buf.GetHandle ()),
+											 reinterpret_cast<UINT_PTR>(buf.GetHandle ()),
 											 item))
 		{
 			SetWParam (win);
@@ -208,7 +208,7 @@ namespace DDE
 		PokeMsg (Win::Dow::Handle win, ATOM const & item, GlobalMem const & buf)
 			: Win::Message (WM_DDE_POKE, 0,
 							::PackDDElParam (WM_DDE_POKE,
-											 reinterpret_cast<unsigned int>(buf.GetHandle ()),
+											 reinterpret_cast<UINT_PTR>(buf.GetHandle ()),
 											 item))
 		{
 			SetWParam (win);
@@ -281,7 +281,7 @@ namespace DDE
 			StartTimeout (TerminateTimeout);
 		}
 		bool ProcessTimer (int id);
-		void ProcessAck (Win::Dow::Handle client, long lParam);
+		void ProcessAck (Win::Dow::Handle client, LPARAM lParam);
 		virtual bool IsInitiatingDdeConversation () const = 0;
 		virtual void ProcessInitAck (Win::Dow::Handle partner, std::string const & server, std::string const & topic) {}
 

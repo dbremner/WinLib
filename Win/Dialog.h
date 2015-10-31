@@ -15,12 +15,12 @@ namespace Notify { class Handler; }
 namespace Help { class Engine; }
 namespace PropPage
 {
-	BOOL CALLBACK Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+	INT_PTR CALLBACK Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 }
 
 namespace Dialog
 {
-	BOOL CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
+	INT_PTR CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
 	class Modal;
 	class Modeless;
 	class ControlHandler;
@@ -112,7 +112,7 @@ namespace Dialog
 	// EndOk and EndCancel implemented in Modal and Modeless versions of Controller
 	class Controller: public Win::Controller
 	{
-		friend BOOL CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
+		friend INT_PTR CALLBACK Procedure (HWND win, UINT message, WPARAM wParam, LPARAM lParam);
 	public:
 		static Dialog::Controller * GetController (LPARAM lParam)
 		{
@@ -300,7 +300,7 @@ namespace Dialog
 			_result = ::DialogBoxParam (hInstance,
 										MAKEINTRESOURCE (handler.GetId ()),
 										winParent.ToNative (),
-										static_cast<DLGPROC>(Dialog::Procedure),
+										Dialog::Procedure,
 										reinterpret_cast<LPARAM>(ctrl));
 		}
 
@@ -317,14 +317,14 @@ namespace Dialog
 			_result = ::DialogBoxIndirectParam (hInstance,
 												templ.ToNative (),
 												winParent.ToNative (),
-												static_cast<DLGPROC>(Dialog::Procedure),
+												Dialog::Procedure,
 												reinterpret_cast<LPARAM>(ctrl));
 		}
 
 		bool IsOK () { return (_result == -1)? false: _result != 0; }
 
 	private:
-		int _result;
+		INT_PTR _result;
 		Dialog::ModalController _ctrl;
 	};
 
@@ -369,7 +369,7 @@ namespace Dialog
 			Win::Dow::Handle h = ::CreateDialogParam (_instance,
 											 MAKEINTRESOURCE (_handler.GetId ()),
 											 winParent.ToNative (),
-											 static_cast<DLGPROC>(Dialog::Procedure),
+											 Dialog::Procedure,
 											 reinterpret_cast<LPARAM>(_ctrl.release ()));
 			if (h.IsNull ())
 				throw Win::Exception ("Internal error: Cannot create modeless dialog.");
@@ -382,7 +382,7 @@ namespace Dialog
 			Win::Dow::Handle h = ::CreateDialogIndirectParam (_instance,
 											 templ.ToNative (),
 											 winParent.ToNative (),
-											 static_cast<DLGPROC>(Dialog::Procedure),
+											 Dialog::Procedure,
 											 reinterpret_cast<LPARAM>(_ctrl.release ()));
 			if (h.IsNull ())
 				throw Win::Exception ("Internal error: Cannot create modeless dialog.");

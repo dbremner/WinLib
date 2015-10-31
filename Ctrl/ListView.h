@@ -99,7 +99,7 @@ namespace Win
 			// For callback items
 			void SetPos (int pos) { iItem = pos; }
 			void SetSubItem (int col) { iSubItem = col; }
-			void SetParam (int data)
+			void SetParam (LPARAM data)
 			{
 				mask |= LVIF_PARAM;
 				lParam = data;
@@ -214,7 +214,7 @@ namespace Win
 
 			bool IsSubItem () const { return (nmcd.dwDrawStage & CDDS_SUBITEM) != 0; }
 
-			unsigned int GetItemIdx () const { return nmcd.dwItemSpec; }
+			DWORD_PTR GetItemIdx () const { return nmcd.dwItemSpec; }
 			Win::Canvas GetItemCanvas () const { return Win::Canvas (nmcd.hdc); }
 
 			void SetTextColor (Win::Color color)
@@ -412,7 +412,7 @@ namespace Win
 		}
 
 		std::string RetrieveItemText (int pos, int subItem = 0) const;
-		int GetItemParam (int item, int subItem = 0) const;
+		LPARAM GetItemParam (int item, int subItem = 0) const;
 
 		int GetTopIndex () const
 		{
@@ -677,10 +677,10 @@ namespace Win
 		void InsertItem (int pos, ListView::Item & item);
 		void UpdateItem (int pos, ListView::Item & item);
 		// these methods return index of the item, -1 if not successful
-		int AppendItem (char const * itemString, int itemData = 0);
+		int AppendItem (char const * itemString, LPARAM itemData = 0);
 		int AppendItem (ListView::Item & item);
 		int FindItemByName (char const *itemString);
-		int FindItemByData (int itemData);
+		int FindItemByData (LPARAM itemData);
 	};
 
 	class ListViewMaker : public Win::ControlMaker

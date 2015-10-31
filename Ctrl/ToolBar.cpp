@@ -22,7 +22,7 @@ OveralyWindow::OveralyWindow (Win::Dow::Handle hwndTool, Win::Dow::Handle toolTi
 	cbSize = sizeof (TOOLINFO);
 	uFlags = TTF_IDISHWND | TTF_SUBCLASS;	// Tool id is a window handle. 
 	// Subclass tool window to intercept mouse moves
-	uId = reinterpret_cast<UINT>(hwndTool.ToNative ());	// Window added to the tool bar
+	uId = reinterpret_cast<UINT_PTR>(hwndTool.ToNative ());	// Window added to the tool bar
 	hwnd = toolTipHandlerWin.ToNative ();	// Window that receives tool tip notifications
 	lpszText = LPSTR_TEXTCALLBACK;			// Send TTN_NEEDTEXT message to the handler window
 }
@@ -229,7 +229,7 @@ void Bar::Disable () throw ()
 
 void Bar::FillToolTip (Tool::TipForCtrl * tip) const
 {
-	int cmdId = tip->IdFrom ();
+	UINT_PTR cmdId = tip->IdFrom ();
 	std::map<int, int>::const_iterator iter = _cmdId2ButtonIdx.find (cmdId);
 	Assert (iter != _cmdId2ButtonIdx.end ());
 	int idx = iter->second;

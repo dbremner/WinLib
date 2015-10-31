@@ -35,7 +35,7 @@ namespace Tool
 	class TipForCtrl: public Tip
 	{
 	public:
-		int IdFrom () const
+		UINT_PTR IdFrom () const
 		{
 			Assert (IsIdFrom ());
 			return hdr.idFrom;

@@ -348,7 +348,7 @@ void RichEdit::ParaFormat::SetTabStopEvery (int tabTwips)
 	dwMask |= PFM_TABSTOPS;
 }
 
-bool RichEditHandler::OnNotify (NMHDR * hdr, long & result)
+bool RichEditHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 {
 	// hdr->code
 	// hdr->idFrom;

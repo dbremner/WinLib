@@ -48,7 +48,7 @@ std::string ListView::RetrieveItemText (int pos, int subItem) const
 	return result;
 }
 
-int ListView::GetItemParam (int pos, int subItem) const
+LPARAM ListView::GetItemParam (int pos, int subItem) const
 {
     ItemManipulator item;
 	item.PrepareForRead (pos, subItem);
@@ -222,7 +222,7 @@ void ReportCallback::AppendItem ()
     ListView_InsertItem(H (), &item);
 }
 
-int ReportListing::AppendItem (char const * itemString, int itemData)
+int ReportListing::AppendItem (char const * itemString, LPARAM itemData)
 {
 	ItemManipulator item;
     item.Init (_count, itemString, itemData);
@@ -275,7 +275,7 @@ int ReportListing::FindItemByName (char const * itemString)
     return ListView_FindItem(H (), -1, &findInfo);
 }
 
-int ReportListing::FindItemByData (int itemData)
+int ReportListing::FindItemByData (LPARAM itemData)
 {
     LV_FINDINFO findInfo;
 

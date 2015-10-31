@@ -32,7 +32,7 @@ namespace Win
 		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, (LPARAM) &st);
 	}
 
-	bool DatePicker::Handler::OnNotify(NMHDR *hdr, long &result) throw (Win::Exception)
+	bool DatePicker::Handler::OnNotify(NMHDR *hdr, LRESULT &result) throw (Win::Exception)
 	{
 		switch (hdr->code)
 		{

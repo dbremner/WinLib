@@ -57,7 +57,7 @@ namespace Win
 	public:
 		FileDropHandle (Clipboard const & clipboard);
 		FileDropHandle (Win::StorageMedium const & storageMedium);
-		FileDropHandle (unsigned long handle = 0);
+		FileDropHandle (ULONG_PTR handle = 0);
 
 	protected:
 		FileDropHandle (HDROP handle);

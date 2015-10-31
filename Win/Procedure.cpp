@@ -12,7 +12,7 @@ LRESULT CALLBACK Win::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM 
 {
 	LRESULT result = 0;
 	Win::Dow::Handle win (hwnd);
-    Controller * pCtrl = win.GetLong<Controller *> ();
+    Controller * pCtrl = win.GetLongPtr<Controller *> ();
 
 	if (pCtrl)
 	{
@@ -38,7 +38,7 @@ LRESULT CALLBACK Win::SubProcedure (HWND hwnd, UINT message, WPARAM wParam, LPAR
 {
 	LRESULT result = 0;
 	Win::Dow::Handle win (hwnd);
-    SubController * pCtrl = win.GetLong<SubController *> ();
+    SubController * pCtrl = win.GetLongPtr<SubController *> ();
 	if (pCtrl && pCtrl->Dispatch (message, wParam, lParam, result))
 		return result;
 	// call previous procedure with previous controller

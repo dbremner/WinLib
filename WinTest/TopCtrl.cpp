@@ -196,7 +196,7 @@ void TopCtrl::MenuCommand (int cmdId)
 
 void TopCtrl::OnFileDrop (Win::FileDropHandle droppedFiles, Win::Point dropPoint)
 {
-	_fileDropMsg.SetWParam (reinterpret_cast<unsigned int>(droppedFiles.ToNative ()));
+	_fileDropMsg.SetWParam (reinterpret_cast<WPARAM>(droppedFiles.ToNative ()));
 	_h.PostMsg (_fileDropMsg);
 }
 

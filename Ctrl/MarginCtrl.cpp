@@ -8,7 +8,7 @@
 LRESULT CALLBACK WndProcMargin (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	Win::Dow::Handle win (hwnd);
-    MarginController * pCtrl = win.GetLong<MarginController *> ();
+    MarginController * pCtrl = win.GetLongPtr<MarginController *> ();
 
     switch (message)
     {
@@ -16,7 +16,7 @@ LRESULT CALLBACK WndProcMargin (HWND hwnd, UINT message, WPARAM wParam, LPARAM l
         try
         {
             pCtrl = new MarginController (hwnd, reinterpret_cast<CREATESTRUCT *>(lParam));
-            win.SetLong<MarginController *> (pCtrl);
+            win.SetLongPtr<MarginController *> (pCtrl);
         }
         catch (...)
         {
@@ -43,7 +43,7 @@ LRESULT CALLBACK WndProcMargin (HWND hwnd, UINT message, WPARAM wParam, LPARAM l
 		pCtrl->CaptureChanged ();
 		return 0;
     case WM_DESTROY:
-        win.SetLong<MarginController *> (0);
+        win.SetLongPtr<MarginController *> (0);
         delete pCtrl;
         return 0;
     }

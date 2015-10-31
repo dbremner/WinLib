@@ -10,7 +10,7 @@
 
 namespace Notify
 {
-	bool TreeViewHandler::OnNotify (NMHDR * hdr, long & result)
+	bool TreeViewHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 	{
 		NMTREEVIEW * notifyInfo = reinterpret_cast<NMTREEVIEW *>(hdr);
 		Tree::View::Item * itemOld = reinterpret_cast<Tree::View::Item *>(&notifyInfo->itemOld);
@@ -139,7 +139,7 @@ namespace Tree
 	{
 		Win::Message msg (TVM_SETIMAGELIST);
 		msg.SetWParam (TVSIL_NORMAL);
-		msg.SetLParam (reinterpret_cast<long> (imageList.ToNative ()));
+		msg.SetLParam (reinterpret_cast<LPARAM> (imageList.ToNative ()));
 		SendMsg (msg);
 	}
 	

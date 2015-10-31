@@ -271,7 +271,7 @@ namespace Notify
 									Tree::View::Item & itemNew,
 									Tree::Notify::Action action) throw ()
 			{ return false; }
-		virtual bool OnSetFocus (Win::Dow::Handle winFrom, unsigned idFrom)
+		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom)
 			{ return false; }
 		virtual bool OnClick (Win::Point pt) throw ()
 			{ return false; }
@@ -283,7 +283,7 @@ namespace Notify
 			{ return 0; }
 
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result);
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 	};
 }
 

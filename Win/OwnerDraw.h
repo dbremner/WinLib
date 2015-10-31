@@ -51,7 +51,7 @@ namespace OwnerDraw
 		OwnerDraw::CtrlType ControlType () const { return static_cast<CtrlType> (_draw->CtlType); }
 		unsigned CtrlId () const { return _draw->CtlID; }
 		unsigned ItemId () const { return _draw->itemID; }
-		unsigned long ItemData () const { return _draw->itemData; }
+		ULONG_PTR ItemData () const { return _draw->itemData; }
 		BitFieldMask<OwnerDraw::ActionBits> Action () const 
 		{
 			return BitFieldMask<OwnerDraw::ActionBits> (_draw->itemAction);
