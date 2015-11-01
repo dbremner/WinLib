@@ -74,13 +74,13 @@ namespace Win
 		bool IsClient () const { return _code == HTCLIENT; }
 		bool IsClose () const { return _code == HTCLOSE; }
 		bool IsNoWhere () const { return _code == HTERROR || _code == HTNOWHERE; }
-		bool IsSizeBox () const { return _code == HTGROWBOX || _code == HTSIZE; }
+		bool IsSizeBox () const { return _code == HTGROWBOX /*|| _code == HTSIZE*/; }
 		bool IsHelp () const { return _code == HTHELP; }
 		bool IsHScroll () const { return _code == HTHSCROLL; }
 		bool IsLeft () const { return _code == HTLEFT; }
 		bool IsMenu () const { return _code == HTMENU; }
-		bool IsMaximize () const { return _code == HTMAXBUTTON || _code == HTZOOM; }
-		bool IsMinimize () const { return _code == HTMINBUTTON || _code == HTREDUCE; }
+		bool IsMaximize () const { return _code == HTMAXBUTTON /*|| _code == HTZOOM*/; }
+		bool IsMinimize () const { return _code == HTMINBUTTON /*|| _code == HTREDUCE*/; }
 		bool IsRight () const { return _code == HTRIGHT; }
 		bool IsSystemMenu () const { return _code == HTSYSMENU; }
 		bool IsTop () const { return _code == HTTOP; }
