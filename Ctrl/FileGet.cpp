@@ -34,7 +34,7 @@ FileGetter::FileGetter ()
     nFileOffset = 0;        // out: offset of file name in buf 
     nFileExtension = 0;     // out: offset of extension
     lpstrDefExt = 0;        // default extension to append
-    lCustData = (long)this; // the "this" pointer
+    lCustData = (LPARAM)this; // the "this" pointer
     lpfnHook = 0; 
     lpTemplateName = 0; 
 }

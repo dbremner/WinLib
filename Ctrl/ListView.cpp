@@ -10,12 +10,12 @@
 using namespace Win;
 using namespace Notify;
 
-void ListView::ItemManipulator::Init (int pos, char const * text, int data)
+void ListView::ItemManipulator::Init (int pos, char const * text, LPARAM data)
 {
 	mask = LVIF_TEXT | LVIF_PARAM; 
 	iItem = pos; 
 	pszText = const_cast<char *> (text);
-	lParam = data;    // 32-bit value to associate with item 
+	lParam = data;    // pointer sized value to associate with item 
 	cchTextMax = strlen (text); 
 }
 

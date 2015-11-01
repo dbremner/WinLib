@@ -25,16 +25,16 @@ DropDown::DropDown (Win::Dow::Handle winNotify, int id, Win::Dow::Handle parentW
 		throw Win::Exception ("Cannot create drop down control");
 	// Change the window procedure for edit control to
 	// DropDownWndProc (subclass edit window)
-	_orgEditWndProc = _edit.GetLong<WNDPROC> (GWL_WNDPROC);
-	_edit.SetLong<WNDPROC> (DropDown::DropDownWndProc, GWL_WNDPROC);
-	_edit.SetLong<DropDown *> (this);
+	_orgEditWndProc = _edit.GetLongPtr<WNDPROC> (GWLP_WNDPROC);
+	_edit.SetLongPtr<WNDPROC> (DropDown::DropDownWndProc, GWLP_WNDPROC);
+	_edit.SetLongPtr<DropDown *> (this);
 }
 
 DropDown::~DropDown ()
 {
 	// Stop subclassing combo box edit control
-	_edit.SetLong<WNDPROC> (_orgEditWndProc, GWL_WNDPROC);
-	_edit.SetLong<DropDown *> (0);
+	_edit.SetLongPtr<WNDPROC> (_orgEditWndProc, GWLP_WNDPROC);
+	_edit.SetLongPtr<DropDown *> (0);
 }
 
 void DropDown::OnEnter ()
@@ -120,7 +120,7 @@ BOOL CALLBACK DropDown::FindEditWindow (HWND hwnd, LPARAM lParam)
 LRESULT CALLBACK DropDown::DropDownWndProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	Win::Dow::Handle win (hwnd);
-	DropDown * pDropDown = win.GetLong<DropDown *> ();
+	DropDown * pDropDown = win.GetLongPtr<DropDown *> ();
 	switch (msg)
 	{
 	case WM_KEYDOWN:

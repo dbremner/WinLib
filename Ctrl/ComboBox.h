@@ -108,12 +108,12 @@ namespace Win
 			return SendMsg (CB_INSERTSTRING, idx, reinterpret_cast<LPARAM>(item));
 		}
 
-		bool SetItemData (int idx, unsigned long data)
+		bool SetItemData (int idx, LPARAM data)
 		{
 			return (SendMsg (CB_SETITEMDATA, idx, data) != CB_ERR);
 		}
 
-		unsigned long GetItemData (int idx)
+		LRESULT GetItemData (int idx)
 		{
 			return SendMsg (CB_GETITEMDATA, idx, 0);
 		}

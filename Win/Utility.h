@@ -103,7 +103,8 @@ namespace Win
 		bool IsNonClientMetrics () const { return _value == SPI_SETNONCLIENTMETRICS; }
 
 	private:
-		int	_value;
+	// Revisit: x64?
+		WPARAM	_value;
 	};
 
 	class KeyState : public BitFieldMask<WPARAM>

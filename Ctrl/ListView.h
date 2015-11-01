@@ -159,7 +159,7 @@ namespace Win
 		class ItemManipulator: public ListView::Item
 		{
 		public:
-			void Init (int pos, char const * text, int data = 0);
+			void Init (int pos, char const * text, LPARAM data = 0);
 			void MakeCallback (int maxLen)
 			{
 				// We use only those two callbacks; Other posibilities are: LVIF_PARAM, LVIF_STATE
