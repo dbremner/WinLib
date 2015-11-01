@@ -175,13 +175,13 @@ public:
 	HANDLE ToNative () const { return _hFile; }
 
 	// Static methods
-	static bool IsValidName (char const * name) throw ();
-	static bool IsValidExtension (char const * extension) throw ();
-	static void LegalizeName (std::string & name, char replacementChar = '#') throw ();
+	static bool IsValidName (char const * name) ;
+	static bool IsValidExtension (char const * extension) ;
+	static void LegalizeName (std::string & name, char replacementChar = '#') ;
 	static bool IsEqualQuick (char const * pathOld, char const * pathNew); 
 	static bool IsContentsEqual (char const * pathOld, char const * pathNew); 
-	static bool Exists (std::string const & path) throw ();
-	static bool IsFolder (char const * path) throw ();
+	static bool Exists (std::string const & path) ;
+	static bool IsFolder (char const * path) ;
 	static bool CreateFolder (char const * path, bool quiet = true);
 	static bool CreateNewFolder (char const * path, bool quiet = true);
 	static bool RemoveEmptyFolder (char const * path, bool quiet = true);
@@ -194,19 +194,19 @@ public:
 	static bool TouchNoEx (std::string const & path) ;
 	static bool ForceTouchNoEx (std::string const & path) ;
 	static void Delete (std::string const & path);
-	static bool DeleteNoEx (std::string const & path) throw ();
+	static bool DeleteNoEx (std::string const & path) ;
 	static bool Copy (char const * pathFrom, char const * pathTo);
-	static bool CopyNoEx (char const * pathFrom, char const * pathTo) throw ();
+	static bool CopyNoEx (char const * pathFrom, char const * pathTo) ;
 	static bool SafeCopy (char const * pathFrom, char const * pathTo);
-	static bool SafeCopyNoEx (char const * pathFrom, char const * pathTo) throw ();
+	static bool SafeCopyNoEx (char const * pathFrom, char const * pathTo) ;
 	static std::string Rename2Previous (char const * path);
-	static std::string Rename2PreviousNoEx (char const * path) throw ();
+	static std::string Rename2PreviousNoEx (char const * path) ;
 	static std::string Rename2CopyOf (char const * path);
-	static std::string Rename2CopyOfNoEx (char const * path) throw ();
+	static std::string Rename2CopyOfNoEx (char const * path) ;
 	static std::string CreateUniqueName (char const * path,
 										 std::string const & additionalNamePart = std::string ());
 	static void Move (char const * pathFrom, char const * pathTo);
-	static bool MoveNoEx (char const * pathFrom, char const * pathTo) throw ();
+	static bool MoveNoEx (char const * pathFrom, char const * pathTo) ;
 	static void CopyOrDie (char const * pathFrom, char const * pathTo) throw (Win::ExitException);
 	static void Rename2PreviousOrDie (char const * path) throw (Win::ExitException);
 	static bool IsTreeEmpty (char const * root);

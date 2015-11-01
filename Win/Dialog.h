@@ -183,7 +183,7 @@ namespace Dialog
 		// Used in modeless dialogs
 		virtual void OnActivate () throw (Win::Exception) {}
 		virtual void OnDectivate () throw (Win::Exception) {}
-		virtual void OnDestroy () throw () {}
+		virtual void OnDestroy ()  {}
 		// These non-virtual methods should be called from OnApply and OnCancel
 		void EndOk () 
 		{

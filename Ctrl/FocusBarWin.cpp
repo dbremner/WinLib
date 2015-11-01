@@ -46,7 +46,7 @@ int FocusBar::Ctrl::GetHeight () const
 	return _fontHeight + 4 + 4;
 }
 
-bool FocusBar::Ctrl::OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) throw ()
+bool FocusBar::Ctrl::OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) 
 {
 	_focusRing.SwitchToThis (_associatedId);
 	activate.SetNoActivate ();	// We are not activating this window

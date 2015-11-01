@@ -29,7 +29,7 @@ public:
 	ModelessHandler (ModelessManager & man);
     bool OnInitDialog () throw (Win::Exception);
 	bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception);
-	void OnDestroy () throw ()
+	void OnDestroy () 
 	{
 		_man.Deactivate ();
 	}

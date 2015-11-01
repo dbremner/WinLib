@@ -23,14 +23,14 @@ public:
 
 	Win::MessagePrepro & GetMessagePrepro () { return _msgPrepro; }
 
-	Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ();
-	bool OnCreate (Win::CreateData const * create, bool & success) throw ();
-	bool OnDestroy () throw ();
-	bool OnSize (int width, int height, int flag) throw ();
-	bool OnRegisteredMessage (Win::Message & msg) throw ();
-	bool OnInitPopup (Menu::Handle menu, int pos) throw ();
-	bool OnMenuSelect (int id, Menu::State state, Menu::Handle menu) throw ();
-	bool OnCommand (int cmdId, bool isAccel) throw ();
+	Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) ;
+	bool OnCreate (Win::CreateData const * create, bool & success) ;
+	bool OnDestroy () ;
+	bool OnSize (int width, int height, int flag) ;
+	bool OnRegisteredMessage (Win::Message & msg) ;
+	bool OnInitPopup (Menu::Handle menu, int pos) ;
+	bool OnMenuSelect (int id, Menu::State state, Menu::Handle menu) ;
+	bool OnCommand (int cmdId, bool isAccel) ;
 
 	Win::Dow::Handle GetTargetWnd () const { return GetWindow ();}
 	void OnFileDrop (Win::FileDropHandle droppedFiles, Win::Point dropPoint);

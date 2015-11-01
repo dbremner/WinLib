@@ -52,9 +52,9 @@ namespace Win
 			_h.SetLongPtr<Controller *> (0);
 		}
 		Win::Dow::Handle GetWindow () const { return _h; }
-		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 			{ return 0; }
-		virtual Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		virtual Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 			{ return 0; }
 		virtual Keyboard::Handler * GetKeyboardHandler () 
 			{ return 0; }
@@ -64,18 +64,18 @@ namespace Win
 			{ return 0; }
 		virtual bool OnCreate (Win::CreateData const * create, bool & success) 
 			{ return false; }
-        virtual bool OnDestroy () throw ()
+        virtual bool OnDestroy () 
 			{ return false; }
-		virtual bool OnShutdown (bool isEndOfSession, bool isLoggingOff) throw () { return false; }
-		virtual bool OnActivateApp (unsigned long prevThreadId) throw ()
+		virtual bool OnShutdown (bool isEndOfSession, bool isLoggingOff)  { return false; }
+		virtual bool OnActivateApp (unsigned long prevThreadId) 
 			{ return false; }
-		virtual bool OnDeactivateApp (unsigned long nextThreadId) throw ()
+		virtual bool OnDeactivateApp (unsigned long nextThreadId) 
 			{ return false; }
-		virtual bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) throw ()
+		virtual bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) 
 			{ return false; }
-		virtual bool OnDeactivate (bool isMinimized, Win::Dow::Handle nextWnd) throw ()
+		virtual bool OnDeactivate (bool isMinimized, Win::Dow::Handle nextWnd) 
 			{ return false; }
-		virtual bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) throw ()
+		virtual bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) 
 			{ return false; }
 		virtual bool OnFocus (Win::Dow::Handle winPrev) 
 			{ return false; }
@@ -93,9 +93,9 @@ namespace Win
 			{ return false; }
 		virtual bool OnPaint () 
 			{ return false; }
-		virtual bool OnShowWindow (bool show) throw ()
+		virtual bool OnShowWindow (bool show) 
 			{ return false; }			
-		virtual bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) throw ()
+		virtual bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) 
 			{ return false; }
 		virtual bool OnVScroll (int code, int pos, Win::Dow::Handle winCtrl) 
 			{ return false; }
@@ -105,7 +105,7 @@ namespace Win
 		virtual bool OnCommand (int cmdId, bool isAccel) 
 			{ return false; }
 		// Controls
-		virtual bool OnControl (Win::Dow::Handle control, unsigned id, unsigned notifyCode) throw ()
+		virtual bool OnControl (Win::Dow::Handle control, unsigned id, unsigned notifyCode) 
 			{ return false; }
 		// Standard dialog buttons
 		virtual bool OnApply () 
@@ -157,35 +157,35 @@ namespace Win
 		virtual bool OnVKeyToItem(int vKey, int nCaret, Win::Dow::Handle listbox) throw()
 			{ return false; }
 		// DDE
-		virtual bool OnDdeInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic) throw ()
+		virtual bool OnDdeInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic) 
 			{ return false; }
 		// User messages
-		virtual bool OnUserMessage (UserMessage & msg) throw ()
+		virtual bool OnUserMessage (UserMessage & msg) 
 			{ return false; }
 		// Registered messages
-		virtual bool OnRegisteredMessage (Message & msg) throw ()
+		virtual bool OnRegisteredMessage (Message & msg) 
 			{ return false; }
 		// Interprocess communication
 		virtual bool OnInterprocessPackage (unsigned int msg, char const * package, unsigned int errCode, long & result) throw ()
 			{ return false; }
 
 		//	Specialized drawing
-		virtual bool OnMenuDraw (OwnerDraw::Item & draw) throw ()
+		virtual bool OnMenuDraw (OwnerDraw::Item & draw) 
 			{ return false; }
-		virtual bool OnItemDraw (OwnerDraw::Item & draw, unsigned ctrlId) throw ();
+		virtual bool OnItemDraw (OwnerDraw::Item & draw, unsigned ctrlId) ;
 		void AddDrawHandler (OwnerDraw::Handler * handler);
-		void RemoveDrawHandler (Win::Dow::Handle winParent, unsigned ctrlId) throw ();
+		void RemoveDrawHandler (Win::Dow::Handle winParent, unsigned ctrlId) ;
 		// Revisit: use draw handlers to deal with these
-		virtual bool OnMeasureListBoxItem(int idControl, int idx, unsigned& height) throw ()
+		virtual bool OnMeasureListBoxItem(int idControl, int idx, unsigned& height) 
 			{ return false; }
-		virtual bool OnPreDrawEdit(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) throw ()
+		virtual bool OnPreDrawEdit(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) 
 			{ return false; }
-		virtual bool OnPreDrawStatic(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) throw ()
+		virtual bool OnPreDrawStatic(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) 
 			{ return false; }
-		virtual bool OnPreDrawListBox(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) throw ()
+		virtual bool OnPreDrawListBox(Win::Dow::Handle win, Win::Canvas canvas, Brush::Handle& hbr) 
 			{ return false; }
 
-		virtual bool OnSetFont(Font::Handle font, bool fRedraw) throw ()
+		virtual bool OnSetFont(Font::Handle font, bool fRedraw) 
 			{ return false; }
 		virtual bool OnTrainingCard(int, int) throw()
 			{ return false; }

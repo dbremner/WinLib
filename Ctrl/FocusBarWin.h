@@ -42,12 +42,12 @@ namespace FocusBar
 		void TurnOn ();
 		void TurnOff ();
 
-		bool OnCreate (Win::CreateData const * create, bool & success) throw ();
-		bool OnSize (int width, int height, int flag) throw ();
-		bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) throw ();
-		bool OnPaint () throw ();
-		bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) throw ();
-		Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		bool OnCreate (Win::CreateData const * create, bool & success) ;
+		bool OnSize (int width, int height, int flag) ;
+		bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) ;
+		bool OnPaint () ;
+		bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) ;
+		Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 		{
 			return this;
 		}
