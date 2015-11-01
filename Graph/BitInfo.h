@@ -11,14 +11,14 @@ namespace Bitmap
 	public:
 		FileHeader ()
 		{
-			bfReserved1 = 0; 
-			bfReserved2 = 0; 
+			bfReserved1 = 0;
+			bfReserved2 = 0;
 			bfType = MAKEWORD ('B', 'M');
 		}
 
 		void Init (int sizeFile, int offBits)
 		{
-			bfSize = sizeFile; 
+			bfSize = sizeFile;
 			bfOffBits = offBits;
 		}
 
@@ -45,7 +45,7 @@ namespace Bitmap
 		int Height () const { return bmciHeader.bcHeight; }
 		int Planes () const { return bmciHeader.bcPlanes; }
 		int BitsPerPixel () const { return bmciHeader.bcBitCount; }
-		int NumColors () const; 
+		int NumColors () const;
 	};
 
 	class InfoHeader: public BITMAPINFOHEADER
@@ -58,18 +58,18 @@ namespace Bitmap
 		void Init (int width, int height, int bitsPerPixel)
 		{
 			biSize = sizeof (BITMAPINFOHEADER);
-			biWidth = width; 
-			biHeight = height; 
+			biWidth = width;
+			biHeight = height;
 			biPlanes = 1;
 			Assert (bitsPerPixel == 1
 				||  bitsPerPixel == 4
 				||  bitsPerPixel == 8
 				||  bitsPerPixel == 24);
-			biBitCount = bitsPerPixel; 
+			biBitCount = bitsPerPixel;
 			biCompression = BI_RGB; // no compression
-			biSizeImage = 0; 
-			biXPelsPerMeter = 0; 
-			biYPelsPerMeter = 0; 
+			biSizeImage = 0;
+			biXPelsPerMeter = 0;
+			biYPelsPerMeter = 0;
 			biClrUsed = 0;		// all used
 			biClrImportant = 0; // all colors important
 		}
@@ -105,7 +105,7 @@ namespace Bitmap
 		}
 
 		RGBQUAD GetColor (int i) const { return bmiColors [i]; }
-		int NumColors () const; 
+		int NumColors () const;
 		int ColorsImportant () const { return bmiHeader.biClrImportant; }
 	};
 }

@@ -93,7 +93,7 @@ namespace Schannel
 			Assert (HasUnprocessedData ());
 			Assert (_unprocessedStart == 0);
 			_rawDataSize = _unprocessedSize;
-			ClearUnprocessedData (); 
+			ClearUnprocessedData ();
 		}
 		bool HasUnprocessedData () const { return _unprocessedSize > 0; }
 		void ClearUnprocessedData ()
@@ -144,11 +144,11 @@ namespace Schannel
 		void ClientHandshakeLoop (SimpleSocket & sendSock, BufferedSocket & recvSock);
 		bool ProcessRemoteToken (
 				BufferedSocket & bufSock,
-				std::vector<char> & myToken, 
+				std::vector<char> & myToken,
 				bool & isRemoteTokenIncomplete);
-		bool IsErrorReportNeeded () const 
-		{ 
-			return (_connectionParams & ISC_RET_EXTENDED_ERROR) == ISC_RET_EXTENDED_ERROR; 
+		bool IsErrorReportNeeded () const
+		{
+			return (_connectionParams & ISC_RET_EXTENDED_ERROR) == ISC_RET_EXTENDED_ERROR;
 		}
 	private:
 		Schannel::Credentials	_schannelCred;

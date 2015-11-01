@@ -8,7 +8,7 @@
 #include <iterator>
 #include <cassert>
 
-template <class T> 
+template <class T>
 class ref_vector
 {
 public:
@@ -107,10 +107,10 @@ void ref_vector<T>::push_back (T & val)
 }
 
 template <class T>
-inline T ref_vector <T>::pop_back () 
+inline T ref_vector <T>::pop_back ()
 {
 	assert (_end != 0);
-	return _arr [--_end]; 
+	return _arr [--_end];
 }
 
 template <class T>
@@ -215,11 +215,11 @@ class array_iterator: public std::iterator<std::random_access_iterator_tag, T * 
 public:
 	array_iterator () : _pp (0) {}
 	array_iterator (auto_array<T> * pp) : _pp (pp) {}
-	bool operator != (auto_array<T> const * p) const 
+	bool operator != (auto_array<T> const * p) const
 		{ return p != _pp; }
-	bool operator != (array_iterator<T> const & it) const 
+	bool operator != (array_iterator<T> const & it) const
 		{ return it._pp != _pp; }
-	bool operator == (array_iterator<T> const & it) const 
+	bool operator == (array_iterator<T> const & it) const
 		{ return it._pp == _pp; }
 	array_iterator const & operator++ (int) {	return _pp++; }
 	array_iterator operator++ () { return ++_pp; }
@@ -235,11 +235,11 @@ public:
 	const_array_iterator () : _pp (0) {}
 	const_array_iterator (auto_array<T> const * pp) : _pp (pp) {}
 	const_array_iterator (array_iterator<T> & it) : _pp (it._pp) {}
-	bool operator != (auto_array<T> const * p) const 
+	bool operator != (auto_array<T> const * p) const
 		{ return p != _pp; }
-	bool operator != (const_array_iterator<T> const & it) const 
+	bool operator != (const_array_iterator<T> const & it) const
 		{ return it._pp != _pp; }
-	bool operator == (const_array_iterator<T> const & it) const 
+	bool operator == (const_array_iterator<T> const & it) const
 		{ return it._pp == _pp; }
 	const_array_iterator const & operator++ (int) {	return _pp++; }
 	const_array_iterator const operator++ () { return ++_pp; }
@@ -248,7 +248,7 @@ private:
 	auto_array<T> const * _pp;
 };
 
-template <class T> 
+template <class T>
 class array_vector: public ref_vector< auto_array<T> >
 {
 	typedef ref_vector< auto_array<T> > Parent;

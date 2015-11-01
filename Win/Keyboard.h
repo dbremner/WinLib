@@ -8,7 +8,7 @@
 #include "Procedure.h"
 #include "Dialog.h"
 
-namespace Win 
+namespace Win
 {
 	class Controller;
 }
@@ -27,9 +27,9 @@ namespace Keyboard
 
 		virtual bool OnKeyDown (int	vKey, int flags);
 
-		virtual	bool OnPageUp () 
+		virtual	bool OnPageUp ()
 			{ return false;	}
-		virtual	bool OnPageDown	() 
+		virtual	bool OnPageDown	()
 			{ return false;	}
 		virtual	bool OnUp ()
 			{ return false;	}
@@ -41,21 +41,21 @@ namespace Keyboard
 			{ return false;	}
 		virtual	bool OnHome	()
 			{ return false;	}
-		virtual	bool OnEnd () 
+		virtual	bool OnEnd ()
 			{ return false;	}
-		virtual	bool OnReturn () 
+		virtual	bool OnReturn ()
 			{ return false;	}
-		virtual	bool OnDelete ()  
+		virtual	bool OnDelete () 
 			{ return false;	}
 		virtual	bool OnBackSpace ()
 			{ return false;	}
-		virtual	bool OnEscape () 
+		virtual	bool OnEscape ()
 			{ return false;	}
 		virtual bool OnTab ()
 			{ return false; }
-		virtual	bool OnCharKey (int	vKey) 
+		virtual	bool OnCharKey (int	vKey)
 			{ return false;	}
-		virtual	bool OnNumpad (int vKey) 
+		virtual	bool OnNumpad (int vKey)
 			{ return false;	}
 		virtual	bool OnFunctionKey (int	keyNo)
 			{ return false;	}
@@ -66,50 +66,50 @@ namespace VKey
 {
 	enum
 	{
-		// Symbolic	constant	Value			Mouse or keyboard equivalent 
-		LeftButton =			VK_LBUTTON,		// Left	mouse button  
-		RightButton	=			VK_RBUTTON,		// Right mouse button  
-		Cancel =				VK_CANCEL,		// Control-break processing	 
-		MiddleButton =			VK_MBUTTON,		// Middle mouse	button (three-button mouse)	 
-		BackSpace =				VK_BACK,		// BACKSPACE key  
+		// Symbolic	constant	Value			Mouse or keyboard equivalent
+		LeftButton =			VK_LBUTTON,		// Left	mouse button 
+		RightButton	=			VK_RBUTTON,		// Right mouse button 
+		Cancel =				VK_CANCEL,		// Control-break processing	
+		MiddleButton =			VK_MBUTTON,		// Middle mouse	button (three-button mouse)	
+		BackSpace =				VK_BACK,		// BACKSPACE key 
 		Tab	=					VK_TAB,			// TAB key	
-		Clear =					VK_CLEAR,		// CLEAR key  
-		Return =				VK_RETURN,		// ENTER key  
-		Shift =					VK_SHIFT,		// SHIFT key  
-		Control	=				VK_CONTROL,		// CTRL	key	 
+		Clear =					VK_CLEAR,		// CLEAR key 
+		Return =				VK_RETURN,		// ENTER key 
+		Shift =					VK_SHIFT,		// SHIFT key 
+		Control	=				VK_CONTROL,		// CTRL	key	
 		Alt	=					VK_MENU,		// ALT key	
-		Pause =					VK_PAUSE,		// PAUSE key  
-		CapsLock =				VK_CAPITAL,		// CAPS	LOCK key  
+		Pause =					VK_PAUSE,		// PAUSE key 
+		CapsLock =				VK_CAPITAL,		// CAPS	LOCK key 
 		Escape =				VK_ESCAPE,		// ESC key	
-		Space =					VK_SPACE,		// SPACEBAR	 
+		Space =					VK_SPACE,		// SPACEBAR	
 		Prior =					VK_PRIOR,		// PAGE	UP key	
-		Next =					VK_NEXT,		// PAGE	DOWN key  
+		Next =					VK_NEXT,		// PAGE	DOWN key 
 		End	=					VK_END,			// END key	
-		Home =					VK_HOME,		// HOME	key	 
-		Left =					VK_LEFT,		// LEFT	ARROW key  
-		Up =					VK_UP,			// UP ARROW	key	 
+		Home =					VK_HOME,		// HOME	key	
+		Left =					VK_LEFT,		// LEFT	ARROW key 
+		Up =					VK_UP,			// UP ARROW	key	
 		Right =					VK_RIGHT,		// RIGHT ARROW key	
-		Down =					VK_DOWN,		// DOWN	ARROW key  
+		Down =					VK_DOWN,		// DOWN	ARROW key 
 		Select =				VK_SELECT,		// SELECT key
 		Print =					VK_PRINT,		// PRINT key
 		Execute	=				VK_EXECUTE,		// EXECUTE key	
-		SnapShot =				VK_SNAPSHOT,	// PRINT SCREEN	key	for	Windows	3.0	and	later  
+		SnapShot =				VK_SNAPSHOT,	// PRINT SCREEN	key	for	Windows	3.0	and	later 
 		Insert =				VK_INSERT,		// INS key	
 		Delete =				VK_DELETE,		// DEL key	
 		Help =					VK_HELP,		// HELP	key
 
-		_0 =					'0',			// 0 key  
+		_0 =					'0',			// 0 key 
 		_1 =					'1',			// 1 key
-		_2 =					'2',			// 2 key  
-		_3 =					'3',			// 3 key  
-		_4 =					'4',			// 4 key  
-		_5 =					'5',			// 5 key  
-		_6 =					'6',			// 6 key  
+		_2 =					'2',			// 2 key 
+		_3 =					'3',			// 3 key 
+		_4 =					'4',			// 4 key 
+		_5 =					'5',			// 5 key 
+		_6 =					'6',			// 6 key 
 		_7 =					'7',			// 7 key
-		_8 =					'8',			// 8 key  
-		_9 =					'9',			// 9 key  
+		_8 =					'8',			// 8 key 
+		_9 =					'9',			// 9 key 
 
-		A =						'A',			// A key  
+		A =						'A',			// A key 
 		B =						'B',			// B key
 		C =						'C',			// C key
 		D =						'D',			// D key
@@ -136,11 +136,11 @@ namespace VKey
 		Y =						'Y',			// Y key
 		Z =						'Z',			// Z key
 
-		LeftWin	=				VK_LWIN,		// Left	Windows	key	(Microsoft Natural Keyboard)  
-		RightWin =				VK_RWIN,		// Right Windows key (Microsoft	Natural	Keyboard)  
-		Apps =					VK_APPS,		// Applications	key	(Microsoft Natural Keyboard)  
+		LeftWin	=				VK_LWIN,		// Left	Windows	key	(Microsoft Natural Keyboard) 
+		RightWin =				VK_RWIN,		// Right Windows key (Microsoft	Natural	Keyboard) 
+		Apps =					VK_APPS,		// Applications	key	(Microsoft Natural Keyboard) 
 
-		Num0 =					VK_NUMPAD0,		// Numeric keypad 0	key	 
+		Num0 =					VK_NUMPAD0,		// Numeric keypad 0	key	
 		Num1 =					VK_NUMPAD1,		// Numeric keypad 1	key
 		Num2 =					VK_NUMPAD2,		// Numeric keypad 2	key
 		Num3 =					VK_NUMPAD3,		// Numeric keypad 3	key
@@ -152,7 +152,7 @@ namespace VKey
 		Num9 =					VK_NUMPAD9,		// Numeric keypad 9	key
 		Multiply =				VK_MULTIPLY,	// Multiply	key
 		Add	=					VK_ADD,			// Add key	
-		Separator =				VK_SEPARATOR,	// Separator key  
+		Separator =				VK_SEPARATOR,	// Separator key 
 		Substract =				VK_SUBTRACT,	// Subtract	key
 		Decimal	=				VK_DECIMAL,		// Decimal key
 		Divide =				VK_DIVIDE,		// Divide key
@@ -182,7 +182,7 @@ namespace VKey
 		F23	=					VK_F23,			// F23 key
 		F24	=					VK_F24,			// F24 key
 
-		NumLock	=				VK_NUMLOCK,		// NUM LOCK	key	 
+		NumLock	=				VK_NUMLOCK,		// NUM LOCK	key	
 		ScrollLock =			VK_SCROLL,		// SCROLL LOCK key
 
 		LeftShift =				VK_LSHIFT,		// Left	SHIFT
@@ -192,7 +192,7 @@ namespace VKey
 		LeftAlt	=				VK_LMENU,		// Left	ALT
 		RightAlt =				VK_RMENU,		// Right ALT
 
-		Attn =					VK_ATTN,		// ATTN	key	 
+		Attn =					VK_ATTN,		// ATTN	key	
 		CrSel =					VK_CRSEL,		// CRSEL key
 		ExSel =					VK_EXSEL,		// EXSEL key
 		EraseEOF =				VK_EREOF,		// Erase EOF key

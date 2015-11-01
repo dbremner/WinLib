@@ -88,10 +88,10 @@ namespace Crypt
 		static unsigned const KEYLEN = 128;
 	public:
 		KeyRC4 (Context const & context, Hash const & hash)
-			: Key (context, hash, CALG_RC4, KEYLEN << 16) 
+			: Key (context, hash, CALG_RC4, KEYLEN << 16)
 		{}
 		KeyRC4 (Context const & context)
-			: Key (context, CALG_RC4, KEYLEN << 16) 
+			: Key (context, CALG_RC4, KEYLEN << 16)
 		{}
 	private:
 		HCRYPTKEY _key;

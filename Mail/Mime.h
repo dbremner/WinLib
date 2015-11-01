@@ -10,7 +10,7 @@ namespace MIME
 	// based on RFC 2045
 	class Headers
 	{
-	/*  
+	/* 
 		- MIME-Version
 		- Content-Type header:
 			Syntax: "Content-Type" ":" type "/" subtype
@@ -33,9 +33,9 @@ namespace MIME
 		- Content-Description (optional)
 		- Content-Disposition (optional)
 
-		All of the header fields are subject to the	general syntactic rules 
-		for header fields specified in RFC 822.  In	particular, all of these 
-		header fields except for Content-Disposition can include RFC 822 comments, 
+		All of the header fields are subject to the	general syntactic rules
+		for header fields specified in RFC 822.  In	particular, all of these
+		header fields except for Content-Disposition can include RFC 822 comments,
 		which have no semantic content and should be ignored during MIME processing.
 	*/
 	public:
@@ -55,10 +55,10 @@ namespace MIME
 		void SetDisposition (std::string const & disposition, std::string const & comment);
 
 		bool IsMultiPart () const { return IsNocaseEqual (_type, "multipart"); }
-		bool IsPlainText () const 
-		{ 
-			return IsNocaseEqual (_type, "text") && 
-				   IsNocaseEqual (_subtype, "plain"); 
+		bool IsPlainText () const
+		{
+			return IsNocaseEqual (_type, "text") &&
+				   IsNocaseEqual (_subtype, "plain");
 		}
 		bool IsApplication () const { return IsNocaseEqual (_type, "application"); }
 		bool IsOctetStream () const { return IsNocaseEqual (_subtype, "octet-stream"); }

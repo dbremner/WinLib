@@ -39,7 +39,7 @@ namespace XML
 // StartComment ::=		StartTagBra !--
 // EndComment   ::=		-- TagKet
 
-// ElementName, 
+// ElementName,
 // AttributeName ::=	case sensitive string without spaces
 // CharData		 ::=	general string ...
 

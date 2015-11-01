@@ -177,8 +177,8 @@ inline bool IsEndOfLine (char c)
 	return c == '\n' || c == '\r';
 }
 
-inline bool IsWordBreak (char c) 
-{ 
+inline bool IsWordBreak (char c)
+{
 	return !IsAlnum (c) && c != '_';
 }
 
@@ -389,23 +389,23 @@ inline bool IsNocaseEqual (std::string const & s1, std::string const & s2)
 	return std::equal (s1.begin (), s1.end (), s2.begin (), NocaseEqualChar (TheUpCaseTable));
 }
 
-inline bool IsNocaseEqual (std::string const & str1, unsigned int off1, 
+inline bool IsNocaseEqual (std::string const & str1, unsigned int off1,
 						   std::string const & str2, unsigned int off2)
 {
 	if (str1.size () - off1 != str2.size () - off2)
 		return false;
-	return std::equal (str1.begin () + off1, str1.end (), 
-		str2.begin () + off2, 
+	return std::equal (str1.begin () + off1, str1.end (),
+		str2.begin () + off2,
 		NocaseEqualChar (TheUpCaseTable));
 }
 
-inline bool IsNocaseEqual (std::string const & str1, unsigned int off1, 
+inline bool IsNocaseEqual (std::string const & str1, unsigned int off1,
 						   std::string const & str2, unsigned int off2, unsigned len)
 {
 	if (str1.size () - off1 < len || str2.size () - off2 < len)
 		return false;
-	return std::equal (str1.begin () + off1, str1.begin () + off1 + len, 
-		str2.begin () + off2, 
+	return std::equal (str1.begin () + off1, str1.begin () + off1 + len,
+		str2.begin () + off2,
 		NocaseEqualChar (TheUpCaseTable));
 }
 
@@ -468,7 +468,7 @@ inline int FileNameCompare (std::string const & s1, std::string const & s2)
 class FileNameLess : public NocaseLess
 {
 public:
-	FileNameLess (UpCaseTable const & table = TheUpCaseTable) 
+	FileNameLess (UpCaseTable const & table = TheUpCaseTable)
 		: NocaseLess (table)
 	{}
 };

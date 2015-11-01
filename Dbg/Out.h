@@ -10,7 +10,7 @@
 //	To send output to the debug stream just use the 'dbg' as an ostream:
 //		E.g.:  dbg << "Just a simple message " << n << std::endl;
 //  Warning: don't use before or after main()
-//  When debugging multithreaded application always end debug output with std::endl to avoid deadlocking 
+//  When debugging multithreaded application always end debug output with std::endl to avoid deadlocking
 
 #include <iosfwd>
 

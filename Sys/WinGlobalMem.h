@@ -4,7 +4,7 @@
 // (c) Reliable Software 1998 -- 2003
 //-----------------------------------
 
-class GlobalMem 
+class GlobalMem
 {
     friend class GlobalBuf;
 public:

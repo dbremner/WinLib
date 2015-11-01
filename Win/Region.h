@@ -15,7 +15,7 @@ namespace Region
 	class Handle : public Win::Handle<HRGN>
 	{
 	public:
-		Handle (HRGN h = 0) 
+		Handle (HRGN h = 0)
 			: Win::Handle<HRGN> (h)
 		{}
 		bool IsInside (int x, int y)
@@ -49,7 +49,7 @@ namespace Region
 	class Rounded: public AutoHandle
 	{
 	public:
-		Rounded (int xLeft, int yUp, int xRight, int yDn, 
+		Rounded (int xLeft, int yUp, int xRight, int yDn,
 				 int ellipseWidth, int ellipseHeight);
 	};
 

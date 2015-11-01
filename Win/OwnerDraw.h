@@ -52,7 +52,7 @@ namespace OwnerDraw
 		unsigned CtrlId () const { return _draw->CtlID; }
 		unsigned ItemId () const { return _draw->itemID; }
 		ULONG_PTR ItemData () const { return _draw->itemData; }
-		BitFieldMask<OwnerDraw::ActionBits> Action () const 
+		BitFieldMask<OwnerDraw::ActionBits> Action () const
 		{
 			return BitFieldMask<OwnerDraw::ActionBits> (_draw->itemAction);
 		}

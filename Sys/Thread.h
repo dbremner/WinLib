@@ -19,13 +19,13 @@ namespace Thread
 		Handle (HANDLE h = Sys::Handle::NullValue ())
 			: Sys::Handle (h)
 		{}
-    	void Resume () 
-		{ 
-			::ResumeThread (H ()); 
+    	void Resume ()
+		{
+			::ResumeThread (H ());
 		}
-    	void Suspend () 
-		{ 
-			::SuspendThread (H ()); 
+    	void Suspend ()
+		{
+			::SuspendThread (H ());
 		}
 		// true if dead
 	    bool WaitForDeath (unsigned timeoutMs = INFINITE)
@@ -50,9 +50,9 @@ namespace Thread
 				reinterpret_cast<HANDLE> (_beginthreadex (
         	    0, // Security attributes
             	0, // Stack size
-	            pFun, 
-    	        pArg, 
-        	    CREATE_SUSPENDED, 
+	            pFun,
+    	        pArg,
+        	    CREATE_SUSPENDED,
             	&_tid)))
 		{
 			if (IsNull ())

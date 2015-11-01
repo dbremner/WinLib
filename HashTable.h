@@ -14,16 +14,16 @@ namespace Hash
 	public:
 		ILink () {}
 		ILink (ILink * next, int value)
-			: _next (next), _value (value) 
+			: _next (next), _value (value)
 		{}
 
 		ILink * GetNext () { return _next; }
 		ILink const * GetNext () const { return _next; }
 		int GetValue () const { return _value; }
 
-		void  SetValue (int value) 
+		void  SetValue (int value)
 		{
-			_value = value; 
+			_value = value;
 		}
 		void  SetNext (ILink * next)
 		{
@@ -59,7 +59,7 @@ namespace Hash
 	};
 
 	// IList iterator. Must be subclassed
-	// Only objects of derived classes 
+	// Only objects of derived classes
 	// can be created
 
 	class ListIterC

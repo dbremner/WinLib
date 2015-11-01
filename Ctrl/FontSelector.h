@@ -36,7 +36,7 @@ namespace Font
 		static int CALLBACK EnumFontFamCharSet (LOGFONT const * logFont,		// pointer to logical-font data
 												TEXTMETRIC const * fontMetrics,	// pointer to physical-font data
 												ULONG type,						// type of font
-												LPARAM lParam);					// application-defined data 
+												LPARAM lParam);					// application-defined data
 		void MatchCharSet ();
 
 	private:

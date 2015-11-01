@@ -32,7 +32,7 @@ private:
 // returns the position after the endDelimiter or std::string::npos
 
 // Revisit:
-// return bool : found pair or not, 
+// return bool : found pair or not,
 // pass another param: endPos -- if success: first position after the end of pair, else undefined
 // use TrimmedString class
 // write unit test

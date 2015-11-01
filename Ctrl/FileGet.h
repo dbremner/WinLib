@@ -29,7 +29,7 @@ public:
 
     void SetInitDir (char const * initDir)
     {
-        lpstrInitialDir = initDir; 
+        lpstrInitialDir = initDir;
     }
 
     char const * GetInitDir () const { return lpstrInitialDir; }

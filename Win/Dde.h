@@ -138,7 +138,7 @@ namespace DDE
 	public:
 		InitiateMsg (Win::Dow::Handle client, ATOM const & app, ATOM const & topic)
 			: Win::Message (WM_DDE_INITIATE, 0,
-							::PackDDElParam (WM_DDE_INITIATE, 
+							::PackDDElParam (WM_DDE_INITIATE,
 												static_cast<UINT_PTR> (app),
 												static_cast<UINT_PTR> (topic)))
 		{
@@ -228,19 +228,19 @@ namespace DDE
 
 	class Controller
 	{
-        friend LRESULT CALLBACK DDE::Procedure (HWND hwnd, 
+        friend LRESULT CALLBACK DDE::Procedure (HWND hwnd,
                         UINT message, WPARAM wParam, LPARAM lParam);
 		friend class ConversationProxy;
 
 	public:
 		virtual ~Controller () {}
-		virtual bool OnCreate () 
+		virtual bool OnCreate ()
 			{ return false; }
-        virtual bool OnDestroy () 
+        virtual bool OnDestroy ()
 			{ return false; }
-		virtual bool OnTimer (int id) 
+		virtual bool OnTimer (int id)
 			{ return false; }
-		virtual bool OnTimeout () 
+		virtual bool OnTimeout ()
 			{ return false; }
 		virtual bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) = 0;
 		virtual void OnAck (Win::Dow::Handle partner, DDE::Ack ack, int handle) = 0;
@@ -301,7 +301,7 @@ namespace DDE
 	{
 	public:
 		// For DDE servers this methods do nothing
-		bool OnData (Win::Dow::Handle server, ATOM dataItem, Data const & data, DDE::Ack & ack) 
+		bool OnData (Win::Dow::Handle server, ATOM dataItem, Data const & data, DDE::Ack & ack)
 			{ return false; }
 
 	protected:
@@ -317,17 +317,17 @@ namespace DDE
 		{}
 
 		// For DDE clients this methods do nothing
-		bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) 
+		bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server)
 			{ return false; }
-		bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise) 
+		bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise)
 			{ return false; }
-		bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack) 
+		bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack)
 			{ return false; }
-		bool OnPoke (Win::Dow::Handle client, ATOM dataItem, Poke const & poke) 
+		bool OnPoke (Win::Dow::Handle client, ATOM dataItem, Poke const & poke)
 			{ return false; }
-		bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) 
+		bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format)
 			{ return false; }
-		bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) 
+		bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format)
 			{ return false; }
 
 		Win::Dow::Handle Initiate (std::string const & app, std::string const & topic);

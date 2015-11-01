@@ -20,19 +20,19 @@ public:
 
 	bool IsValid () const { return _metricsValid; }
 
-	Font::Descriptor const & GetSmallCaptionFont () const 
+	Font::Descriptor const & GetSmallCaptionFont () const
 	{
 		return reinterpret_cast<Font::Descriptor const &> (lfSmCaptionFont);
 	}
-	Font::Descriptor const & GetMenuFont () const 
+	Font::Descriptor const & GetMenuFont () const
 	{
 		return reinterpret_cast<Font::Descriptor const &> (lfMenuFont);
 	}
-	Font::Descriptor const & GetStatusFont () const 
+	Font::Descriptor const & GetStatusFont () const
 	{
 		return reinterpret_cast<Font::Descriptor const &> (lfStatusFont);
 	}
-	Font::Descriptor const & GetMessageFont () const 
+	Font::Descriptor const & GetMessageFont () const
 	{
 		return reinterpret_cast<Font::Descriptor const &> (lfMessageFont);
 	}

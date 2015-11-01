@@ -3,7 +3,7 @@
 //----------------------------------------------------
 // (c) Reliable Software 2000-2004
 //
-//	Use ListBox::Simple ListBox::SingleSel or ListBox::MultiSel 
+//	Use ListBox::Simple ListBox::SingleSel or ListBox::MultiSel
 // (depending on whether
 //	you want no-, single- or multiple- selection list).
 //----------------------------------------------------
@@ -124,11 +124,11 @@ namespace Win
 			{
 				unsigned int len = SendMsg (LB_GETTEXTLEN, idx, 0);
 				str.reserve (len + 1);
-				SendMsg (LB_GETTEXT, idx, 
+				SendMsg (LB_GETTEXT, idx,
 					reinterpret_cast<LPARAM> (writable_string (str).get_buf ()));
 			}
-			void ListDirectory (Win::Dow::Handle dlg, 
-				char * pathBuf, 
+			void ListDirectory (Win::Dow::Handle dlg,
+				char * pathBuf,
 				int idStatic = 0, // to display drive and directory
 				unsigned fileTypes = DDL_DIRECTORY | DDL_DRIVES)
 			{

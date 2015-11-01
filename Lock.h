@@ -9,14 +9,14 @@ class ReentranceLock
 {
 public:
 	ReentranceLock (bool & isBusy)
-		: _isBusy (isBusy) 
-	{ 
+		: _isBusy (isBusy)
+	{
 		Assert (!_isBusy);
-		_isBusy = true; 
+		_isBusy = true;
 	}
-	~ReentranceLock () 
-	{ 
-		_isBusy = false; 
+	~ReentranceLock ()
+	{
+		_isBusy = false;
 	}
 private:
 	bool & _isBusy;

@@ -9,9 +9,9 @@
 
 namespace Pop3
 {
-	// stops at first empty line  or 
+	// stops at first empty line  or
 	// at one of the following special characters: " ", '-', '.' found at the beginning of a line
-	// a client must not call Get after a call to Get returned '\0' 
+	// a client must not call Get after a call to Get returned '\0'
 	class CharBlockSeq : public GenericInput<'\0'>
 	{
 	public:
@@ -24,7 +24,7 @@ namespace Pop3
 			_currentLine = &_lineSeq.Get ();
 		}
 		char Get ()
-		{ 
+		{
 			if (_currentCharIdx == _currentLine->size ())
 				return NextLine ();
 

@@ -12,8 +12,8 @@ public:
 		  _hWrite(INVALID_HANDLE_VALUE)
 	{
 		SECURITY_ATTRIBUTES securityAttr;
-   		securityAttr.nLength = sizeof(SECURITY_ATTRIBUTES); 
-   		securityAttr.bInheritHandle = doInheritHandle? TRUE: FALSE; 
+   		securityAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
+   		securityAttr.bInheritHandle = doInheritHandle? TRUE: FALSE;
    		securityAttr.lpSecurityDescriptor = NULL;
 		
 		if (!CreatePipe(&_hRead, &_hWrite, &securityAttr, 0))

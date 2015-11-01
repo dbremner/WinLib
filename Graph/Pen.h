@@ -27,7 +27,7 @@ namespace Pen
 			_logicalPen.lopnWidth.x = 0; // minimal width
 			_logicalPen.lopnColor = Win::Color ().ToNative (); // black
 		}
-		void SetWidth (int width) 
+		void SetWidth (int width)
 		{
 			_logicalPen.lopnWidth.x = width;
 		}

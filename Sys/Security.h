@@ -90,7 +90,7 @@ namespace Security
 
 	// Security::Descriptor contains security information
 	// associated with a securable object (file, share, registry key, etc...)
-	class Descriptor 
+	class Descriptor
 	{
 	protected:
 		Descriptor () : _security (0) {}

@@ -20,38 +20,38 @@ namespace Win
 		MessagePrepro (Win::Message const & breakMsg)
 			: _breakMsg (breakMsg.GetMsg ()), _accel (0)
 		{}
-		void SetKbdAccelerator (Win::Accelerator * accel) 
+		void SetKbdAccelerator (Win::Accelerator * accel)
 		{
 			_accel = accel;
 		}
-		void ResetKbdAccelerator () 
+		void ResetKbdAccelerator ()
 		{
 			_accel = 0;
 		}
 		// Use with modeless dialogs
-		void SetDialogFilter (Win::Dow::Handle winDlg, 
-								Win::Dow::Handle winDlgParent = Win::Dow::Handle (), 
-								Accel::Handle hDlgAccel = Accel::Handle ()) 
-		{ 
+		void SetDialogFilter (Win::Dow::Handle winDlg,
+								Win::Dow::Handle winDlgParent = Win::Dow::Handle (),
+								Accel::Handle hDlgAccel = Accel::Handle ())
+		{
 			_winDlg = winDlg;
 			_winDlgParent = winDlgParent;
 			_hDlgAccel = hDlgAccel;
 			//  use dialog accelerator , only if the target window for dialog accelerator is valid
 			Assert (hDlgAccel.IsNull () || !winDlgParent.IsNull ());
 		}
-		void ResetDialogFilter () 
+		void ResetDialogFilter ()
 		{
 			_winDlg.Reset ();
 			_hDlgAccel.Reset ();
 			_winDlgParent.Reset ();
 		}
-		void SetDialogAccel (Win::Dow::Handle winDlgParent, Accel::Handle hDlgAccel) 
-		{ 
+		void SetDialogAccel (Win::Dow::Handle winDlgParent, Accel::Handle hDlgAccel)
+		{
 			_winDlgParent = winDlgParent;
 			_hDlgAccel = hDlgAccel;
 			Assert (hDlgAccel.IsNull () || !winDlgParent.IsNull ());
 		}
-		void ResetDialogAccel () 
+		void ResetDialogAccel ()
 		{
 			_winDlgParent.Reset ();
 			_hDlgAccel.Reset ();
@@ -71,7 +71,7 @@ namespace Win
 	private:
 		Win::Accelerator *	_accel;
 		Win::Dow::Handle	_winDlg;		// dialog window
-		Accel::Handle		_hDlgAccel;		// dialog accelerator		                        
+		Accel::Handle		_hDlgAccel;		// dialog accelerator		                       
 		Win::Dow::Handle	_winDlgParent;	// target window for dialog accelerator		
 		unsigned int		_breakMsg;
 	};

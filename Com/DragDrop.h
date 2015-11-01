@@ -14,7 +14,7 @@ class Clipboard;
 
 // Windows sends WM_DROPFILES only to windows that
 // registered interest in drag and drop by calling
-// Win::Dow::Handle::DragAcceptFiles () 
+// Win::Dow::Handle::DragAcceptFiles ()
 
 
 

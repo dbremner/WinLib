@@ -163,7 +163,7 @@ public:
 	bool	Open (std::string const & path, Mode mode, bool quiet = false);
 	bool	Create (std::string const & path);
 	void	OpenReadOnly (std::string const & path, bool quiet = false);
-	void	Close () ;
+	void	Close ();
 	bool	Flush () { return ::FlushFileBuffers (_hFile) != FALSE; }
 	void	Empty ();
 	void	GetWriteTime (FILETIME & lastWrite) const;
@@ -175,28 +175,28 @@ public:
 	HANDLE ToNative () const { return _hFile; }
 
 	// Static methods
-	static bool IsValidName (char const * name) ;
-	static bool IsValidExtension (char const * extension) ;
-	static void LegalizeName (std::string & name, char replacementChar = '#') ;
-	static bool IsEqualQuick (char const * pathOld, char const * pathNew); 
-	static bool IsContentsEqual (char const * pathOld, char const * pathNew); 
-	static bool Exists (std::string const & path) ;
-	static bool IsFolder (char const * path) ;
+	static bool IsValidName (char const * name);
+	static bool IsValidExtension (char const * extension);
+	static void LegalizeName (std::string & name, char replacementChar = '#');
+	static bool IsEqualQuick (char const * pathOld, char const * pathNew);
+	static bool IsContentsEqual (char const * pathOld, char const * pathNew);
+	static bool Exists (std::string const & path);
+	static bool IsFolder (char const * path);
 	static bool CreateFolder (char const * path, bool quiet = true);
 	static bool CreateNewFolder (char const * path, bool quiet = true);
 	static bool RemoveEmptyFolder (char const * path, bool quiet = true);
-	static bool IsReadOnly (std::string const & path) ;
+	static bool IsReadOnly (std::string const & path);
 	static void MakeReadOnly (char const * path);
 	static void MakeReadWrite (std::string const & path);
-	static bool MakeReadOnlyNoEx (std::string const & path) ;
-	static bool MakeReadWriteNoEx (std::string const & path) ;
+	static bool MakeReadOnlyNoEx (std::string const & path);
+	static bool MakeReadWriteNoEx (std::string const & path);
 	static void Touch (char const * path);
-	static bool TouchNoEx (std::string const & path) ;
-	static bool ForceTouchNoEx (std::string const & path) ;
+	static bool TouchNoEx (std::string const & path);
+	static bool ForceTouchNoEx (std::string const & path);
 	static void Delete (std::string const & path);
-	static bool DeleteNoEx (std::string const & path) ;
+	static bool DeleteNoEx (std::string const & path);
 	static bool Copy (char const * pathFrom, char const * pathTo);
-	static bool CopyNoEx (char const * pathFrom, char const * pathTo) ;
+	static bool CopyNoEx (char const * pathFrom, char const * pathTo);
 	static bool SafeCopy (char const * pathFrom, char const * pathTo);
 	static bool SafeCopyNoEx (char const * pathFrom, char const * pathTo);
 	static std::string Rename2Previous (char const * path);
@@ -243,17 +243,17 @@ protected:
 	{
 		InitHandle (file.Release ());
 	}
-	bool SimpleRead (void * buf, ULONG & size) 
+	bool SimpleRead (void * buf, ULONG & size)
 	{
 		ULONG sizeAsked = size;
 		return ::ReadFile (_hFile, buf, sizeAsked, & size, NULL)	!= FALSE;
 	}
-	bool SimpleWrite (void const * buf, ULONG & size) 
+	bool SimpleWrite (void const * buf, ULONG & size)
 	{
 		ULONG sizeAsked = size;
 		return ::WriteFile (_hFile, buf, sizeAsked, & size, NULL) != FALSE;
 	}
-	bool Rewind () 
+	bool Rewind ()
 	{
 		return _sizer->Rewind ();
 	}
@@ -269,7 +269,7 @@ protected:
 	void InitSizer ();
 
 	static std::string RenameUnique (char const * path, char const * namePrefix);
-	static std::string RenameUniqueNoEx (char const * path, char const * namePrefix) ;
+	static std::string RenameUniqueNoEx (char const * path, char const * namePrefix);
 
 public:
 	// usage:
@@ -321,7 +321,7 @@ public:
 		unsigned const & GetShare () const { return _share; }
 		unsigned const & GetCreate () const { return _create; }
 		bool IsReadOnly () const
-		{ 
+		{
 			return _access & GENERIC_READ
 				&& !(_access & GENERIC_WRITE);
 		}
@@ -362,9 +362,9 @@ class File::ReadOnlyMode: public Mode
 public:
 	ReadOnlyMode ()
 	{
-		(*this) << File::Mode::Access::Read 
+		(*this) << File::Mode::Access::Read
 				<< File::Mode::Create::Existing
-				<< File::Mode::Share::Read 
+				<< File::Mode::Share::Read
 				<< File::Mode::Share::Write
 				<< File::Mode::Share::Delete;
 	}
@@ -375,9 +375,9 @@ class File::ExclusiveReadOnlyMode: public Mode
 public:
 	ExclusiveReadOnlyMode ()
 	{
-		(*this) << File::Mode::Access::Read 
+		(*this) << File::Mode::Access::Read
 				<< File::Mode::Create::Existing
-				<< File::Mode::Share::Read; 
+				<< File::Mode::Share::Read;
 	}
 };
 
@@ -386,7 +386,7 @@ class File::CreateAlwaysMode: public Mode
 public:
 	CreateAlwaysMode ()
 	{
-		(*this) << File::Mode::Access::ReadWrite 
+		(*this) << File::Mode::Access::ReadWrite
 				<< File::Mode::Create::Always;
 	}
 };
@@ -396,7 +396,7 @@ class File::OpenAlwaysMode: public Mode
 public:
 	OpenAlwaysMode ()
 	{
-		(*this) << File::Mode::Access::ReadWrite 
+		(*this) << File::Mode::Access::ReadWrite
 				<< File::Mode::Create::OpenAlways;
 	}
 };
@@ -406,9 +406,9 @@ class File::OpenAlwaysShareReadMode: public Mode
 public:
 	OpenAlwaysShareReadMode ()
 	{
-		(*this) << File::Mode::Access::ReadWrite 
+		(*this) << File::Mode::Access::ReadWrite
 				<< File::Mode::Create::OpenAlways
-				<< File::Mode::Share::Read; 
+				<< File::Mode::Share::Read;
 	}
 };
 
@@ -417,7 +417,7 @@ class File::OpenExistingMode: public Mode
 public:
 	OpenExistingMode ()
 	{
-		(*this) << File::Mode::Access::ReadWrite 
+		(*this) << File::Mode::Access::ReadWrite
 				<< File::Mode::Create::Existing;
 	}
 };

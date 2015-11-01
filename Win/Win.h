@@ -54,7 +54,7 @@ namespace Win
 	public:
 		Style (unsigned long style = 0, unsigned long exStyle = 0)
 			: _style (style),
-			  _exStyle (exStyle) 
+			  _exStyle (exStyle)
 		{}
 
 		unsigned long GetStyleBits () const { return _style; }
@@ -132,7 +132,7 @@ namespace Win
 	{
 	public:
 		window_handle (HWND h = NullValue ())
-			: Handle<HWND> (h) 
+			: Handle<HWND> (h)
 		{}
 		void Init (window_handle h = window_handle ())
 		{
@@ -227,7 +227,7 @@ namespace Win
 		bool PostMsg (Message const & msg) const;
 		void SendInterprocessPackage (RegisteredMessage & msg) const;
 		Win::Instance GetInstance () const
-		{ 
+		{
 			return reinterpret_cast<HINSTANCE> (::GetWindowLongPtr (H (), GWLP_HINSTANCE));		
 		}
 		//	return the window that defines the drawing origin
@@ -285,7 +285,7 @@ namespace Win
 				style &= ~CS_HREDRAW;
 			::SetClassLong (H (), GCL_STYLE, style);
 		}
-		 
+		
 		// Coordinates
 		void ClientToScreen (Win::Point & pt) const;
 		void ScreenToClient (Win::Point & pt) const;
@@ -301,8 +301,8 @@ namespace Win
 		}
 		// Focus
 		void SetFocus ()
-		{ 
-			::SetFocus (H ()); 
+		{
+			::SetFocus (H ());
 		}
 		bool HasFocus () const
 		{
@@ -336,14 +336,14 @@ namespace Win
 		{
 			SetText (text.c_str ());
 		}
-		void SetText (char const * text) 
-		{ 
-			::SetWindowText (H (), text); 
+		void SetText (char const * text)
+		{
+			::SetWindowText (H (), text);
 		}
 		void PostSetText (char const * text);
 		int GetText (char * buf, int len) const// len includes null
-		{ 
-			return ::GetWindowText (H (), buf, len); 
+		{
+			return ::GetWindowText (H (), buf, len);
 		}
 		unsigned GetTextLength () const
 		{
@@ -380,30 +380,30 @@ namespace Win
 			return ::IsWindowEnabled (H ()) != 0;
 		}
 
-		void Show (int cmdShow = SW_SHOW) 
-		{ 
-			::ShowWindow (H (), cmdShow); 
+		void Show (int cmdShow = SW_SHOW)
+		{
+			::ShowWindow (H (), cmdShow);
 		}
 
 		void ShowMaximized () { Show (SW_SHOWMAXIMIZED); }
 		void ShowMinimized () { Show (SW_SHOWMINIMIZED); }
 
 		void Restore ()
-		{ 
-			::ShowWindow (H (), SW_RESTORE); 
+		{
+			::ShowWindow (H (), SW_RESTORE);
 		}
 
-		void Hide () 
-		{ 
-			::ShowWindow (H (), SW_HIDE); 
+		void Hide ()
+		{
+			::ShowWindow (H (), SW_HIDE);
 		}
 		bool IsVisible()
 		{
 			return ::IsWindowVisible(H ()) != FALSE;
 		}
-		void Update () 
-		{ 
-			::UpdateWindow (H ()); 
+		void Update ()
+		{
+			::UpdateWindow (H ());
 		}
 		void SetForeground ()
 		{
@@ -522,7 +522,7 @@ namespace Win
 	{
 	public:
 		StyleHolder (Win::Dow::Handle win)
-			: Win::Style (win.GetStyle ()), _win (win)  
+			: Win::Style (win.GetStyle ()), _win (win) 
 		{
 			// remember the old style for the destructor
 			_oldStyle = Win::Style (GetStyleBits (), GetExStyleBits ());

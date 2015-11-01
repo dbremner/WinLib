@@ -28,7 +28,7 @@ namespace ShellMan
 		T const & GetAccess () const { return *_p; }
 
 	protected:
-		Ptr () : _p (0) 
+		Ptr () : _p (0)
 		{
 		}
 		void Free ()
@@ -293,7 +293,7 @@ namespace ShellMan
 
 	void Delete (Win::Dow::Handle win, char const * path,
 				 FILEOP_FLAGS flags = FOF_SILENT | FOF_NOCONFIRMATION);
-	bool QuietDelete (Win::Dow::Handle win, char const * path) ;
+	bool QuietDelete (Win::Dow::Handle win, char const * path);
 	void DeleteContents (Win::Dow::Handle win, char const * path,
 						 FILEOP_FLAGS flags = FOF_SILENT | FOF_NOCONFIRMATION);
 	void CopyContents (Win::Dow::Handle win, char const * fromPath, char const * toPath,

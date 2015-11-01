@@ -21,7 +21,7 @@ public:
     void Init (int cLines, int cPageLines, int cPageIncr)
     {
 		if (cPageLines < 0)// sometime we call this function wich cPageLines == -1,
-			cPageLines = 0;//On NT : if nPage < 0 result perhaps be bad		                 
+			cPageLines = 0;//On NT : if nPage < 0 result perhaps be bad		                
         _cPageIncr = cPageIncr;
         _info.fMask = SIF_RANGE | SIF_PAGE | SIF_DISABLENOSCROLL;
         _info.nMin = 0;
@@ -39,12 +39,12 @@ public:
 	}
 
     int GetPos (int & cLines, int & cPageLines)
-    { 
+    {
         _info.fMask = SIF_POS | SIF_RANGE | SIF_PAGE;
         GetInfo ();
         cLines = _info.nMax;
         cPageLines = _info.nPage;
-        return _info.nPos; 
+        return _info.nPos;
     }
 
     int GetTrackPos ()
@@ -52,7 +52,7 @@ public:
 		// Obtains full 32-bit tracking position
         _info.fMask = SIF_TRACKPOS;
         GetInfo ();
-        return _info.nTrackPos; 
+        return _info.nTrackPos;
     }
 
     int GetRange ()

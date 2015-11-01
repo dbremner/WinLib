@@ -46,7 +46,7 @@ public:
 	class const_iterator: public std::iterator<std::input_iterator_tag, T>
 	{
 	public:
-		const_iterator (BlocksIter blocksIter, BlocksIter blocksEnd, 
+		const_iterator (BlocksIter blocksIter, BlocksIter blocksEnd,
 			typename Block::iterator it, typename Block::iterator endBlock)
 			: _blocksIter (blocksIter), _blocksEnd (blocksEnd), _it (it), _endBlock (endBlock)
 		{}
@@ -59,12 +59,12 @@ public:
 		T const & operator * () const { return (*_it); }
 
 		bool operator != (const_iterator const & other) const
-		{ 
-			return _it != other._it; 
+		{
+			return _it != other._it;
 		}
 		bool operator == (const_iterator const & other) const
-		{ 
-			return _it == other._it; 
+		{
+			return _it == other._it;
 		}
 	protected:
 		void Advance ()
@@ -90,7 +90,7 @@ public:
 	class iterator: public const_iterator
 	{
 	public:
-		iterator (BlocksIter blocksIter, BlocksIter blocksEnd, 
+		iterator (BlocksIter blocksIter, BlocksIter blocksEnd,
 			typename Block::iterator it, typename Block::iterator endBlock)
 			: const_iterator (blocksIter, blocksEnd, it, endBlock)
 		{}
@@ -109,9 +109,9 @@ public:
 	void clear ();
 	const_iterator begin () const
 	{
-		return iterator (_blocks.begin (), 
-						_blocks.end (), 
-						(*_blocks.begin ())->begin (), 
+		return iterator (_blocks.begin (),
+						_blocks.end (),
+						(*_blocks.begin ())->begin (),
 						(*_blocks.begin ())->end ());
 	}
 	const_iterator end () const
@@ -123,9 +123,9 @@ public:
 
 	iterator begin ()
 	{
-		return iterator (_blocks.begin (), 
-						_blocks.end (), 
-						(*_blocks.begin ())->begin (), 
+		return iterator (_blocks.begin (),
+						_blocks.end (),
+						(*_blocks.begin ())->begin (),
 						(*_blocks.begin ())->end ());
 	}
 	iterator end ()

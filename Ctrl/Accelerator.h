@@ -39,8 +39,8 @@ namespace Accel
 		{}
 		bool Translate (MSG & msg)
 		{
-			return ::TranslateAccelerator ( _win.ToNative (), 
-											_accel.ToNative (), 
+			return ::TranslateAccelerator ( _win.ToNative (),
+											_accel.ToNative (),
 											&msg
 										  ) != 0;
 		}

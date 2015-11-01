@@ -53,7 +53,7 @@ namespace Dbg
 		~NoMemoryAllocations ();
 
 	private:
-		static int AllocHook (int allocType, void *userData, size_t size, int blockType, 
+		static int AllocHook (int allocType, void *userData, size_t size, int blockType,
 							long requestNumber, const unsigned char *filename, int lineNumber);
 
 		static Win::Mutex					_mutex;

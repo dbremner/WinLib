@@ -41,7 +41,7 @@ namespace Tool
 														// when an object is dragged over a band in the control.
 														// To receive the RBN_GETOBJECT notifications, initialize OLE with a call
 														// to OleInitialize or CoInitialize.
-				ToolTips = RBS_TOOLTIPS, 
+				ToolTips = RBS_TOOLTIPS,
 				VarHeight = RBS_VARHEIGHT,				// The rebar control displays bands at the minimum required height,
 														// when possible. Without this style, the rebar control displays all
 														// bands at the same height, using the height of the tallest visible

@@ -30,7 +30,7 @@ public:
 	bool IsDying () { return _isDying.IsNonZero (); }
 	// Kill will stop the thread and cause the eventual
 	// (asynchronous) deletion of the ActiveObject
-    bool Kill (unsigned timeoutMs = 0) ;
+    bool Kill (unsigned timeoutMs = 0);
 	void KillSynchronous ()  { Kill (INFINITE); }
 	void Nuke () { _thread.Kill (); }
 protected:
@@ -60,7 +60,7 @@ template<class T>
 class auto_active
 {
 public:
-	auto_active (T * active = 0) 
+	auto_active (T * active = 0)
 		: _active (active), _timeout (0)
 	{
 		if (!_active.empty ())
@@ -75,8 +75,8 @@ public:
 			_active->Kill (_timeout);
 		}
 	}
-	void Nuke () 
-	{ 
+	void Nuke ()
+	{
 		if (!_active.empty () && IsAlive ())
 			_active->Nuke ();
 		_active = 0;

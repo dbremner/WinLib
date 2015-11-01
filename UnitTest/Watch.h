@@ -5,7 +5,7 @@
 //-----------------------------
 #include <File/FolderWatcher.h>
 
-class Watch 
+class Watch
 {
 public:
 	Watch (Win::Dow::Handle win);

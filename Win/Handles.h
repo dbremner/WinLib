@@ -28,7 +28,7 @@ namespace Win
 	template<class BaseHandle>
 	struct Disposal
 	{
-		static void Dispose (BaseHandle) ;
+		static void Dispose (BaseHandle);
 	};
 
 	// Forward declaration
@@ -53,21 +53,21 @@ namespace Win
 			: BaseHandle (nh)
 		{}
 		AutoHandle () {}
-		AutoHandle (AutoHandle & ah) 
+		AutoHandle (AutoHandle & ah)
 			: BaseHandle (ah.release ())
 		{}
-		~AutoHandle () 
+		~AutoHandle ()
 		{
 			if (!IsNull ())
 				DisposalPolicy::Dispose (*this);
 		}
-		typename BaseHandle::Type release () 
+		typename BaseHandle::Type release ()
 		{
 			typename BaseHandle::Type tmp = H ();
 			BaseHRef () = NullValue ();
 			return tmp;
 		}
-		void Reset (typename BaseHandle::Type h = NullValue ()) 
+		void Reset (typename BaseHandle::Type h = NullValue ())
 		{
 			if (h != H ())
 			{
@@ -92,7 +92,7 @@ namespace Win
 			return *this;
 		}
 		// return by value helpers
-		AutoHandle (auto_handle_ref<BaseHandle, DisposalPolicy> r) 
+		AutoHandle (auto_handle_ref<BaseHandle, DisposalPolicy> r)
 			: BaseHandle (r._ah.release ())
 		{}
 		operator auto_handle_ref<BaseHandle, DisposalPolicy> ()

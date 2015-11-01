@@ -9,7 +9,7 @@
 
 namespace Dbg
 {
-	// To turn on the logging of debug output, call TheLog.Open 
+	// To turn on the logging of debug output, call TheLog.Open
 	// with file name and (optional) directory. All debug statements
 	// dbg << ...
 	// will be copied to the log file.

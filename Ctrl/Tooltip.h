@@ -45,7 +45,7 @@ namespace Tool
 	class TipForWindow: public Tip
 	{
 	public:
-		Win::Dow::Handle WinFrom () const 
+		Win::Dow::Handle WinFrom () const
 		{
 			Assert (IsHwndFrom ());
 			return reinterpret_cast<HWND> (hdr.idFrom);
@@ -59,9 +59,9 @@ namespace Notify
 	{
 	public:
 		explicit ToolTipHandler (unsigned id) : Notify::Handler (id) {}
-		virtual bool OnNeedText (Tool::TipForWindow * tip) 
+		virtual bool OnNeedText (Tool::TipForWindow * tip)
 			{ return false; }
-		virtual bool OnNeedText (Tool::TipForCtrl * tip) 
+		virtual bool OnNeedText (Tool::TipForCtrl * tip)
 			{ return false; }
 
 	protected:

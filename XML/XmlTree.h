@@ -23,7 +23,7 @@ namespace XML
 	{
 	public:
 		Attribute (std::string const & name, std::string const & value)
-		: _name (name), 
+		: _name (name),
 		  _value (value)
 		{}
 		Attribute (std::string const & name)
@@ -62,32 +62,32 @@ namespace XML
 
 		std::string const & GetName () const { return _name; }
 		std::string GetClosingTag () const;
-		Node const * FindFirstChildNamed (std::string const & name) const ;
+		Node const * FindFirstChildNamed (std::string const & name) const;
 		Node const * GetFirstChildNamed (std::string const & name) const;
-		Attribute const * FindAttribute (std::string const & name) const ;
+		Attribute const * FindAttribute (std::string const & name) const;
 		std::string const & GetAttribValue (std::string const & name) const;
 		std::string GetTransformAttribValue (std::string const & name) const;
 		std::string FindAttribValue (std::string const & attribName) const;
 		std::string FindChildAttribValue (std::string const & childName, std::string const & attribName) const;
 		// Return child with matching name and atrribute value
-		Node const * FindChildByAttrib (std::string const & childName, 
-										std::string const & attrName, 
+		Node const * FindChildByAttrib (std::string const & childName,
+										std::string const & attrName,
 										std::string const & attrValue) const;
-		Node * FindEditChildByAttrib (std::string const & childName, 
-										std::string const & attrName, 
+		Node * FindEditChildByAttrib (std::string const & childName,
+										std::string const & attrName,
 										std::string const & attrValue);
 
 		bool HasChildren () const { return _children.size () != 0; }
 		typedef auto_vector<Node>::const_iterator ConstChildIter;
 		typedef auto_vector<Node>::iterator ChildIter;
 		ChildIter FirstChild () { return _children.begin (); }
-		ChildIter LastChild  () { return _children.end  ();  }   
+		ChildIter LastChild  () { return _children.end  ();  }  
 		ConstChildIter FirstChild () const { return _children.begin (); }
-		ConstChildIter LastChild  () const { return _children.end  ();  }   
+		ConstChildIter LastChild  () const { return _children.end  ();  }  
 		typedef auto_vector<Attribute>::const_iterator ConstAttribIter;
 		ConstAttribIter FirstAttrib () const { return _attributes.begin (); }
-		ConstAttribIter LastAttrib  () const { return _attributes.end  ();  } 
-		std::auto_ptr<Node> PopChild () 
+		ConstAttribIter LastAttrib  () const { return _attributes.end  ();  }
+		std::auto_ptr<Node> PopChild ()
 		{
 			Assert (_children.size () != 0);
 			return _children.pop_back ();
@@ -112,14 +112,14 @@ namespace XML
 			return _top.AddChild (root);
 		}
 		Node * SetRoot (std::string const & name);
-		Node const * GetRoot () const 
+		Node const * GetRoot () const
 		{
 			if (_top.HasChildren ())
 				return *_top.FirstChild ();
 			else
 				return 0;
 		}
-		Node * GetRootEdit () 
+		Node * GetRootEdit ()
 		{
 			if (_top.HasChildren ())
 				return *_top.FirstChild ();

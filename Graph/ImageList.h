@@ -83,12 +83,12 @@ namespace ImageList
 	{
 	public:
 		AutoHandle (int imageWidth, int imageHeight,
-					int count, 
+					int count,
 					ImageList::Flags flags = ImageList::Flags256ColorsMasked (),
 					int grow = 0);
 
 		// By default, make grey #c0c0c0 transparent
-		AutoHandle (Win::Instance inst, int bitmapId, int imageWidth, 
+		AutoHandle (Win::Instance inst, int bitmapId, int imageWidth,
 					Win::Color mask = Win::Color (0xc0, 0xc0, 0xc0), int growCount = 0);
 
 		AutoHandle (HIMAGELIST h = 0)

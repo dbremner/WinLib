@@ -4,7 +4,7 @@
 // (c) Reliable Software 1998 - 2009
 //----------------------------------
 
-// has value semantics 
+// has value semantics
 // with copy-on-write behavior of std::string
 
 class FilePath

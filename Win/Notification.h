@@ -4,7 +4,7 @@
 // (c) Reliable Software 2000 - 2005
 //----------------------------------
 
-namespace Win 
+namespace Win
 {
 	class Controller;
 }

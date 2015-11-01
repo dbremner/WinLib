@@ -30,7 +30,7 @@ public:
 	bool IsSet (BitEnum test) const { return BitFieldBase::IsSet (test); }
 	void Set (BitEnum bit) { BitFieldBase::Set (bit); }
 	void Clear (BitEnum bit) { BitFieldBase::Clear (bit); }
-	void Union (BitFieldMask<BitEnum> bits) 
+	void Union (BitFieldMask<BitEnum> bits)
 	{
 		_value |= bits;
 	}
@@ -72,7 +72,7 @@ public:
 
 	bool Match (unsigned long bits) const
 	{
-		return (bits & _mask) == _bits; 
+		return (bits & _mask) == _bits;
 	}
 
 private:

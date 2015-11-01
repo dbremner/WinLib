@@ -42,8 +42,8 @@ class ListHandler : public Notify::ListViewHandler
 {
 public:
 	explicit ListHandler (ListingCtrlHandler & ctrl);
-	bool OnDblClick () ;
-	bool OnItemChanged (Win::ListView::ItemState & state) ;
+	bool OnDblClick ();
+	bool OnItemChanged (Win::ListView::ItemState & state);
 private:
 	ListingCtrlHandler & _ctrl;
 };
@@ -54,11 +54,11 @@ class ListingCtrlHandler : public Dialog::ControlHandler
 	friend class ListHandler; // ListView handler calls private methods Select and OnDoubleClick
 public:
 	ListingCtrlHandler (TableData & dlgData);
-	Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) ;
+	Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom);
 
-	bool OnInitDialog () ;
-	bool OnDlgControl (unsigned id, unsigned notifyCode) ;
-	bool OnApply () ;
+	bool OnInitDialog ();
+	bool OnDlgControl (unsigned id, unsigned notifyCode);
+	bool OnApply ();
 private:
 	// Called by ListView handler
 	void Select (int itemIdx);

@@ -10,7 +10,7 @@
 //	To send output to the error log just use the 'TheErrorLog' as an ostream:
 //		E.g.:  TheErrorLog << "Just a simple message " << n << std::endl;
 //  Warning: don't use before or after main()
-//  Always end log output with std::endl 
+//  Always end log output with std::endl
 
 #if defined (DIAGNOSTIC)
 

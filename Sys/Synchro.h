@@ -13,7 +13,7 @@ namespace Win
 		CritSection (bool delayInit)
 			: _count (0xffffffff)
 		{}
-		CritSection () 
+		CritSection ()
 			: _count (0)
 		{
 			::InitializeCriticalSection (&_critSection);
@@ -29,15 +29,15 @@ namespace Win
 			_count = 0;
 			::InitializeCriticalSection (&_critSection);
 		}
-		unsigned Acquire () 
+		unsigned Acquire ()
 		{
 			::EnterCriticalSection (&_critSection);
 			++_count;
 			Assert (_count != 0);
 			return _count;
 		}
-		void Release () 
-		{ 
+		void Release ()
+		{
 			Assert (_count != 0);
 			--_count;
 			::LeaveCriticalSection (&_critSection);
@@ -50,11 +50,11 @@ namespace Win
 		unsigned			_count;
 	};
 
-	class Lock 
+	class Lock
 	{
 	public:
-		Lock (CritSection & critSect) 
-			: _critSect (critSect) 
+		Lock (CritSection & critSect)
+			: _critSect (critSect)
 		{
 			_critSect.Acquire ();
 		}
@@ -91,8 +91,8 @@ namespace Win
 	class LockPtr
 	{
 	public:
-		LockPtr (CritSection * critSect) 
-			: _critSect (critSect) 
+		LockPtr (CritSection * critSect)
+			: _critSect (critSect)
 		{
 			if (_critSect)
 				_critSect->Acquire ();
@@ -189,7 +189,7 @@ namespace Win
 
 	protected:
 		Event (HANDLE h)
-			: Sys::AutoHandle (h) 
+			: Sys::AutoHandle (h)
 		{}
 	};
 
@@ -215,8 +215,8 @@ namespace Win
 	{
 	public:
 		ExistingEvent (std::string const & name)
-			: Event (::OpenEvent (EVENT_ALL_ACCESS | EVENT_MODIFY_STATE, 
-								  FALSE, 
+			: Event (::OpenEvent (EVENT_ALL_ACCESS | EVENT_MODIFY_STATE,
+								  FALSE,
 								  name.c_str ()))
 		{
 			if (IsNull ())
@@ -260,15 +260,15 @@ namespace Win
 		}
 
 		// put into signaled state
-		void GreenLight () 
-		{ 
-			::SetEvent (H ()); 
+		void GreenLight ()
+		{
+			::SetEvent (H ());
 		}
 
 		// put into non-signaled state
-		void RedLight () 
-		{ 
-			::ResetEvent (H ()); 
+		void RedLight ()
+		{
+			::ResetEvent (H ());
 		}
 
 		void Wait (int timeout = INFINITE)
@@ -299,8 +299,8 @@ namespace Win
 	class AtomicCounterPtr
 	{
 	public:
-		AtomicCounterPtr (volatile long * pCounter) 
-			: _pCounter(pCounter) 
+		AtomicCounterPtr (volatile long * pCounter)
+			: _pCounter(pCounter)
 		{}
 
 		long Inc ()
@@ -334,7 +334,7 @@ namespace Win
 		{
 			return ::InterlockedExchange (_pCounter, newVal) != 0;
 		}
-  
+ 
 		void Set (long newVal)
 		{
 			::InterlockedExchange (_pCounter, newVal);
@@ -387,7 +387,7 @@ namespace Win
 	class SharedByTwoOwner
 	{
 	public:
-		SharedByTwoOwner (T * shared = 0): _shared (shared) 
+		SharedByTwoOwner (T * shared = 0): _shared (shared)
 		{}
 		SharedByTwoOwner (SharedByTwoOwner<T> const & p)
 			: _shared (p._shared)

@@ -21,7 +21,7 @@ template<typename T>
 class RefPtr
 {
 public:
-	RefPtr (T * ref = 0): _ref (ref) 
+	RefPtr (T * ref = 0): _ref (ref)
 	{}
 	RefPtr (RefPtr<T> const & p)
 		: _ref (p._ref)
@@ -89,7 +89,7 @@ template<class T>
 class TempSubstPtr
 {
 public:
-	TempSubstPtr (T * & pPrev) 
+	TempSubstPtr (T * & pPrev)
 		: _target (pPrev)
 	{
 		_pPrev = pPrev;
@@ -119,7 +119,7 @@ template<class T>
 class TempSubstVal
 {
 public:
-	TempSubstVal (T  & prev) 
+	TempSubstVal (T  & prev)
 		: _target (prev)
 	{
 		_oldVal = prev;

@@ -9,7 +9,7 @@
 class ModelessManager
 {
 public:
-	ModelessManager (Win::MessagePrepro & msgPrepro) 
+	ModelessManager (Win::MessagePrepro & msgPrepro)
 		: _msgPrepro (msgPrepro), _flag (false) {}
 	void Open (Win::Dow::Handle parentWin);
 	bool IsActive () const { return !_win.IsNull (); }
@@ -27,9 +27,9 @@ class ModelessHandler: public Dialog::ControlHandler
 {
 public:
 	ModelessHandler (ModelessManager & man);
-    bool OnInitDialog () ;
-	bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) ;
-	void OnDestroy () 
+    bool OnInitDialog ();
+	bool OnDlgControl (unsigned ctrlId, unsigned notifyCode);
+	void OnDestroy ()
 	{
 		_man.Deactivate ();
 	}

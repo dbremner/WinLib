@@ -34,7 +34,7 @@ namespace Win
 		void AddCreationData (void * data) { _data = data; }
 		void SetOwner (Win::Dow::Handle hwndOwner) {_hWndParent = hwndOwner; }
 
-		// Notice: Create returns handle, not auto handle (Win::Dow::Owner) 
+		// Notice: Create returns handle, not auto handle (Win::Dow::Owner)
 		// since most windows are destroyed in response to user actions (close, exit, etc...)
 		Win::Dow::Handle Create (Win::Controller * control, char const * title = "");
 		Win::Dow::Handle Create (std::auto_ptr<Win::Controller> control, char const * title = "");
@@ -51,7 +51,7 @@ namespace Win
 		char const *_windowName;    // pointer to window name
 		int         _x;             // horizontal position of window
 		int         _y;             // vertical position of window
-		int         _width;         // window width  
+		int         _width;         // window width 
 		int         _height;        // window height
 		Win::Dow::Handle    _hWndParent;    // handle to parent or owner window
 		HMENU       _hMenu;         // handle to menu, or child-window identifier

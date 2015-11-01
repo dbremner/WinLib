@@ -31,10 +31,10 @@
 #define SS_ETCHEDVERT       0x00000011L
 #define SS_ETCHEDFRAME      0x00000012L
 #define SS_TYPEMASK         0x0000001FL
-#endif // WINVER >= 0x0400 
+#endif // WINVER >= 0x0400
 #if(WINVER >= 0x0501)
 #define SS_REALSIZECONTROL  0x00000040L
-#endif // WINVER >= 0x0501 
+#endif // WINVER >= 0x0501
 #define SS_NOPREFIX         0x00000080L // Don't do "&" character translation
 #if(WINVER >= 0x0400)
 #define SS_NOTIFY           0x00000100L
@@ -89,8 +89,8 @@ namespace Win
 			unsigned len = SendMsg (WM_GETTEXTLENGTH);
 			std::string text;
 			text.reserve (len + 1);
-			SendMsg (WM_GETTEXT, 
-				static_cast<WPARAM>(text.capacity ()), 
+			SendMsg (WM_GETTEXT,
+				static_cast<WPARAM>(text.capacity ()),
 				reinterpret_cast<WPARAM>(writable_string (text).get_buf ()));
 			return text;
 		}

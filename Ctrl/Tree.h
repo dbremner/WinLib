@@ -41,13 +41,13 @@ namespace Tree
 		}
 		void SetText (char const * text)
 		{
-			item.mask |= TVIF_TEXT; 
+			item.mask |= TVIF_TEXT;
 			item.pszText = const_cast<char *>(text);
-			item.cchTextMax = strlen (text); 
+			item.cchTextMax = strlen (text);
 		}
 		void SetTextCallback ()
 		{
-			item.mask |= TVIF_TEXT; 
+			item.mask |= TVIF_TEXT;
 			item.pszText = LPSTR_TEXTCALLBACK;
 		}
 		void SetIcon (int iconId, int iconSel)
@@ -134,7 +134,7 @@ namespace Tree
 				mask |= TVIF_SELECTEDIMAGE;
 				iSelectedImage = img;
 			}
-			void SetText (bool remember = false) 
+			void SetText (bool remember = false)
 			{
 				mask |= TVIF_TEXT;
 				if (remember)
@@ -247,39 +247,39 @@ namespace Notify
 		explicit TreeViewHandler (unsigned id) : Notify::Handler (id) {}
 		virtual bool OnGetDispInfo (Tree::View::Request const & request,
 				Tree::View::State const & state,
-				Tree::View::Item & item) 
+				Tree::View::Item & item)
 			{ return false; }
 		virtual bool OnItemExpanding (Tree::View::Item & item,
 									Tree::Notify::Action action,
-									bool & allow) 
+									bool & allow)
 			{ allow = false; return false; }
 		virtual bool OnItemExpanded (Tree::View::Item & item,
-									Tree::Notify::Action action) 
+									Tree::Notify::Action action)
 			{ return false; }
 		virtual bool OnItemCollapsing (Tree::View::Item & item,
 									Tree::Notify::Action action,
-									bool & allow) 
+									bool & allow)
 			{ allow = false; return false; }
 		virtual bool OnItemCollapsed (Tree::View::Item & item,
-									Tree::Notify::Action action) 
+									Tree::Notify::Action action)
 			{ return false; }
-		virtual bool OnSelChanging (Tree::View::Item & itemOld, 
+		virtual bool OnSelChanging (Tree::View::Item & itemOld,
 									Tree::View::Item & itemNew,
-									Tree::Notify::Action action) 
+									Tree::Notify::Action action)
 			{ return false; }
-		virtual bool OnSelChanged (Tree::View::Item & itemOld, 
+		virtual bool OnSelChanged (Tree::View::Item & itemOld,
 									Tree::View::Item & itemNew,
-									Tree::Notify::Action action) 
+									Tree::Notify::Action action)
 			{ return false; }
 		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom)
 			{ return false; }
-		virtual bool OnClick (Win::Point pt) 
+		virtual bool OnClick (Win::Point pt)
 			{ return false; }
-		virtual bool OnRClick (Win::Point pt) 
+		virtual bool OnRClick (Win::Point pt)
 			{ return false; }
-		virtual bool OnDblClick (Win::Point pt) 
+		virtual bool OnDblClick (Win::Point pt)
 			{ return false; }
-		virtual Keyboard::Handler * GetKeyboardHandler () 
+		virtual Keyboard::Handler * GetKeyboardHandler ()
 			{ return 0; }
 
 	protected:

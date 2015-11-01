@@ -13,8 +13,8 @@ class FileIo : public File
 {
 public:
 	FileIo () {}
-	FileIo (std::string const & path, 
-			File::Mode mode, 
+	FileIo (std::string const & path,
+			File::Mode mode,
 			File::Attributes attrib = File::NormalAttributes ())
 		: File (path, mode, attrib)
 	{}
@@ -45,7 +45,7 @@ public:
 class InOutStream : public std::fstream
 {
 public:
-	InOutStream (std::string const & path, 
+	InOutStream (std::string const & path,
 		std::ios_base::open_mode openMode = (std::ios_base::in | std::ios_base::out));
 };
 

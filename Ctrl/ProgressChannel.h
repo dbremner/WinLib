@@ -67,7 +67,7 @@ namespace Progress
 		void SetActivity (std::string const & activity);
 		void StepIt ();
 		void StepTo (int step);
-		void StepAndCheck () ;
+		void StepAndCheck ();
 		bool WasCanceled ();
 		void Close ();
 

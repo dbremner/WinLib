@@ -42,7 +42,7 @@ namespace Brush
 	{
 	public:
 		InstantHolder (Win::Canvas canvas, Win::Color color)
-			: _brush (color), 
+			: _brush (color),
 				_holder (canvas, _brush)
 		{}
 	private:

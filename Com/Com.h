@@ -10,7 +10,7 @@
 
 namespace Com
 {
-	class Exception: public Win::Exception 
+	class Exception: public Win::Exception
 	{
 	public:
 		Exception (HRESULT hresult, char const * msg = 0, char const * objName = 0)
@@ -18,8 +18,8 @@ namespace Com
 		{}
 	};
 	// Position this object in such a way that its destructor
-	// is called on application shutdown, as the last call made 
-	// to the COM library after the application hides its main windows 
+	// is called on application shutdown, as the last call made
+	// to the COM library after the application hides its main windows
 	// and falls through its main message loop
 	// Create one Use object per each thread that has its own message loop
 	class Use

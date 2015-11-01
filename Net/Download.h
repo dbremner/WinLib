@@ -8,7 +8,7 @@ class FilePath;
 
 class Downloader
 {
-public: 
+public:
 	virtual ~Downloader () {}
 	virtual bool IsAvailable () const = 0;
 	virtual unsigned int CountDownloads () = 0;

@@ -42,7 +42,7 @@ namespace Win
 
 		class Handler : public Notify::Handler
 		{
-			bool OnNotify (NMHDR * hdr, LRESULT & result) ;
+			bool OnNotify (NMHDR * hdr, LRESULT & result);
 			virtual void OnChangeDate(unsigned year, unsigned month, unsigned day) {}
 			virtual void OnChangeNoDate() {}
 		};

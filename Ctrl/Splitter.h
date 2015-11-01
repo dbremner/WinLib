@@ -25,17 +25,17 @@ namespace Splitter
 			  _dragY (0)
 		{}
 
-		bool OnCreate (Win::CreateData const * create, bool & success) ;
-		bool OnSize (int width, int height, int flag) 
+		bool OnCreate (Win::CreateData const * create, bool & success);
+		bool OnSize (int width, int height, int flag)
 		{
 			_cx = width;
 			_cy = height;
 			return true;
 		}
-		bool OnLButtonDown (int x, int y, Win::KeyState kState) ;
-		bool OnLButtonUp (int x, int y, Win::KeyState kState) ;
-		bool OnMouseMove (int x, int y, Win::KeyState kState) ;
-		bool OnCaptureChanged (Win::Dow::Handle newCaptureWin) ;
+		bool OnLButtonDown (int x, int y, Win::KeyState kState);
+		bool OnLButtonUp (int x, int y, Win::KeyState kState);
+		bool OnMouseMove (int x, int y, Win::KeyState kState);
+		bool OnCaptureChanged (Win::Dow::Handle newCaptureWin);
 
 		virtual void BeginDrag (Win::Point const & parentOrigin,
 								Win::Point const & splitterOrigin,
@@ -55,7 +55,7 @@ namespace Splitter
 
 		// just because user waves over splitter with mouse button down doesn't mean they're dragging it;
 		// mouse down may have started in another control!!!
-		bool				_dragging; 
+		bool				_dragging;
 
 		int					_dragStart;
 		int					_dragX;
@@ -70,7 +70,7 @@ namespace Splitter
 			: Ctrl (splitterId)
 		{}
 
-		bool OnPaint () ;
+		bool OnPaint ();
 
 		void BeginDrag (Win::Point const & parentOrigin,
 						Win::Point const & splitterOrigin,
@@ -88,7 +88,7 @@ namespace Splitter
 			: Ctrl (splitterId)
 		{}
 
-		bool OnPaint () ;
+		bool OnPaint ();
 
 		void BeginDrag (Win::Point const & parentOrigin,
 						Win::Point const & splitterOrigin,

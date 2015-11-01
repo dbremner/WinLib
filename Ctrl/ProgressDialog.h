@@ -26,7 +26,7 @@ namespace Progress
 	{
 	public:
 		Dialog (std::string const & title,
-				Win::Dow::Handle parent, 
+				Win::Dow::Handle parent,
 				Win::MessagePrepro & msgPrepro,
 				unsigned initialDelay,	// Wait before showing progress meter dialog
 				unsigned dlgId)
@@ -80,8 +80,8 @@ namespace Progress
 
 		void Refresh ();
 
-		bool OnInitDialog () ;
-		bool OnCancel () ;
+		bool OnInitDialog ();
+		bool OnCancel ();
 
 	private:
 		Win::StaticText		_caption;
@@ -104,7 +104,7 @@ namespace Progress
 
 	public:
 		MeterDialog (std::string const & title,
-					 Win::Dow::Handle parent, 
+					 Win::Dow::Handle parent,
 					 Win::MessagePrepro & msgPrepro,
 					 bool canCancel = true,
 					 unsigned initialDelay = 1000)	// Wait 1 s before showing progress meter dialog

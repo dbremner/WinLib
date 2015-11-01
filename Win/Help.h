@@ -12,7 +12,7 @@ namespace Help
 	public:
 		virtual ~Engine () {}
 
-		virtual bool OnDialogHelp (int dlgId) 
+		virtual bool OnDialogHelp (int dlgId)
 			{ return false; }
 
 	protected:

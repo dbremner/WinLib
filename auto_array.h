@@ -16,7 +16,7 @@ public:
 	typedef T element_type;
 
 	explicit auto_array (size_t size)
-		: _a (size != 0? new T [size]: 0) 
+		: _a (size != 0? new T [size]: 0)
 	{}
 
 	explicit auto_array (T * p = 0) : _a (p) {}
@@ -38,7 +38,7 @@ public:
 		return *this;
 	}
 
-	template<class U> 
+	template<class U>
 	auto_array (auto_array<U> & aSrc)
 	{
 		_a = aSrc._a; // implicit cast
@@ -46,7 +46,7 @@ public:
 	}
 
 	// assignment of derived class
-	template<class U> 
+	template<class U>
 	auto_array & operator= (auto_array<U> & aSrc)
 	{
 		if (this != &aSrc)
@@ -72,7 +72,7 @@ public:
 		return tmp;
 	}
 
-	void reset (T * p = 0) 
+	void reset (T * p = 0)
 	{
 		if (p != _a)
 		{

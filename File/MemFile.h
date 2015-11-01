@@ -14,12 +14,12 @@ public:
 	MappableFile (std::string const & path, File::Mode mode, File::Attributes attributes, File::Size size);
     MappableFile (File & file, bool readOnly);
 	~MappableFile ()  { Close (); }
-	void Close () ;
+	void Close ();
 	bool IsFile () const { return FileOk (); }
 	HANDLE ToNative () const { return _hMap; }
 	void MakeMap (File::Size size, bool readOnly);
 	void MakeMap (bool readOnly);
-	void CloseMap () ;
+	void CloseMap ();
 protected:
 	MappableFile () :_hMap (0) {}
 protected:
@@ -53,8 +53,8 @@ public:
 	MemFile (std::string const & path, File::Mode mode, File::Size size);
 	MemFile (std::string const & path, File::Mode mode);
     MemFile (File & file, bool readOnly);
-    ~MemFile() ;
-	void Close () ;
+    ~MemFile();
+	void Close ();
 	void Close (File::Size finalSize);
     char *  GetBuf () { return _buf; }
     char const *  GetBuf () const { return _buf; }
@@ -71,7 +71,7 @@ protected:
 	void InitBufSize (File::Size size);
 	void InitBufSize ();
 	void Allocate ( File::Offset fileOffset = File::Offset (0, 0));
-	void Deallocate () ;
+	void Deallocate ();
 
 protected:
 	bool			_readOnly;
@@ -129,7 +129,7 @@ public:
 	void Stamp (long timeStamp);
 	long GetStamp () const { return *(reinterpret_cast<long const *> (_buf)); }
 
-	static bool IsLocked (char const *path) ;
+	static bool IsLocked (char const *path);
 };
 
 #endif

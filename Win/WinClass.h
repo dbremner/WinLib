@@ -56,14 +56,14 @@ namespace Win
 
 			HWND GetRunningWindow ();
 
-			void SetSysCursor (char const * id) 
-			{ 
-				hCursor = ::LoadCursor (0, id); 
+			void SetSysCursor (char const * id)
+			{
+				hCursor = ::LoadCursor (0, id);
 			}
-			void SetResCursor (int id) 
-			{ 
+			void SetResCursor (int id)
+			{
 				HCURSOR hCur = ::LoadCursor (hInstance, MAKEINTRESOURCE (id));
-				hCursor = hCur; 
+				hCursor = hCur;
 			}
 			void SetResIcons (int resId);
 			void AddExtraLong () { cbWndExtra += 4; }

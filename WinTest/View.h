@@ -9,7 +9,7 @@ class View
 {
 public:
 	View (Win::Dow::Handle win);
-	void Size (int width, int height) ;
+	void Size (int width, int height);
 private:
 	Win::Dow::Handle	_win;
 	int _xPix;

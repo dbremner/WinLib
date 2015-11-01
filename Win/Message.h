@@ -17,10 +17,10 @@ namespace Win
 		{}
 		void SetLParam (LPARAM lParam) { _lParam = lParam; }
 		void SetLParam (void const * ptr) { _lParam = reinterpret_cast<LPARAM> (ptr); }
-		void SetLParam (Win::Dow::Handle win) 
+		void SetLParam (Win::Dow::Handle win)
 			{ _lParam = reinterpret_cast<LPARAM> (win.ToNative ()); }
 		void SetWParam (WPARAM wParam) { _wParam = wParam; }
-		void SetWParam (Win::Dow::Handle win) 
+		void SetWParam (Win::Dow::Handle win)
 			{ _wParam = reinterpret_cast<WPARAM> (win.ToNative ()); }
 		void SetResult (LRESULT result) { _result = result; }
 		void MakeWParam (unsigned int lo, unsigned int hi) { _wParam = MAKEWPARAM (lo, hi); }

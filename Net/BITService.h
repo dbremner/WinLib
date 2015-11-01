@@ -73,7 +73,7 @@ namespace BITS
 	private:
 		Com::IfacePtr<IEnumBackgroundCopyFiles> _fileIter;
 		Com::IfacePtr<IBackgroundCopyFile>      _currFile;
-		unsigned long _fileCount; 
+		unsigned long _fileCount;
 		unsigned long _curr;
 	};
 
@@ -88,7 +88,7 @@ namespace BITS
 		// IUnknown
 		HRESULT __stdcall QueryInterface (REFIID riid, LPVOID *ppvObj)
 		{
-			if( riid == IID_IUnknown || riid == IID_IBackgroundCopyCallback ) 
+			if( riid == IID_IUnknown || riid == IID_IBackgroundCopyCallback )
 			{
 				*ppvObj = this;
 			}

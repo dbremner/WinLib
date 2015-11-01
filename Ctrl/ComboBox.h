@@ -82,7 +82,7 @@ namespace Win
 
 	public:
 		ComboBox (Win::Dow::Handle winParent, int id)
-			: Win::ControlWithFont (winParent, id) 
+			: Win::ControlWithFont (winParent, id)
 		{}
 		ComboBox (Win::Dow::Handle win)
 			: Win::ControlWithFont (win)
@@ -103,7 +103,7 @@ namespace Win
 			return SendMsg (CB_ADDSTRING, 0, reinterpret_cast<LPARAM>(item.c_str ()));
 		}
 
-		int Insert (int idx, char const * item) 
+		int Insert (int idx, char const * item)
 		{
 			return SendMsg (CB_INSERTSTRING, idx, reinterpret_cast<LPARAM>(item));
 		}
@@ -242,9 +242,9 @@ namespace Win
 			: ControlMaker ("COMBOBOX", winParent, id)
 		{
 			Style () << style
-					 << ComboBox::Style::HasStrings 
-					 << ComboBox::Style::AutoScroll 
-					 << ComboBox::Style::NoIntegralHeight 
+					 << ComboBox::Style::HasStrings
+					 << ComboBox::Style::AutoScroll
+					 << ComboBox::Style::NoIntegralHeight
 					 << Win::Style::AddVScrollBar;
 		}
 	};

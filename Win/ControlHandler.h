@@ -3,7 +3,7 @@
 //------------------------------
 // (c) Reliable Software 2005
 //------------------------------
- 
+
 namespace Control
 {
 	class Handler

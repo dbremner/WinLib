@@ -43,7 +43,7 @@ class SysMsg
 public:
     SysMsg (DWORD errCode, HINSTANCE hModule = 0);
     ~SysMsg ();
- 
+
 	operator char const * () const  { return _msg; }
     char const * Text () const { return _msg; }
 

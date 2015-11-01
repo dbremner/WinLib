@@ -83,29 +83,29 @@ namespace Dialog
 		};
 
 	public:
-		Template () 
-			: _version (0) 
+		Template ()
+			: _version (0)
 		{}
 		void Load (Win::Instance inst, int dlgId);
 		Dialog::Template::Serializer GetSerializer ()
 		{
 			return Serializer (_data);
 		}
-		DLGTEMPLATE const * ToNative () const 
-		{ 
-			return reinterpret_cast<DLGTEMPLATE const *> (&_data[0]); 
+		DLGTEMPLATE const * ToNative () const
+		{
+			return reinterpret_cast<DLGTEMPLATE const *> (&_data[0]);
 		}
 		int Width () const { return (_version == 1)? ToEx ()->cx: ToTmpl ()->cx; }
 		int Height () const { return (_version == 1)? ToEx ()->cy: ToTmpl ()->cy; }
 		void SetVersion (int version) { _version = version; }
 	private:
-		DLGTEMPLATE const * ToTmpl () const 
-		{ 
-			return reinterpret_cast<DLGTEMPLATE const *> (&_data[0]); 
+		DLGTEMPLATE const * ToTmpl () const
+		{
+			return reinterpret_cast<DLGTEMPLATE const *> (&_data[0]);
 		}
-		Template::Ex const * ToEx () const 
-		{ 
-			return reinterpret_cast<Ex const *> (&_data[0]); 
+		Template::Ex const * ToEx () const
+		{
+			return reinterpret_cast<Ex const *> (&_data[0]);
 		}
 	private:
 		std::vector<unsigned char>	_data;
@@ -114,7 +114,7 @@ namespace Dialog
 
 	class TemplateMaker
 	{
-		class Item 
+		class Item
 		{
 			friend class TemplateMaker;
 		public:
@@ -149,7 +149,7 @@ namespace Dialog
 			Win::Style & Style () { return _style; }
 
 		protected:
-			Item (unsigned id) 
+			Item (unsigned id)
 				: _helpId (0)
 				, _id (id)
 			{
@@ -192,7 +192,7 @@ namespace Dialog
 				SetClass (StaticClass);
 				_style << Win::Style::Group;
 			}
-			void Center () 
+			void Center ()
 			{
 				_style << Win::Static::Style::AlignCenter;
 			}

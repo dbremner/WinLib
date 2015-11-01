@@ -15,7 +15,7 @@
 #define DBG_LOGGING true
 
 // Tool tips Help: Several members of the NOTIFYICONDATA structure are only supported for
-// Shell32.dll versions 5.0 and later. To enable these members, include the following in your header: 
+// Shell32.dll versions 5.0 and later. To enable these members, include the following in your header:
 #define _WIN32_IE 0x0501
 
 // GetLastInputInfo

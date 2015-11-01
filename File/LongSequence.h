@@ -22,7 +22,7 @@ class LongSequence: public MappableFile
 public:
 	class iterator;
 public:
-	LongSequence (std::string const & path, 
+	LongSequence (std::string const & path,
 					File::Mode mode = File::OpenAlwaysMode ());
 	LongSequence (File::Size reservedSize);
 	~LongSequence ();
@@ -115,7 +115,7 @@ template<class T>
 class LongSequence<T>::Page: public RefCounted
 {
 public:
-	Page (LongSequence<T> const * file, unsigned pageNo) 
+	Page (LongSequence<T> const * file, unsigned pageNo)
 		: _pageNo (pageNo), _buf (0), _file (file)
 	{
 		if (_file->ToNative () != 0)
@@ -174,11 +174,11 @@ class LongSequence<T>::iterator : public std::iterator<std::input_iterator_tag, 
 {
 	typedef typename LongSequence<T>::Page Page;
 public:
-	iterator (unsigned pageNo, unsigned recordCount) 
+	iterator (unsigned pageNo, unsigned recordCount)
 		: _pageNo (pageNo), _curIdx (recordCount)
 	{
 	}
-	iterator (LongSequence<T> const * file, unsigned pageNo, unsigned idx) 
+	iterator (LongSequence<T> const * file, unsigned pageNo, unsigned idx)
 		: _pageNo (pageNo), _curIdx (idx)
 	{
 		_page.reset (new Page (file, pageNo));
@@ -197,12 +197,12 @@ public:
 		return *this;
 	}
 	bool operator != (iterator const & other) const
-	{ 
-		return !operator == (other); 
+	{
+		return !operator == (other);
 	}
 	bool operator == (iterator const & other) const
-	{ 
-		return _pageNo == other._pageNo && _curIdx == other._curIdx; 
+	{
+		return _pageNo == other._pageNo && _curIdx == other._curIdx;
 	}
 private:
 	unsigned		_pageNo;
@@ -211,7 +211,7 @@ private:
 };
 
 template<class T>
-LongSequence<T>::LongSequence (std::string const & path, 
+LongSequence<T>::LongSequence (std::string const & path,
 							   File::Mode mode)
 	: MappableFile (path, mode), _isWritable (!mode.IsReadOnly ())
 {

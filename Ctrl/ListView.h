@@ -57,12 +57,12 @@ namespace Win
 
 		private:
 			// NMHDR hdr;
-			// int   iItem; 
-			// int   iSubItem; 
-			// UINT  uNewState; 
-			// UINT  uOldState; 
-			// UINT  uChanged; 
-			// POINT ptAction; 
+			// int   iItem;
+			// int   iSubItem;
+			// UINT  uNewState;
+			// UINT  uOldState;
+			// UINT  uChanged;
+			// POINT ptAction;
 			// LPARAM lParam;
 			NMLISTVIEW * _state;
 		};
@@ -70,14 +70,14 @@ namespace Win
 		// Item is an argument to some methods of ListNotifyHandler
 		class Item : public LVITEM
 		{
-			// UINT mask; 
-			// int iItem; 
-			// int iSubItem; 
-			// UINT state; 
-			// UINT stateMask; 
-			// LPTSTR pszText; 
-			// int cchTextMax; 
-			// int iImage; 
+			// UINT mask;
+			// int iItem;
+			// int iSubItem;
+			// UINT state;
+			// UINT stateMask;
+			// LPTSTR pszText;
+			// int cchTextMax;
+			// int iImage;
 			// LPARAM lParam;
 			// int iIndent;		// _WIN32_IE >= 0x0300
 			// int iGroupId;	// _WIN32_IE >= 0x560 (including what follows)
@@ -106,9 +106,9 @@ namespace Win
 			}
 			void SetText (char const * text)
 			{
-				mask |= LVIF_TEXT; 
+				mask |= LVIF_TEXT;
 				pszText = const_cast<char *>(text);
-				cchTextMax = strlen (text); 
+				cchTextMax = strlen (text);
 			}
 			// Use these three together to copy text into Item buffer
 			int GetTextLen () const { return cchTextMax; }
@@ -163,25 +163,25 @@ namespace Win
 			void MakeCallback (int maxLen)
 			{
 				// We use only those two callbacks; Other posibilities are: LVIF_PARAM, LVIF_STATE
-				mask = LVIF_TEXT | LVIF_IMAGE; 
-				pszText = LPSTR_TEXTCALLBACK; 
-				cchTextMax = maxLen; 
+				mask = LVIF_TEXT | LVIF_IMAGE;
+				pszText = LPSTR_TEXTCALLBACK;
+				cchTextMax = maxLen;
 				iImage = I_IMAGECALLBACK;
 			};
 			void PrepareForRead (int pos, char * buf, int bufLen, int subItem = 0)
 			{
 				// We use only those two; Other possibilities are: LVIF_PARAM, LVIF_STATE
-				mask = LVIF_TEXT | LVIF_PARAM; 
-				iItem = pos; 
-				iSubItem = subItem; 
+				mask = LVIF_TEXT | LVIF_PARAM;
+				iItem = pos;
+				iSubItem = subItem;
 				pszText = buf;
-				cchTextMax = bufLen; 
+				cchTextMax = bufLen;
 			}
 			void PrepareForRead (int pos, int subItem = 0)
 			{
-				mask = LVIF_PARAM; 
-				iItem = pos; 
-				iSubItem = subItem; 
+				mask = LVIF_PARAM;
+				iItem = pos;
+				iSubItem = subItem;
 			}
 		};
 
@@ -551,9 +551,9 @@ namespace Win
 		void AddColumn (int width, std::string const & title, ColAlignment align = Left, bool hasImage = false);
 		void AddProportionalColumn (int widthPercentage, std::string const & title, ColAlignment align = Left, bool hasImage = false);
 		void DeleteColumn (unsigned int iCol);
-		Win::Header GetHeader () const 
+		Win::Header GetHeader () const
 		{
-			return Win::Header ((HWND)SendMsg (LVM_GETHEADER)); 
+			return Win::Header ((HWND)SendMsg (LVM_GETHEADER));
 		}
 		void RemoveColumnImage (unsigned int iCol);
 		void SetColumnImage (unsigned int iCol, int iImage, bool imageOnTheRight = true);
@@ -695,7 +695,7 @@ namespace Win
 			: ControlMaker (WC_LISTVIEW, hwndParent, id)
 		{
 			Style () << ListView::Style::Ex::FullRowSelect
-					 << Win::Style::ClipSiblings 
+					 << Win::Style::ClipSiblings
 					 << Win::Style::ClipChildren;
 		}
 		Win::Dow::Handle Create ()
@@ -728,29 +728,29 @@ namespace Notify
 	{
 	public:
 		explicit ListViewHandler (unsigned id): Notify::Handler (id) {}
-		virtual bool OnDblClick () 
+		virtual bool OnDblClick ()
 			{ return false; }
-		virtual bool OnClick () 
+		virtual bool OnClick ()
 			{ return false; }
 		virtual bool OnGetDispInfo (Win::ListView::Request const & request,
 									Win::ListView::State const & state,
-									Win::ListView::Item & item) 
+									Win::ListView::Item & item)
 			{ return false; }
-		virtual bool OnItemChanged (Win::ListView::ItemState & state) 
+		virtual bool OnItemChanged (Win::ListView::ItemState & state)
 			{ return false; }
-		virtual bool OnBeginLabelEdit (LRESULT & result) 
+		virtual bool OnBeginLabelEdit (LRESULT & result)
 			{ return false; }
-		virtual bool OnEndLabelEdit (Win::ListView::Item * item, LRESULT & result) 
+		virtual bool OnEndLabelEdit (Win::ListView::Item * item, LRESULT & result)
 			{ return false; }
-		virtual bool OnColumnClick (int col) 
+		virtual bool OnColumnClick (int col)
 			{ return false; }
-		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom) 
+		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom)
 			{ return false; }
-		virtual Keyboard::Handler * GetKeyboardHandler () 
+		virtual Keyboard::Handler * GetKeyboardHandler ()
 			{ return 0; }
-		virtual void OnBeginDrag (int itemIdx, bool isRightButtonDrag) 
+		virtual void OnBeginDrag (int itemIdx, bool isRightButtonDrag)
 			{}
-		virtual void OnCustomDraw (Win::ListView::CustomDraw & customDraw, LRESULT & result) 
+		virtual void OnCustomDraw (Win::ListView::CustomDraw & customDraw, LRESULT & result)
 		{ result = Win::ListView::CustomDraw::DoDefault; }
 
 	protected:

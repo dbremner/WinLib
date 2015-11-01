@@ -32,7 +32,7 @@ namespace Pop3
 		{}
 	};
 	// There is no way to tell a POP3 single-line response from multi-line response
-	// Client protocol must know what response to expect: 
+	// Client protocol must know what response to expect:
 	// either a single-line response or a multi-line response.
 
 	// Single-line response
@@ -62,8 +62,8 @@ namespace Pop3
 		MultiLineResponse (Socket & socket, unsigned bufSize);
 		void SkipToEnd ()
 		{
-			while (!AtEnd ()) 
-				Advance (); 
+			while (!AtEnd ())
+				Advance ();
 		}
 
 		bool IsError () const { return _firstLine.IsError (); }
@@ -89,9 +89,9 @@ namespace Pop3
 	class Session
 	{
 	public:
-		Session (Pop3::Connection & connection, 
-				 std::string const & user, 
-				 std::string const & pass, 
+		Session (Pop3::Connection & connection,
+				 std::string const & user,
+				 std::string const & pass,
 				 bool useSSL);
 		Socket & GetSocket () { return _connection.GetSocket (); }
 	private:

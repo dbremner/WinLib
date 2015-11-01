@@ -93,12 +93,12 @@ namespace Win
 
 		// code is the HIWORD (wParam)
 		static bool IsChanged (int code)
-		{ 
+		{
 			return code == EN_CHANGE;
 		}
 
 		static bool GotFocus (int code)
-		{ 
+		{
 			return code == EN_SETFOCUS;
 		}
 

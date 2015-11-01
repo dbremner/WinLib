@@ -21,7 +21,7 @@ public:
     {
 		Close ();
     }
-	void Close () 
+	void Close ()
 	{
         if (IsValid ())
 		{
@@ -31,8 +31,8 @@ public:
 	}
 	void Open (bool recursive, DWORD notifyFlags)
 	{
-		_handle = ::FindFirstChangeNotification (_dir.c_str (), 
-			recursive ? TRUE : FALSE, 
+		_handle = ::FindFirstChangeNotification (_dir.c_str (),
+			recursive ? TRUE : FALSE,
 			notifyFlags);
 		if (INVALID_HANDLE_VALUE == _handle)
 			throw Win::Exception ("Cannot create notification event for the folder", _dir.c_str ());
@@ -69,7 +69,7 @@ public:
     {}
 	void Open ()
 	{
-		FileChangeEvent::Open (_recursive, 
+		FileChangeEvent::Open (_recursive,
 			FILE_NOTIFY_CHANGE_FILE_NAME |	// Renaming, creating, or deleting a file
 			FILE_NOTIFY_CHANGE_DIR_NAME  |	// Creating or deleting a directory
 			FILE_NOTIFY_CHANGE_ATTRIBUTES);	// Attribute change
@@ -138,7 +138,7 @@ public:
 //	void Init (std::vector<std::string> const & folder);
 	void AddFolder (std::string const & folder, bool recursive);
 	void AddFolders (std::vector<std::string> const & folder);
-	void StopWatching (std::string const & folder) ;
+	void StopWatching (std::string const & folder);
 private:
     void Run ();
 private:
@@ -166,7 +166,7 @@ public:
 	{
 		_stopWatching = false;
 		if (!_event.IsValid ())
-			_event.Open (); 
+			_event.Open ();
 	}
 	HANDLE GetEvent () const { return _event.ToNative (); }
 	std::string GetDir () const { return _event.GetDir (); }

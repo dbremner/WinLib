@@ -30,13 +30,13 @@ public:
     {
 		Reset (timeValue, localeName);
 	}
-    long AsLong ()  const 
+    long AsLong ()  const
 	{
 		Assert (_value != 0);
 		return static_cast<long>(_value);
 	}
 	void Reset (long value, char const * localeName = "");
-	std::string const & GetString () const 
+	std::string const & GetString () const
 	{
 		Assert (_value != 0);
 		return _string;
@@ -54,12 +54,12 @@ public:
 		Reset (timeValue, localeName, inShortFormat);
 	}
 
-	long AsLong ()  const 
+	long AsLong ()  const
 	{
 		Assert (_value != 0);
 		return static_cast<long>(_value);
 	}
-	std::string const & GetString () const 
+	std::string const & GetString () const
 	{
 		Assert (_value != 0);
 		return _string;
@@ -76,7 +76,7 @@ class SmtpCurrentTime
 {
 public:
 	SmtpCurrentTime ();
-	std::string const & GetString () const 
+	std::string const & GetString () const
 	{
 		return _string;
 	}

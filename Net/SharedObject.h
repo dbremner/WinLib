@@ -9,12 +9,12 @@ namespace Net
 	class SharedObject
 	{
 	public:
-		enum EType 
-		{ 
-			DiskTree	= 0, 
-			PrintQueue	= 1, 
-			Device		= 2, 
-			IPC			= 3 
+		enum EType
+		{
+			DiskTree	= 0,
+			PrintQueue	= 1,
+			Device		= 2,
+			IPC			= 3
 		};
 
 	public:

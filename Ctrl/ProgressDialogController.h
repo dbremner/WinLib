@@ -22,7 +22,7 @@ namespace Progress
 						  Win::MessagePrepro & prepro,
 						  int dlgId);
 
-		bool OnTimer (int id) ;
+		bool OnTimer (int id);
 
 	private:
 		Progress::CtrlHandler & _ctrlHandler;

@@ -12,7 +12,7 @@ namespace Win
 
 #ifdef BORLAND_COMPILER
     template<>
-    void Disposal<HKEY>::Dispose (RegKey::Handle h) ;
+    void Disposal<HKEY>::Dispose (RegKey::Handle h);
 #endif
 }
 
@@ -23,7 +23,7 @@ namespace RegKey
 	class Handle : public Win::Handle<HKEY>
 	{
 	public:
-		Handle (HKEY h = 0) 
+		Handle (HKEY h = 0)
 			: Win::Handle<HKEY> (h)
 		{}
 
@@ -92,7 +92,7 @@ namespace RegKey
 	class AutoHandle : public Win::AutoHandle<RegKey::Handle>
 	{
 	public:
-		AutoHandle (HKEY h = 0) 
+		AutoHandle (HKEY h = 0)
 			: Win::AutoHandle<RegKey::Handle> (h)
 		{}
 	};
@@ -201,7 +201,7 @@ namespace RegKey
 	    unsigned long GetLong () const
 	    {
 			Assert (_type == REG_DWORD);
-	        unsigned long const * p = 
+	        unsigned long const * p =
 				reinterpret_cast<unsigned long const *> (&_value [0]);
 	        return *p;
 	    }
@@ -232,21 +232,21 @@ namespace RegKey
 
 	    void Advance ();
 	    bool AtEnd () const { return _status == ERROR_NO_MORE_ITEMS; }
-	    void Rewind () 
-		{ 
-			_cur = -1; 
+	    void Rewind ()
+		{
+			_cur = -1;
 			Advance ();
 		}
 
-	    std::string GetKeyName () const 
+	    std::string GetKeyName () const
 		{
 			std::string name (&_name [0], _nameLen);
-			return name; 
+			return name;
 		}
-	    std::string GetClassName () const 
-		{ 
+	    std::string GetClassName () const
+		{
 			std::string classStr (&_class [0], _classLen);
-			return classStr; 
+			return classStr;
 		}
 	    FILETIME const & GetModificationTime () const { return _lastTime; }
 	    unsigned long const  Count () const { return _count; }

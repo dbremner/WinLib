@@ -33,7 +33,7 @@ namespace Pop3
 		void EatToEnd ();
 		bool EatToLine (std::string const & stopLine);
 private:
-		LineSeq		  * _lineSeq; 
+		LineSeq		  * _lineSeq;
 		Pop3::Sink    * _sink;
 		std::stack<MIME::Headers>	_context;
 		MIME::Headers			  	_currentContext;

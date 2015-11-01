@@ -40,10 +40,10 @@ namespace Notify
 		virtual void OnApply (LRESULT & result)  {}
 		virtual void OnReset ()  {}
 		virtual void OnHelp () const  {}
-		virtual void OnPrev (LRESULT & result) ;
-		virtual void OnNext (LRESULT & result) ;
+		virtual void OnPrev (LRESULT & result);
+		virtual void OnNext (LRESULT & result);
 	protected:
-		bool OnNotify (NMHDR * hdr, LRESULT & result) ;
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 		// For use in wizards
 		virtual bool GoNext (LRESULT & nextPage) { return false; }
 		virtual bool GoPrevious () { return false; }
@@ -78,7 +78,7 @@ namespace PropPage
 	};
 
 	//--------------------------------------------
-	// PropPage::ControlHandler 
+	// PropPage::ControlHandler
 	// Handles messages related to dialog controls
 	//--------------------------------------------
 	class ControlHandler: public Dialog::ControlHandler
@@ -91,8 +91,8 @@ namespace PropPage
 		bool SupportsContextHelp () const { return _supportsContextHelp; }
 		unsigned GetPageId () const { return GetId (); }
 		void SetButtons (Wiz::Buttons buttons) const
-		{ 
-			::PropSheet_SetWizButtons (GetWindow ().GetParent ().ToNative (), buttons); 
+		{
+			::PropSheet_SetWizButtons (GetWindow ().GetParent ().ToNative (), buttons);
 		}
 		void CancelToClose ()
 		{
@@ -101,7 +101,7 @@ namespace PropPage
 
 		void PressButton (PropPage::Button button)
 		{
-			::PropSheet_PressButton (GetWindow ().GetParent ().ToNative (), button); 
+			::PropSheet_PressButton (GetWindow ().GetParent ().ToNative (), button);
 		}
 	private:
 		bool	_supportsContextHelp;
@@ -119,7 +119,7 @@ namespace PropPage
 			  Notify::PageHandler (pageId)
 		{
 		}
-		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
+		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom)
 		{
 			return this;
 		}
@@ -154,7 +154,7 @@ namespace PropPage
 		{
 		public:
 			Page (PropPage::Controller * controller,
-				  PropPage::Handler * handler, 
+				  PropPage::Handler * handler,
 				  Header const & header);
 
 			void SetTitle (std::string const & title)
@@ -176,7 +176,7 @@ namespace PropPage
 		class Header : public PROPSHEETHEADER
 		{
 		public:
-			Header (Win::Dow::Handle win, std::string const & caption); 
+			Header (Win::Dow::Handle win, std::string const & caption);
 			Header (Win::Instance hInst, std::string const & caption);
 
 			void SetNoContextHelp ();
@@ -204,7 +204,7 @@ namespace PropPage
 
 	public:
 		// PropPage::Sheet proper
-		Sheet (Win::Dow::Handle win, std::string const & caption); 
+		Sheet (Win::Dow::Handle win, std::string const & caption);
 		Sheet (Win::Instance hInst, std::string const & caption);
 
 		void SetNoContextHelp () { _header.SetNoContextHelp (); }

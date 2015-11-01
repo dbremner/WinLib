@@ -79,7 +79,7 @@ namespace Win
 		bool				_inheritParentHandles;
 		bool				_createSuspended;
 		PROCESS_INFORMATION	_processInfo;
-		STARTUPINFO			_startupInfo; 	   
+		STARTUPINFO			_startupInfo; 	  
 	};
 }
 

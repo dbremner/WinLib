@@ -80,12 +80,12 @@ namespace Win
         void GetTextSize (char const * text, int& cxText, int& cyText, size_t lenString = 0);
 
 	    // Bitmap
-	    void PaintBitmap (  Bitmap::Handle bitmap, 
-						    int width, 
-						    int height, 
-						    int xDest = 0, 
-						    int yDest = 0, 
-						    int xSrc = 0, 
+	    void PaintBitmap (  Bitmap::Handle bitmap,
+						    int width,
+						    int height,
+						    int xDest = 0,
+						    int yDest = 0,
+						    int xSrc = 0,
 						    int ySrc = 0,
 						    DWORD rop = SRCCOPY);
 
@@ -94,9 +94,9 @@ namespace Win
 						    int srcHeight,
 						    int dstWidth,
 						    int dstHeight,
-						    int xDest = 0, 
-						    int yDest = 0, 
-						    int xSrc = 0, 
+						    int xDest = 0,
+						    int yDest = 0,
+						    int xSrc = 0,
 						    int ySrc = 0,
 						    DWORD rop = SRCCOPY);
 	};
@@ -181,13 +181,13 @@ namespace Win
     class MemCanvas: public Canvas
 	{
     public:
-        MemCanvas (HDC hdc) 
+        MemCanvas (HDC hdc)
             : Canvas (::CreateCompatibleDC (hdc))
 		{}
 
         ~MemCanvas ()
 		{
-			::DeleteDC(H ()); 
+			::DeleteDC(H ());
 		}
 	private:
 		MemCanvas (MemCanvas &);

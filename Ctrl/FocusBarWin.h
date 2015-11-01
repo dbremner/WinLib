@@ -17,7 +17,7 @@ namespace Focus
 
 namespace FocusBar
 {
-	// A bar with text, usually positioned above one of child windows 
+	// A bar with text, usually positioned above one of child windows
 	// members of a Focus::Ring
 	// When the user clicks on the bar, the focus is given to the child
 	// window that is associated with the bar.
@@ -42,17 +42,17 @@ namespace FocusBar
 		void TurnOn ();
 		void TurnOff ();
 
-		bool OnCreate (Win::CreateData const * create, bool & success) ;
-		bool OnSize (int width, int height, int flag) ;
-		bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) ;
-		bool OnPaint () ;
-		bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) ;
-		Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
+		bool OnCreate (Win::CreateData const * create, bool & success);
+		bool OnSize (int width, int height, int flag);
+		bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate);
+		bool OnPaint ();
+		bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName);
+		Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom)
 		{
 			return this;
 		}
 		// ControlHandler
-		bool OnControl (unsigned id, unsigned notifyCode) ;
+		bool OnControl (unsigned id, unsigned notifyCode);
 
 	private:
 		static const unsigned CLOSE_BUTTON_ID = 15;

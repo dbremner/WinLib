@@ -8,7 +8,7 @@ class BufferedStream
 {
 public:
 	BufferedStream (unsigned bufSize)
-	  : _bufPos (0), 
+	  : _bufPos (0),
 		_bufEnd (0),
 		_bufSize (bufSize),
 		_buf (bufSize)

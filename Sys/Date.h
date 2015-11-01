@@ -23,9 +23,9 @@ public:
 
 	bool operator == (Date const & d) const
 	{
-		return  (_year == d.Year ()) && 
-			    (_month == d.Month ()) && 
-				(_day == d.Day ()); 
+		return  (_year == d.Year ()) &&
+			    (_month == d.Month ()) &&
+				(_day == d.Day ());
 	}
 
 	void Now ();

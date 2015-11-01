@@ -127,7 +127,7 @@ namespace Tool
 			Win::CommonControlsRegistry::Instance()->Add(Win::CommonControlsRegistry::BAR);
 		}
 
-		Tool::Handle Create () 
+		Tool::Handle Create ()
 		{
 			Tool::Handle h = ControlMaker::Create ();
 			h.SendMsg (TB_BUTTONSTRUCTSIZE, sizeof(TBBUTTON));
@@ -175,9 +175,9 @@ namespace Tool
 		unsigned GetButtonWidth (int buttonIndex) const;
 
 		// Disable all buttons
-		void Disable () ;
+		void Disable ();
 		void FillToolTip (Tool::TipForCtrl * tip) const;
-		bool IsCmdButton (int cmdId) const;		 
+		bool IsCmdButton (int cmdId) const;		
 
 		typedef std::vector<int>::const_iterator ButtonIdIter;
 		ButtonIdIter begin () const { return _curCmdIds.begin (); }
@@ -218,7 +218,7 @@ namespace Tool
 			_executor (executor)
 		{}
 
-		bool OnControl (unsigned id, unsigned notifyCode) ;
+		bool OnControl (unsigned id, unsigned notifyCode);
 
 		void ClearButtonIds () { _myButtonIds.clear (); }
 		void AddButtonIds (Tool::Bar::ButtonIdIter first, Tool::Bar::ButtonIdIter last);

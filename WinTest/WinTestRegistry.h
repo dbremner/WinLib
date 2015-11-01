@@ -26,13 +26,13 @@ public:
 	WinTestRegistry (std::string const & appName)
 		:_appName (appName)
 	{}
-	void ReadPlacement (Win::Placement & placement, 
+	void ReadPlacement (Win::Placement & placement,
 		std::string const & windowName = std::string ("MainWindow"))
 	{
 		Registry::WinTestUser userWin (_appName, windowName);
 		RegKey::ReadWinPlacement (placement, userWin.Key ());
 	}
-	void SavePlacement (Win::Placement const & placement, 
+	void SavePlacement (Win::Placement const & placement,
 		std::string const & windowName = std::string ("MainWindow"))
 	{
 		Registry::WinTestUser userWin (_appName, windowName);

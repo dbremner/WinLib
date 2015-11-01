@@ -16,16 +16,16 @@ namespace Font
 		enum WeightBits
 		{
 			// Font weight is between 0 and 1000. These are the predefined values
-			DontCare = FW_DONTCARE, 
-			Thin = FW_THIN, 
-			ExtraLight = FW_EXTRALIGHT, 
-			Light = FW_LIGHT, 
-			Normal = FW_NORMAL, 
-			Medium = FW_MEDIUM, 
-			SemiBold = FW_SEMIBOLD, 
-			Bold = FW_BOLD, 
-			ExtraBold = FW_EXTRABOLD, 
-			Heavy = FW_HEAVY 
+			DontCare = FW_DONTCARE,
+			Thin = FW_THIN,
+			ExtraLight = FW_EXTRALIGHT,
+			Light = FW_LIGHT,
+			Normal = FW_NORMAL,
+			Medium = FW_MEDIUM,
+			SemiBold = FW_SEMIBOLD,
+			Bold = FW_BOLD,
+			ExtraBold = FW_EXTRABOLD,
+			Heavy = FW_HEAVY
 		};
 	};
 
@@ -48,14 +48,14 @@ namespace Font
 			ShiftJIS = SHIFTJIS_CHARSET,
 			Symbol = SYMBOL_CHARSET,
 			Turkish = TURKISH_CHARSET,
-			Vietnamese = VIETNAMESE_CHARSET, 
-			//Korean language edition of Windows: 
-			Johab = JOHAB_CHARSET, 
-			// Middle East language edition of Windows: 
+			Vietnamese = VIETNAMESE_CHARSET,
+			//Korean language edition of Windows:
+			Johab = JOHAB_CHARSET,
+			// Middle East language edition of Windows:
 			Arabic = ARABIC_CHARSET,
-			Hebrew = HEBREW_CHARSET, 
-			//Thai language edition of Windows: 
-			Thai = THAI_CHARSET 
+			Hebrew = HEBREW_CHARSET,
+			//Thai language edition of Windows:
+			Thai = THAI_CHARSET
 		};
 	};
 
@@ -132,7 +132,7 @@ namespace Font
 	{
 	public:
 		ColorHolder (Win::Canvas canvas, Win::Color color)
-			: _canvas (canvas), 
+			: _canvas (canvas),
 				_oldColor (::SetTextColor (_canvas.ToNative (), color.ToNative ()))
 		{}
 		~ColorHolder ()
@@ -148,7 +148,7 @@ namespace Font
 	{
 	public:
 		BkgHolder (Win::Canvas canvas, Win::Color color)
-			: _canvas (canvas), 
+			: _canvas (canvas),
 				_oldColor (::SetBkColor (_canvas.ToNative (), color.ToNative ()))
 		{}
 		~BkgHolder ()

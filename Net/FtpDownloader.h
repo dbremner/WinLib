@@ -26,9 +26,9 @@ namespace Ftp
 		}
 
 		bool IsAvailable () const { return true; }
-		unsigned int CountDownloads () 
-		{ 
-			return IsWorking () ? 1: 0; 
+		unsigned int CountDownloads ()
+		{
+			return IsWorking () ? 1: 0;
 		}
 		void StartGetFile (std::string const & sourcePath, std::string const & targetPath);
 		bool Continue (std::string const & destFile) { return false; }

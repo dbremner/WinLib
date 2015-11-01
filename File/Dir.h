@@ -21,7 +21,7 @@ public:
 	unsigned long GetSize () const { return _data.nFileSizeLow; }
 	bool IsFolder () const { return (_data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0; }
 	bool IsReadOnly () const { return (_data.dwFileAttributes & FILE_ATTRIBUTE_READONLY) != 0; }
-	bool IsDots () const 
+	bool IsDots () const
 	{ 	
 		return _data.cFileName [0] == '.' && (_data.cFileName [1] == '\0' // single dot
 				|| (_data.cFileName [1] == '.' && _data.cFileName [2] == '\0')); // double dot

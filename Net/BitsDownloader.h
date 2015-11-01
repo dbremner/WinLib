@@ -14,8 +14,8 @@ namespace BITS
 	class Downloader : public ::Downloader
 	{
 	public:
-		Downloader (std::string const & jobName, 
-			CopyProgressSink & sink, 
+		Downloader (std::string const & jobName,
+			CopyProgressSink & sink,
 			std::string const & serverName);
 		
 		bool IsAvailable () const { return _bits.get () != 0; }

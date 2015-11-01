@@ -112,7 +112,7 @@ namespace Cmd
 	}
 
 	template <class T>
-	Cmd::Status VectorExec<T>::Test (int cmdId) const 
+	Cmd::Status VectorExec<T>::Test (int cmdId) const
 	{
 		try
 		{
@@ -151,7 +151,7 @@ namespace Cmd
 	}
 
 	template <class T>
-	Cmd::Status VectorExec<T>::Test (char const * cmd) const 
+	Cmd::Status VectorExec<T>::Test (char const * cmd) const
 	{
 		int cmdId = Cmd2Id (cmd);
 		return Test (cmdId);

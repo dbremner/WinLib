@@ -29,13 +29,13 @@ namespace Ftp
 		std::string const & GetPassword () const { return _password; }
 		bool IsAnonymous () const { return _user.empty (); }
 
-		void SetServer (std::string const & server) 
+		void SetServer (std::string const & server)
 		{
 			static const std::string prefix ("ftp://");
 			if (IsNocaseEqual (server, 0, prefix, 0, prefix.length ()))
 				_server = server.substr (prefix.length ());
 			else
-				_server = server; 
+				_server = server;
 		}
 		void SetUser (std::string const & user) { _user = user; }
 		void SetPassword (std::string const & password) { _password = password; }
@@ -57,7 +57,7 @@ namespace Ftp
 		Handle (HINTERNET h = 0): Internet::Handle (h) {}
 
 		bool GetFile (char const * remotePath,
-					  char const * localPath, 
+					  char const * localPath,
 					  File::Attributes attr = File::NormalAttributes (),
 					  Internet::Callback * callback = 0);
 		bool PutFile (char const * remotePath,
@@ -149,7 +149,7 @@ namespace Ftp
 		unsigned long GetSize () const { return _data.nFileSizeLow; }
 		bool IsFolder () const { return (_data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0; }
 		bool IsReadOnly () const { return (_data.dwFileAttributes & FILE_ATTRIBUTE_READONLY) != 0; }
-		bool IsDots () const 
+		bool IsDots () const
 		{ 	
 			return _data.cFileName [0] == '.' && (_data.cFileName [1] == '\0' // single dot
 					|| (_data.cFileName [1] == '.' && _data.cFileName [2] == '\0')); // double dot

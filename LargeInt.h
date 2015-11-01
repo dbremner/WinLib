@@ -5,7 +5,7 @@
 class LargeInteger
 {
 public:
-	LargeInteger () 
+	LargeInteger ()
 	{
 		_value.LowPart = 0;
 		_value.HighPart = 0;
@@ -20,10 +20,10 @@ public:
 	bool IsLarge () const { return _value.HighPart != 0; }
 	bool IsSmall () const { return _value.HighPart == 0 && static_cast<int> (_value.LowPart) >= 0; }
 	bool IsZero () const { return _value.LowPart == 0 && _value.HighPart == 0; }
-	int LowSmall () const 
+	int LowSmall () const
 	{
 		Assume (IsSmall (), "Cannot deal with file size > 2GB");
-		return static_cast<int> (_value.LowPart); 
+		return static_cast<int> (_value.LowPart);
 	}
 	unsigned long Low () const { return _value.LowPart; }
 	unsigned long High () const { return _value.HighPart; }

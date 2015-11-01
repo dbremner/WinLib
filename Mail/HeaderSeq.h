@@ -29,7 +29,7 @@ public:
 		}
 	}
 	void Advance ();
-	bool AtEnd () const 
+	bool AtEnd () const
 	{
 		if (_done)
 		{

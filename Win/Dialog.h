@@ -50,8 +50,8 @@ namespace Dialog
 	class Handle: public Win::Dow::Handle
 	{
 	public:
-		Handle (Win::Dow::Handle win = 0) 
-			: Win::Dow::Handle (win) 
+		Handle (Win::Dow::Handle win = 0)
+			: Win::Dow::Handle (win)
 		{}
 		void Reposition ()
 		{
@@ -126,11 +126,11 @@ namespace Dialog
 		virtual void EndOk ()  { Assert (!"EndOk must be overridden"); }
 		virtual void EndCancel ()  { Assert (!"EndCancel must be overridden"); }
 
-		Dialog::ControlHandler * GetDlgControlHandler () 
+		Dialog::ControlHandler * GetDlgControlHandler ()
 		{
 			return _ctrlHandler;
 		}
-		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) ;
+		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom);
 		void SetDlgControlHandler (Dialog::ControlHandler * handler)
 		{
 			_ctrlHandler = handler;
@@ -150,7 +150,7 @@ namespace Dialog
 			  _helpEngine (0),
 			  _ctrl (0)
 		{}
-		Win::Dow::Handle GetWindow () const 
+		Win::Dow::Handle GetWindow () const
 		{
 			if (_ctrl != 0)
 				return _ctrl->GetWindow ();
@@ -158,25 +158,25 @@ namespace Dialog
 				return Win::Dow::Handle ();
 		}
 		// These methods are usually specialized by the client
-		virtual bool OnInitDialog ()  
+		virtual bool OnInitDialog () 
 			{ return true; }
 		// Use to process messages from dialog controls other than IDOK, IDCANCEL, and IDHELP
-		virtual bool OnDlgControl (unsigned id, unsigned notifyCode) 
+		virtual bool OnDlgControl (unsigned id, unsigned notifyCode)
 			{ return false; }
 		// Called when user clicks the OK button (IDOK)
-		virtual bool OnApply ()  
+		virtual bool OnApply () 
 		{
 			EndOk ();
 			return true;
 		}
 		// Called when user clicks the CANCEL button (IDCANCEL)
-		virtual bool OnCancel ()  
+		virtual bool OnCancel () 
 		{
 			EndCancel ();
 			return true;
 		}
 		// Called when user clicks the HELP button (IDHELP). Default implementation uses help engine.
-		virtual bool OnHelp () ; 
+		virtual bool OnHelp () ;
 		// Alternative dialog input (alternative to GUI)
 		virtual bool GetDataFrom (NamedValues const & source)
 			{ return false; }
@@ -185,27 +185,27 @@ namespace Dialog
 		virtual void OnDectivate ()  {}
 		virtual void OnDestroy ()  {}
 		// These non-virtual methods should be called from OnApply and OnCancel
-		void EndOk () 
+		void EndOk ()
 		{
 			Assert (_ctrl != 0);
 			_ctrl->EndOk ();
 		}
-		void EndCancel () 
+		void EndCancel ()
 		{
 			Assert (_ctrl != 0);
 			_ctrl->EndCancel ();
 		}
-		void AttachHelp (Help::Engine * helpEngine)  
+		void AttachHelp (Help::Engine * helpEngine) 
 		{
 			_helpEngine = helpEngine;
 		}
-		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
+		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom)
 		{
 			return 0;
 		}
 	public: // For internal use: made public because of problems with templated friends
 		void Attach (Dialog::Controller * ctrl) { _ctrl = ctrl; }
-		bool OnControl (unsigned ctrlId, unsigned notifyCode) ;
+		bool OnControl (unsigned ctrlId, unsigned notifyCode);
 	private:
 		Dialog::Controller *_ctrl;
 		Help::Engine *		_helpEngine;
@@ -227,12 +227,12 @@ namespace Dialog
 		ModalController (int dlgId)
 			: Dialog::Controller (dlgId)
 		{}
-		void EndOk () 
+		void EndOk ()
 		{
 			::EndDialog (GetWindow ().ToNative (), 1);
 			Win::ClearError ();
 		}
-		void EndCancel () 
+		void EndCancel ()
 		{
 			::EndDialog (GetWindow ().ToNative (), 0);
 			Win::ClearError ();
@@ -245,36 +245,36 @@ namespace Dialog
 	{
 	public:
 		// Owned by Windows, accessed through window long, destroyed by Window procedure
-		bool MustDestroy () 
+		bool MustDestroy ()
 			{ return true; }
 
-		ModelessController (Win::MessagePrepro & prepro, 
-							int dlgId, 
-							Win::Dow::Handle accelWin = Win::Dow::Handle (), 
-							Accel::Handle accel = Accel::Handle ()) 
+		ModelessController (Win::MessagePrepro & prepro,
+							int dlgId,
+							Win::Dow::Handle accelWin = Win::Dow::Handle (),
+							Accel::Handle accel = Accel::Handle ())
 			: Dialog::Controller (dlgId),
 			  _prepro (prepro),
 			  _accelWin (accelWin),
 			  _accel (accel)
 		{}
 
-		void EndOk () 
+		void EndOk ()
 		{
 			Destroy ();
 			Win::ClearError ();
 		}
-		void EndCancel () 
+		void EndCancel ()
 		{
 			Destroy ();
 			Win::ClearError ();
 		}
-		void Destroy () 
-		{ 
+		void Destroy ()
+		{
 			::DestroyWindow (GetWindow ().ToNative ());
 		}
-		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) ; 
-		bool OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd) ;
-        bool OnDestroy () ;
+		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) ;
+		bool OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd);
+        bool OnDestroy ();
 	protected:
 		Win::MessagePrepro & _prepro;
 		Win::Dow::Handle	_accelWin;
@@ -286,7 +286,7 @@ namespace Dialog
 	class Modal
 	{
 	public:
-		Modal ( Win::Dow::Handle winParent, 
+		Modal ( Win::Dow::Handle winParent,
 				Dialog::ControlHandler & handler,
 				Dialog::ModalController * ctrl = 0,
 				Win::Instance hInstance = Win::Instance ())
@@ -305,8 +305,8 @@ namespace Dialog
 		}
 
 		Modal (Win::Dow::Handle winParent,
-			   Win::Instance hInstance, 
-			   Dialog::Template const & templ, 
+			   Win::Instance hInstance,
+			   Dialog::Template const & templ,
 			   Dialog::ControlHandler & handler,
 			   Dialog::ModalController * ctrl = 0)
 			: _ctrl (handler.GetId ())
@@ -337,16 +337,16 @@ namespace Dialog
 	public:
 		// Important: ControlHandler's lifetime must exceed that of the dialog!
 		ModelessMaker (Dialog::ControlHandler & handler, std::auto_ptr<Dialog::ModelessController> ctrl)
-			: _handler (handler), 
+			: _handler (handler),
 			  _ctrl (ctrl)
 		{
 			Init ();
 		}
-		ModelessMaker (Dialog::ControlHandler & handler, 
-			Win::MessagePrepro & msgPrepro, 
-			Win::Dow::Handle parentWin, 
+		ModelessMaker (Dialog::ControlHandler & handler,
+			Win::MessagePrepro & msgPrepro,
+			Win::Dow::Handle parentWin,
 			Accel::Handle accel = Accel::Handle ())
-			: _handler (handler), 
+			: _handler (handler),
 			  _ctrl (new ModelessController (msgPrepro, handler.GetId (), parentWin, accel))
 		{
 			Init ();
