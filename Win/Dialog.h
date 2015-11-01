@@ -176,7 +176,7 @@ namespace Dialog
 			return true;
 		}
 		// Called when user clicks the HELP button (IDHELP). Default implementation uses help engine.
-		virtual bool OnHelp () ;
+		virtual bool OnHelp ();
 		// Alternative dialog input (alternative to GUI)
 		virtual bool GetDataFrom (NamedValues const & source)
 			{ return false; }
@@ -272,7 +272,7 @@ namespace Dialog
 		{
 			::DestroyWindow (GetWindow ().ToNative ());
 		}
-		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) ;
+		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd);
 		bool OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd);
         bool OnDestroy ();
 	protected:
