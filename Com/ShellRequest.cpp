@@ -35,7 +35,7 @@ void FileRequest::MakeReadWrite ()
 	_from += '\0';	// Make _from ended by double '\0';
 	// _from contains multiple destination file paths separated
 	// by '\0' and ended by double '\0'
-	unsigned int i = 0;
+	size_t i = 0;
 	do
 	{
 		File::MakeReadWrite (&_from [i]);
@@ -51,7 +51,7 @@ void FileRequest::MakeReadOnly ()
 	_from += '\0';	// Make _from ended by double '\0';
 	// _from contains multiple destination file paths separated
 	// by '\0' and ended by double '\0'
-	unsigned int i = 0;
+	size_t i = 0;
 	do
 	{
 		File::MakeReadOnly (&_from [i]);
@@ -138,7 +138,7 @@ void CopyRequest::MakeDestinationReadOnly () const
 		return;
 	// _to contains multiple destination file paths separated
 	// by '\0' and ended by double '\0'
-	int i = 0;
+	size_t i = 0;
 	do
 	{
 		File::MakeReadOnly (&_to [i]);

@@ -61,8 +61,8 @@ namespace Dialog
 			}
 			void PutString (std::wstring const & str)
 			{
-				unsigned len = str.size ();
-				for (unsigned n = 0; n < len; ++n)
+				size_t len = str.size ();
+				for (size_t n = 0; n < len; ++n)
 					PutWchar (str [n]);
 				PutWchar (0);
 			}
@@ -75,7 +75,7 @@ namespace Dialog
 		private:
 			void * Extend (int n)
 			{
-				unsigned s = _buf.size ();
+				size_t s = _buf.size ();
 				_buf.resize (s + n);
 				return &_buf[s];
 			}

@@ -37,7 +37,7 @@ public:
 	char const * GetFilePath (char const * fileName, bool useSlash = false) const;
 	char const * GetFilePath (std::string const & fileName, bool useSlash = false) const;
 	void ResetLen () const { _buf.resize (_prefix); }
-	unsigned int  GetLen () const { return _buf.length (); }
+	size_t  GetLen () const { return _buf.length (); }
 	char const * GetRelativePath (unsigned int prefix) const;
 	bool Canonicalize (bool quiet = false);
 	void ConvertToLongPath ();
@@ -265,7 +265,7 @@ public:
     virtual bool AtEnd () const = 0;
     virtual void Advance () = 0;
 	virtual void Rewind () {}
-	virtual unsigned int GetCount () const { return 0; }
+	virtual size_t GetCount () const { return 0; }
 
 	virtual char const * GetFilePath () const = 0;
 };
@@ -279,7 +279,7 @@ public:
 	void InitWithPath (std::string const & path);
 	void AddName (std::string const & name) { _names.push_back (name); }
 
-	unsigned int size () const { return _names.size (); }
+	size_t size () const { return _names.size (); }
 
 	class Sequencer : public PathSequencer
 	{
@@ -293,7 +293,7 @@ public:
 
 		bool AtEnd () const { return _cur == _end; }
 		void Advance () { ++_cur; }
-		unsigned int GetCount () const { return _count; }
+		size_t GetCount () const { return _count; }
 
 		char const * GetFilePath () const { return _sourcePath.GetFilePath (*_cur); }
 
@@ -301,7 +301,7 @@ public:
 		FilePath const &							_sourcePath;
 		std::vector<std::string>::const_iterator	_cur;
 		std::vector<std::string>::const_iterator	_end;
-		unsigned									_count;
+		size_t  									_count;
 	};
 
 	friend class Sequencer;

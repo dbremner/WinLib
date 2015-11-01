@@ -32,15 +32,15 @@ namespace Win
 		public:
 			Sequencer (FileDropHandle const & fileDrop);
 
-			unsigned int GetCount () const { return _count; }
+			size_t GetCount () const { return _count; }
 			char const * GetFilePath () const { return _path.c_str (); }
 			void Advance ();
 			bool AtEnd () const { return _cur == _count; }
 
 		private:
 			Handle<HDROP>	_handle;
-			unsigned int	_cur;
-			unsigned int	_count;
+			size_t			_cur;
+			size_t			_count;
 			std::string		_path;
 		};
 

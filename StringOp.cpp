@@ -12,10 +12,10 @@ UpCaseTable const TheUpCaseTable;
 // returns offset of the first match or npos
 unsigned NocaseContains (std::string const & s1, std::string const & s2)
 {
-	unsigned size2 = s2.size ();
+	size_t size2 = s2.size ();
 	if (s1.size () < size2)
 		return std::string::npos;
-	unsigned maxOff = s1.size () - size2;
+	size_t maxOff = s1.size() - size2;
 	for (unsigned off = 0; off <= maxOff; ++off)
 	{
 		if (std::equal (s1.begin () + off, 

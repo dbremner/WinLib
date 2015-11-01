@@ -16,7 +16,7 @@ public:
 	void Remember (std::string const & path);
 
 	bool IsEmpty () const { return _paths.empty (); }
-	unsigned size () const { return _paths.size (); }
+	size_t size () const { return _paths.size (); }
 	std::string const & back () const { return _paths.back (); }
 
 	typedef std::vector<std::string>::const_iterator iterator;

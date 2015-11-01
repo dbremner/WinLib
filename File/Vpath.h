@@ -44,7 +44,7 @@ public:
 		Assert (!_segments.empty ());
 		_segments.pop_back ();
 	}
-	unsigned Depth () const { return _segments.size (); }
+	size_t Depth () const { return _segments.size (); }
 	std::string ToString () const;
 	std::string GetFilePath (std::string const & fileName);
 protected:

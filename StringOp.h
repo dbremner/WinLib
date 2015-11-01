@@ -500,7 +500,7 @@ public:
 	}
 	Iterator begin () const { return _map.begin (); }
 	Iterator end () const { return _map.end (); }
-	unsigned size () const { return _map.size (); }
+	size_t size () const { return _map.size (); }
 private:
 	std::map<std::string, std::string> _map;
 };

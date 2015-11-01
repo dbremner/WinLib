@@ -90,7 +90,7 @@ public:
 		Init (time, shortFormat);
 	}
 	char const * c_str () const { return _timeStr.c_str (); }
-	unsigned int length () const { return _timeStr.length (); }
+	size_t length () const { return _timeStr.length (); }
 	std::string ToString () const { return _timeStr; }
 private:
 	void Init (FILETIME const * time, bool shortFormat);
