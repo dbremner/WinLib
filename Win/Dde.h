@@ -154,7 +154,7 @@ namespace DDE
 		{
 			SetWParam (server);
 		}
-		AckMsg (Win::Dow::Handle server, DDE::Ack const & ack, unsigned int lParam)
+		AckMsg (Win::Dow::Handle server, DDE::Ack const & ack, LPARAM lParam)
 			: Win::Message (WM_DDE_ACK, 0,
 							::PackDDElParam (WM_DDE_ACK, ack.GetValue (), lParam))
 		{

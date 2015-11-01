@@ -166,7 +166,7 @@ namespace Win
 		virtual bool OnRegisteredMessage (Message & msg) 
 			{ return false; }
 		// Interprocess communication
-		virtual bool OnInterprocessPackage (unsigned int msg, char const * package, unsigned int errCode, long & result) throw ()
+		virtual bool OnInterprocessPackage (unsigned int msg, char const * package, unsigned int errCode, LRESULT & result) 
 			{ return false; }
 
 		//	Specialized drawing

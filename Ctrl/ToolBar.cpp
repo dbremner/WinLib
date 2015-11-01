@@ -264,7 +264,7 @@ BarButton::BarButton (int buttonId, int cmdId)
     idCommand = cmdId;
 }
 
-bool ToolTipHandler::OnNotify (NMHDR * hdr, long & result)
+bool ToolTipHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 {
 	// hdr->code
 	// hdr->idFrom;

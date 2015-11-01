@@ -168,7 +168,7 @@ namespace Notify
 		virtual bool OnLayoutChange ()  { return false; }
 
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result);
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 	};
 }
 

@@ -170,7 +170,7 @@ void Tool::ButtonBand::CalculateToolTipDelay (char const * tip) const
 		_toolBar.SetToolTipDelay (20000);
 }
 
-bool Notify::RebarHandler::OnNotify (NMHDR * hdr, long & result)
+bool Notify::RebarHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 {
 	// hdr->code
 	// hdr->idFrom;

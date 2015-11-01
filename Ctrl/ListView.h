@@ -738,23 +738,23 @@ namespace Notify
 			{ return false; }
 		virtual bool OnItemChanged (Win::ListView::ItemState & state) 
 			{ return false; }
-		virtual bool OnBeginLabelEdit (long & result) throw ()
+		virtual bool OnBeginLabelEdit (LRESULT & result) 
 			{ return false; }
-		virtual bool OnEndLabelEdit (Win::ListView::Item * item, long & result) throw ()
+		virtual bool OnEndLabelEdit (Win::ListView::Item * item, LRESULT & result) 
 			{ return false; }
 		virtual bool OnColumnClick (int col) 
 			{ return false; }
-		virtual bool OnSetFocus (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom) 
 			{ return false; }
 		virtual Keyboard::Handler * GetKeyboardHandler () 
 			{ return 0; }
 		virtual void OnBeginDrag (int itemIdx, bool isRightButtonDrag) 
 			{}
-		virtual void OnCustomDraw (Win::ListView::CustomDraw & customDraw, long & result) throw ()
+		virtual void OnCustomDraw (Win::ListView::CustomDraw & customDraw, LRESULT & result) 
 		{ result = Win::ListView::CustomDraw::DoDefault; }
 
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result);
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 	};
 }
 

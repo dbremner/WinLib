@@ -284,7 +284,7 @@ int ReportListing::FindItemByData (LPARAM itemData)
     return ListView_FindItem(H (), -1, &findInfo);
 }
 
-bool ListViewHandler::OnNotify (NMHDR * hdr, long & result)
+bool ListViewHandler::OnNotify (NMHDR * hdr, LRESULT & result)
 {
 	// hdr->code
 	// hdr->idFrom;

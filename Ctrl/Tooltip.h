@@ -65,7 +65,7 @@ namespace Notify
 			{ return false; }
 
 	protected:
-		bool OnNotify (NMHDR * hdr, long & result);
+		bool OnNotify (NMHDR * hdr, LRESULT & result);
 	};
 }
 

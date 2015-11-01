@@ -27,8 +27,8 @@ class ModelessHandler: public Dialog::ControlHandler
 {
 public:
 	ModelessHandler (ModelessManager & man);
-    bool OnInitDialog () throw (Win::Exception);
-	bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception);
+    bool OnInitDialog () ;
+	bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) ;
 	void OnDestroy () 
 	{
 		_man.Deactivate ();

@@ -24,7 +24,7 @@ namespace Notify
 			return id == _id;
 		}
 	protected:
-		virtual bool OnNotify (NMHDR * hdr, long & result) throw (Win::Exception) = 0;
+		virtual bool OnNotify (NMHDR * hdr, LRESULT & result) = 0;
 		unsigned _id;
 	};
 }
