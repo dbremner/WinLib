@@ -234,13 +234,13 @@ namespace DDE
 
 	public:
 		virtual ~Controller () {}
-		virtual bool OnCreate () throw ()
+		virtual bool OnCreate () 
 			{ return false; }
-        virtual bool OnDestroy () throw ()
+        virtual bool OnDestroy () 
 			{ return false; }
-		virtual bool OnTimer (int id) throw ()
+		virtual bool OnTimer (int id) 
 			{ return false; }
-		virtual bool OnTimeout () throw ()
+		virtual bool OnTimeout () 
 			{ return false; }
 		virtual bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) throw () = 0;
 		virtual void OnAck (Win::Dow::Handle partner, DDE::Ack ack, int handle) throw () = 0;
@@ -301,7 +301,7 @@ namespace DDE
 	{
 	public:
 		// For DDE servers this methods do nothing
-		bool OnData (Win::Dow::Handle server, ATOM dataItem, Data const & data, DDE::Ack & ack) throw ()
+		bool OnData (Win::Dow::Handle server, ATOM dataItem, Data const & data, DDE::Ack & ack) 
 			{ return false; }
 
 	protected:
@@ -317,17 +317,17 @@ namespace DDE
 		{}
 
 		// For DDE clients this methods do nothing
-		bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) throw ()
+		bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) 
 			{ return false; }
-		bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise) throw ()
+		bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise) 
 			{ return false; }
-		bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack) throw ()
+		bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack) 
 			{ return false; }
-		bool OnPoke (Win::Dow::Handle client, ATOM dataItem, Poke const & poke) throw ()
+		bool OnPoke (Win::Dow::Handle client, ATOM dataItem, Poke const & poke) 
 			{ return false; }
-		bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) throw ()
+		bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) 
 			{ return false; }
-		bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) throw ()
+		bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) 
 			{ return false; }
 
 		Win::Dow::Handle Initiate (std::string const & app, std::string const & topic);

@@ -52,7 +52,7 @@ namespace FocusBar
 			return this;
 		}
 		// ControlHandler
-		bool OnControl (unsigned id, unsigned notifyCode) throw ();
+		bool OnControl (unsigned id, unsigned notifyCode) ;
 
 	private:
 		static const unsigned CLOSE_BUTTON_ID = 15;

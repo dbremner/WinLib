@@ -293,7 +293,7 @@ namespace ShellMan
 
 	void Delete (Win::Dow::Handle win, char const * path,
 				 FILEOP_FLAGS flags = FOF_SILENT | FOF_NOCONFIRMATION);
-	bool QuietDelete (Win::Dow::Handle win, char const * path) throw ();
+	bool QuietDelete (Win::Dow::Handle win, char const * path) ;
 	void DeleteContents (Win::Dow::Handle win, char const * path,
 						 FILEOP_FLAGS flags = FOF_SILENT | FOF_NOCONFIRMATION);
 	void CopyContents (Win::Dow::Handle win, char const * fromPath, char const * toPath,

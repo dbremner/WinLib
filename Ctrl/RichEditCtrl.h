@@ -97,7 +97,7 @@ namespace Notify
 	{
 	public:
 		explicit RichEditHandler (unsigned id) : Notify::Handler (id) {}
-		virtual bool OnRequestResize (Win::Rect const & rect) throw ()
+		virtual bool OnRequestResize (Win::Rect const & rect) 
 			{ return false; }
 
 	protected:

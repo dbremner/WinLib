@@ -364,7 +364,7 @@ namespace ShellMan
 	}
 
 	// Doesn't throw when delete fails -- returns false instead
-	bool QuietDelete (Win::Dow::Handle win, char const * path) throw ()
+	bool QuietDelete (Win::Dow::Handle win, char const * path) 
 	{
 		// SHFileOperation requires that the from path is ended with double '\0'
 		// WARNING: path cannot be allocated on the heap -- SHFileOperation will fail

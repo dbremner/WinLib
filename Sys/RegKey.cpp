@@ -27,7 +27,7 @@ namespace RegKey
 		}
 		std::string MakePath (HKEY keyParent, std::string const & subKeyName);
 		std::string GetPath (HKEY h);
-		void Remove (HKEY h) throw ();
+		void Remove (HKEY h) ;
 	private:
 		Win::CritSection	_critSect;
 		std::map<HKEY, std::pair<HKEY, std::string> > _map;
@@ -37,7 +37,7 @@ namespace RegKey
 }
 
 template<>
-void Win::Disposal<RegKey::Handle>::Dispose (RegKey::Handle h) throw ()
+void Win::Disposal<RegKey::Handle>::Dispose (RegKey::Handle h) 
 {
 	::RegCloseKey (h.ToNative ());
 	RegKey::ThePathMap.Remove (h.ToNative ());
@@ -96,7 +96,7 @@ namespace RegKey
 		return path;
 	}
 
-	void PathMap::Remove (HKEY h) throw ()
+	void PathMap::Remove (HKEY h) 
 	{
 		Win::Lock lock (_critSect);
 		_map.erase (h);

@@ -154,18 +154,18 @@ namespace Notify
 
 		virtual bool OnAutoSize (Win::Rect const & targetRect,
 								 Win::Rect const & actualRect,
-								 bool changeDetected) throw () { return false; }
+								 bool changeDetected)  { return false; }
 		virtual bool OnChevronPushed (unsigned bandIdx,
 									  unsigned bandId,
 									  LPARAM appParam,
 									  Win::Rect const & chevronRect,
-									  LPARAM notificationParam) throw () { return false; }
+									  LPARAM notificationParam)  { return false; }
 		virtual bool OnChildSize (unsigned bandIdx,
 								  unsigned bandId,
 								  Win::Rect & newChildRect,
-								  Win::Rect const & newBandRect) throw () { return false; }
-		virtual bool OnHeightChange () throw () { return false; }
-		virtual bool OnLayoutChange () throw () { return false; }
+								  Win::Rect const & newBandRect)  { return false; }
+		virtual bool OnHeightChange ()  { return false; }
+		virtual bool OnLayoutChange ()  { return false; }
 
 	protected:
 		bool OnNotify (NMHDR * hdr, long & result);

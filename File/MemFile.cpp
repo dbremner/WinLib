@@ -37,7 +37,7 @@ MappableFile::MappableFile (File & file, bool readOnly)
 
 
 
-void MappableFile::Close () throw ()
+void MappableFile::Close () 
 {
 	CloseMap ();
 	File::Close ();
@@ -82,7 +82,7 @@ void MappableFile::MakeMap (bool readOnly)
 	}
 }
 
-void MappableFile::CloseMap () throw ()
+void MappableFile::CloseMap () 
 {
 	if(_hMap != 0)
 	{
@@ -172,12 +172,12 @@ MemFile::MemFile (File & file, bool readOnly)
     Allocate ();
 }
 
-MemFile::~MemFile() throw ()
+MemFile::~MemFile() 
 {
 	Close ();
 }
 
-void MemFile::Close () throw ()
+void MemFile::Close () 
 {
 	Deallocate ();
 	MappableFile::Close ();
@@ -188,7 +188,7 @@ void MemFile::Flush ()
 	::FlushViewOfFile (_buf, 0);
 }
 
-void MemFile::Deallocate () throw ()
+void MemFile::Deallocate () 
 {
 	if (_buf != 0)
 	{
@@ -300,7 +300,7 @@ void LokFile::New (char const *path)
     Allocate ();
 }
 
-bool LokFile::IsLocked (char const *path) throw ()
+bool LokFile::IsLocked (char const *path) 
 {
     HANDLE hFile = ::CreateFile (
                             path,

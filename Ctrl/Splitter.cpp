@@ -19,14 +19,14 @@
 // Any splitter
 //
 
-bool Splitter::Ctrl::OnCreate (Win::CreateData const * create, bool & success) throw ()
+bool Splitter::Ctrl::OnCreate (Win::CreateData const * create, bool & success) 
 {
 	_hParent = create->GetParent ();
 	success = true;
 	return true;
 }
 
-bool Splitter::Ctrl::OnLButtonDown (int x, int y, Win::KeyState kState) throw ()
+bool Splitter::Ctrl::OnLButtonDown (int x, int y, Win::KeyState kState) 
 {
 	_parentStyle = _hParent.GetStyle ();
 	Win::Style tmpStyle (_parentStyle);
@@ -49,7 +49,7 @@ bool Splitter::Ctrl::OnLButtonDown (int x, int y, Win::KeyState kState) throw ()
 	return true;
 }
 
-bool Splitter::Ctrl::OnLButtonUp (int x, int y, Win::KeyState kState) throw ()
+bool Splitter::Ctrl::OnLButtonUp (int x, int y, Win::KeyState kState) 
 {
 	// Calling ReleaseCapture will send us the WM_CAPTURECHANGED
 	_h.ReleaseMouse ();
@@ -58,7 +58,7 @@ bool Splitter::Ctrl::OnLButtonUp (int x, int y, Win::KeyState kState) throw ()
 	return true;
 }
 
-bool Splitter::Ctrl::OnMouseMove (int x, int y, Win::KeyState kState) throw ()
+bool Splitter::Ctrl::OnMouseMove (int x, int y, Win::KeyState kState) 
 {
 	if (_dragging)
 	{
@@ -73,7 +73,7 @@ bool Splitter::Ctrl::OnMouseMove (int x, int y, Win::KeyState kState) throw ()
 	return true;
 }
 
-bool Splitter::Ctrl::OnCaptureChanged (Win::Dow::Handle newCaptureWin) throw ()
+bool Splitter::Ctrl::OnCaptureChanged (Win::Dow::Handle newCaptureWin) 
 {
 	// We are losing capture
 	// End drag selection -- for whatever reason
@@ -90,7 +90,7 @@ bool Splitter::Ctrl::OnCaptureChanged (Win::Dow::Handle newCaptureWin) throw ()
 // Vertical splitter
 //
 
-bool Splitter::VerticalCtrl::OnPaint () throw ()
+bool Splitter::VerticalCtrl::OnPaint () 
 {
 	Win::PaintCanvas canvas (_h);
 	{
@@ -146,7 +146,7 @@ void Splitter::VerticalCtrl::NotifyParent (int xMouse, int yMouse)
 // Horizontal splitter
 //
 
-bool Splitter::HorizontalCtrl::OnPaint () throw ()
+bool Splitter::HorizontalCtrl::OnPaint () 
 {
 	Win::PaintCanvas canvas (_h);
 	{

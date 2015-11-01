@@ -139,7 +139,7 @@ void MultiFolderWatcher::AddFolders (std::vector<std::string> const & folders)
 	//------------------------
 }
 
-void MultiFolderWatcher::StopWatching (std::string const & folder) throw ()
+void MultiFolderWatcher::StopWatching (std::string const & folder) 
 {
 	try
 	{

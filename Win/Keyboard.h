@@ -27,37 +27,37 @@ namespace Keyboard
 
 		virtual bool OnKeyDown (int	vKey, int flags);
 
-		virtual	bool OnPageUp () throw ()
+		virtual	bool OnPageUp () 
 			{ return false;	}
-		virtual	bool OnPageDown	() throw ()
+		virtual	bool OnPageDown	() 
 			{ return false;	}
-		virtual	bool OnUp () throw () 
+		virtual	bool OnUp ()  
 			{ return false;	}
-		virtual	bool OnDown	() throw ()	
+		virtual	bool OnDown	() 	
 			{ return false;	}
-		virtual	bool OnLeft	() throw ()	
+		virtual	bool OnLeft	() 	
 			{ return false;	}
 		virtual	bool OnRight ()	throw ()
 			{ return false;	}
-		virtual	bool OnHome	() throw ()
+		virtual	bool OnHome	() 
 			{ return false;	}
 		virtual	bool OnEnd () throw	() 
 			{ return false;	}
-		virtual	bool OnReturn () throw ()
+		virtual	bool OnReturn () 
 			{ return false;	}
-		virtual	bool OnDelete () throw () 
+		virtual	bool OnDelete ()  
 			{ return false;	}
 		virtual	bool OnBackSpace ()	throw ()
 			{ return false;	}
-		virtual	bool OnEscape () throw () 
+		virtual	bool OnEscape ()  
 			{ return false;	}
-		virtual bool OnTab () throw ()
+		virtual bool OnTab () 
 			{ return false; }
 		virtual	bool OnCharKey (int	vKey) throw	() 
 			{ return false;	}
-		virtual	bool OnNumpad (int vKey) throw () 
+		virtual	bool OnNumpad (int vKey)  
 			{ return false;	}
-		virtual	bool OnFunctionKey (int	keyNo) throw ()	
+		virtual	bool OnFunctionKey (int	keyNo) 	
 			{ return false;	}
 	};
 }

@@ -37,13 +37,13 @@ File::Offset File::Offset::Invalid (-1, -1);
 char const File::NameIllegalChars [] = "<>:\"/\\|\n\r\t*?";
 CharSet const File::NameIllegalCharSet (File::NameIllegalChars);
 
-bool File::IsValidName (char const * name)  throw ()
+bool File::IsValidName (char const * name)  
 {
 	std::string fileName (name);
 	return fileName.find_first_of (NameIllegalChars) == std::string::npos;
 }
 
-bool File::IsValidExtension (char const * extension)  throw ()
+bool File::IsValidExtension (char const * extension)  
 {
 	std::string ext (extension);
 	if (ext.find_first_of (NameIllegalChars) == std::string::npos)
@@ -53,7 +53,7 @@ bool File::IsValidExtension (char const * extension)  throw ()
 	return false;
 }
 
-void File::LegalizeName (std::string & name, char replacementChar) throw ()
+void File::LegalizeName (std::string & name, char replacementChar) 
 {
 	std::transform (name.begin (), name.end (), name.begin (),
 					File::LegalizeChar (File::NameIllegalCharSet, replacementChar));
@@ -134,13 +134,13 @@ void File::Attributes::Init (char const * path)
 	}
 }
 
-bool File::Exists (std::string const & path)  throw ()
+bool File::Exists (std::string const & path)  
 {
 	File::Attributes attrs (path);
 	return attrs.AreValid ();
 }
 
-bool File::IsFolder (char const * path)  throw ()
+bool File::IsFolder (char const * path)  
 {
 	File::Attributes attrs (path);
 	return attrs.AreValid () && attrs.IsFolder ();
@@ -313,7 +313,7 @@ bool File::RemoveEmptyFolder (char const * path, bool quiet)
 	return true;
 }
 
-bool File::IsReadOnly (std::string const & path)  throw ()
+bool File::IsReadOnly (std::string const & path)  
 {
 	File::Attributes attrs (path);
 	return attrs.IsReadOnly ();
@@ -329,7 +329,7 @@ void File::Delete (std::string const & path)
     }
 }
 
-bool File::DeleteNoEx (std::string const & path) throw ()
+bool File::DeleteNoEx (std::string const & path) 
 {
     if (Exists (path))
     {
@@ -359,7 +359,7 @@ bool File::Copy (char const * pathFrom, char const * pathTo)
 	return true;
 }
 
-bool File::CopyNoEx (char const * pathFrom, char const * pathTo) throw ()
+bool File::CopyNoEx (char const * pathFrom, char const * pathTo) 
 {
 	if (Exists (pathTo))
 	{
@@ -382,7 +382,7 @@ bool File::SafeCopy (char const * pathFrom, char const * pathTo)
 	return Copy (pathFrom, pathTo);
 }
 
-bool File::SafeCopyNoEx (char const * pathFrom, char const * pathTo) throw ()
+bool File::SafeCopyNoEx (char const * pathFrom, char const * pathTo) 
 {
 	if (Exists (pathTo))
 	{
@@ -396,7 +396,7 @@ std::string File::Rename2Previous (char const * path)
 	return File::RenameUnique (path, "previous");
 }
 
-std::string File::Rename2PreviousNoEx (char const * path) throw ()
+std::string File::Rename2PreviousNoEx (char const * path) 
 {
 	return File::RenameUniqueNoEx (path, "previous");
 }
@@ -406,7 +406,7 @@ std::string File::Rename2CopyOf (char const * path)
 	return File::RenameUnique (path, "copy");
 }
 
-std::string File::Rename2CopyOfNoEx (char const * path) throw ()
+std::string File::Rename2CopyOfNoEx (char const * path) 
 {
 	return File::RenameUniqueNoEx (path, "copy");
 }
@@ -459,7 +459,7 @@ std::string File::RenameUnique (char const * path, char const * namePrefix)
 	return copyPath;
 }
 
-std::string File::RenameUniqueNoEx (char const * path, char const * namePrefix) throw ()
+std::string File::RenameUniqueNoEx (char const * path, char const * namePrefix) 
 {
 	std::string copyPath;
 	if (Exists (path))
@@ -481,7 +481,7 @@ void File::Move (char const * pathFrom, char const * pathTo)
 	}
 }
 
-bool File::MoveNoEx (char const * pathFrom, char const * pathTo) throw ()
+bool File::MoveNoEx (char const * pathFrom, char const * pathTo) 
 {
 	return ::MoveFile (pathFrom, pathTo) != FALSE;
 }
@@ -549,7 +549,7 @@ void File::MakeReadWrite (std::string const & name)
 	}
 }
 
-bool File::MakeReadOnlyNoEx (std::string const & name) throw ()
+bool File::MakeReadOnlyNoEx (std::string const & name) 
 {
 	File::Attributes attrs (name);
 	if (attrs.AreValid ())
@@ -560,7 +560,7 @@ bool File::MakeReadOnlyNoEx (std::string const & name) throw ()
 	return false;
 }
 
-bool File::MakeReadWriteNoEx (std::string const & name) throw ()
+bool File::MakeReadWriteNoEx (std::string const & name) 
 {
 	File::Attributes attrs (name);
 	if (attrs.AreValid ())
@@ -577,7 +577,7 @@ void File::Touch (char const * path)
 	info.Touch ();
 }
 
-bool File::TouchNoEx (std::string const & path) throw ()
+bool File::TouchNoEx (std::string const & path) 
 {
 	File::OpenExistingMode mode;
 	File::NormalAttributes attrib;
@@ -606,7 +606,7 @@ bool File::TouchNoEx (std::string const & path) throw ()
 	return true;
 }
 
-bool File::ForceTouchNoEx (std::string const & path) throw ()
+bool File::ForceTouchNoEx (std::string const & path) 
 {
 	if (File::IsReadOnly (path))
 	{
@@ -727,7 +727,7 @@ void File::OpenReadOnly (std::string const & path, bool quiet)
     }
 }
 
-void File::Close () throw ()
+void File::Close () 
 {
     if (FileOk())
     {

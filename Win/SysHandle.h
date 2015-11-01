@@ -11,7 +11,7 @@ namespace Sys
 	template<class BaseHandle>
 	struct Disposal
 	{
-		static void Dispose (BaseHandle h) throw () { ::CloseHandle (h.ToNative ()); }
+		static void Dispose (BaseHandle h)  { ::CloseHandle (h.ToNative ()); }
 	};
 
 	typedef Win::AutoHandle<Sys::Handle, Disposal<Sys::Handle> > AutoHandle;

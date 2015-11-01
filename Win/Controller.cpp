@@ -50,12 +50,12 @@ void Win::Controller::AddDrawHandler (OwnerDraw::Handler * handler)
 		_drawHandlers.push_back (handler);
 }
 
-void Win::Controller::RemoveDrawHandler (Win::Dow::Handle winParent, unsigned ctrlId) throw ()
+void Win::Controller::RemoveDrawHandler (Win::Dow::Handle winParent, unsigned ctrlId) 
 {
 	_drawHandlers.remove_if (SameControl (winParent, ctrlId));
 }
 
-bool Win::Controller::OnItemDraw (OwnerDraw::Item & draw, unsigned ctrlId) throw ()
+bool Win::Controller::OnItemDraw (OwnerDraw::Item & draw, unsigned ctrlId) 
 {
 	Assert (ctrlId == draw.CtrlId ());
 	HandlerIter it = std::find_if (_drawHandlers.begin (), 

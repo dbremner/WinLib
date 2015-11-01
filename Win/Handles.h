@@ -11,12 +11,12 @@ namespace Win
 	public:
 		typedef NativeHandle Type;
 		Handle (NativeHandle h = NullHandle) : _native (h) {}
-		bool IsNull () const throw () { return _native == NullHandle; }
+		bool IsNull () const  { return _native == NullHandle; }
 		NativeHandle ToNative () const { return _native; }
 		void Reset (NativeHandle h = NullHandle) { _native = h; }
 		bool operator== (Handle h) const { return _native == h.ToNative (); }
 		bool operator!= (Handle h) const { return _native != h.ToNative (); }
-		static NativeHandle NullValue () throw () { return NullHandle; }
+		static NativeHandle NullValue ()  { return NullHandle; }
 	protected:
 		NativeHandle H () const { return _native; }
 		NativeHandle & BaseHRef () { return _native; }
@@ -28,7 +28,7 @@ namespace Win
 	template<class BaseHandle>
 	struct Disposal
 	{
-		static void Dispose (BaseHandle) throw ();
+		static void Dispose (BaseHandle) ;
 	};
 
 	// Forward declaration
@@ -53,21 +53,21 @@ namespace Win
 			: BaseHandle (nh)
 		{}
 		AutoHandle () {}
-		AutoHandle (AutoHandle & ah) throw ()
+		AutoHandle (AutoHandle & ah) 
 			: BaseHandle (ah.release ())
 		{}
-		~AutoHandle () throw ()
+		~AutoHandle () 
 		{
 			if (!IsNull ())
 				DisposalPolicy::Dispose (*this);
 		}
-		typename BaseHandle::Type release () throw ()
+		typename BaseHandle::Type release () 
 		{
 			typename BaseHandle::Type tmp = H ();
 			BaseHRef () = NullValue ();
 			return tmp;
 		}
-		void Reset (typename BaseHandle::Type h = NullValue ()) throw ()
+		void Reset (typename BaseHandle::Type h = NullValue ()) 
 		{
 			if (h != H ())
 			{
@@ -92,7 +92,7 @@ namespace Win
 			return *this;
 		}
 		// return by value helpers
-		AutoHandle (auto_handle_ref<BaseHandle, DisposalPolicy> r) throw ()
+		AutoHandle (auto_handle_ref<BaseHandle, DisposalPolicy> r) 
 			: BaseHandle (r._ah.release ())
 		{}
 		operator auto_handle_ref<BaseHandle, DisposalPolicy> ()

@@ -3,7 +3,7 @@
 #include <Graph/ImageList.h>
 
 template<>
-void Win::Disposal<ImageList::Handle>::Dispose (ImageList::Handle h) throw ()
+void Win::Disposal<ImageList::Handle>::Dispose (ImageList::Handle h) 
 {
 	::ImageList_Destroy (h.ToNative ());
 }

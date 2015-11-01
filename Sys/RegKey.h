@@ -12,7 +12,7 @@ namespace Win
 
 #ifdef BORLAND_COMPILER
     template<>
-    void Disposal<HKEY>::Dispose (RegKey::Handle h) throw ();
+    void Disposal<HKEY>::Dispose (RegKey::Handle h) ;
 #endif
 }
 

@@ -62,9 +62,9 @@ namespace XML
 
 		std::string const & GetName () const { return _name; }
 		std::string GetClosingTag () const;
-		Node const * FindFirstChildNamed (std::string const & name) const throw ();
+		Node const * FindFirstChildNamed (std::string const & name) const ;
 		Node const * GetFirstChildNamed (std::string const & name) const;
-		Attribute const * FindAttribute (std::string const & name) const throw ();
+		Attribute const * FindAttribute (std::string const & name) const ;
 		std::string const & GetAttribValue (std::string const & name) const;
 		std::string GetTransformAttribValue (std::string const & name) const;
 		std::string FindAttribValue (std::string const & attribName) const;

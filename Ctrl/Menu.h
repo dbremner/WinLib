@@ -150,7 +150,7 @@ namespace Menu
 	public:
 		DropDown (Item const * templ, Cmd::Vector & cmdVector);
 		void AttachToWindow (Win::Dow::Handle win);
-		void RefreshPopup (Menu::Handle menu, int itemNo, bool hideDisabled = false) throw ();
+		void RefreshPopup (Menu::Handle menu, int itemNo, bool hideDisabled = false) ;
 		Item const * GetPopupTemplate (std::string const & name) const;
 		Cmd::Vector & GetCommandVector () { return _cmdVector; }
 		bool IsSubMenu (Menu::Handle menu, int barItemNo)
@@ -172,7 +172,7 @@ namespace Menu
 			: _template (templ),
 			  _cmdVector (cmdVector)
 		{}
-		void Refresh () throw ();
+		void Refresh () ;
 	private:
 		Menu::Item const * _template;
 		Cmd::Vector		 & _cmdVector;

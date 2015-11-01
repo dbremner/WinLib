@@ -29,7 +29,7 @@ bool AboutDlgHandler::OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw 
 
 // Note: Strictly speaking, this method doesn't have to be overridden
 // It has the correct default implementation.
-bool AboutDlgHandler::OnApply () throw ()
+bool AboutDlgHandler::OnApply () 
 {
 	EndOk ();
 	return true;

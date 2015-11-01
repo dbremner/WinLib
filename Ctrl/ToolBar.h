@@ -175,7 +175,7 @@ namespace Tool
 		unsigned GetButtonWidth (int buttonIndex) const;
 
 		// Disable all buttons
-		void Disable () throw ();
+		void Disable () ;
 		void FillToolTip (Tool::TipForCtrl * tip) const;
 		bool IsCmdButton (int cmdId) const;		 
 

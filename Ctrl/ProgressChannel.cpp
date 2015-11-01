@@ -17,7 +17,7 @@ Progress::Channel::Channel (bool canCancel)
 	_change.set (Cancelable, canCancel);
 }
 
-void Progress::Channel::SetRange (int min, int max, int step) throw ()
+void Progress::Channel::SetRange (int min, int max, int step) 
 {
 	Win::Lock lock (_critSection);
 	if (_min != min || _max != max || _step != step)

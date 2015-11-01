@@ -94,7 +94,7 @@ bool Progress::SingleCtrlHandler::OnInitDialog () throw (Win::Exception)
 	return true;
 }
 
-bool Progress::SingleCtrlHandler::OnCancel () throw ()
+bool Progress::SingleCtrlHandler::OnCancel () 
 {
 	_channel.Cancel ();
 	EndCancel ();

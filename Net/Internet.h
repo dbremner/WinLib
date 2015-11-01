@@ -16,7 +16,7 @@ namespace Internet
 	template<class BaseHandle>
 	struct Disposal
 	{
-		static void Dispose (BaseHandle h) throw () 
+		static void Dispose (BaseHandle h)  
 		{
 			::InternetCloseHandle (h.ToNative ());
 		}

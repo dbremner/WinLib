@@ -7,7 +7,7 @@
 
 
 template<>
-void Win::Disposal<Menu::Handle>::Dispose (Menu::Handle h) throw ()
+void Win::Disposal<Menu::Handle>::Dispose (Menu::Handle h) 
 {
 	::DestroyMenu (h.ToNative ());
 }
@@ -17,7 +17,7 @@ namespace Menu
 	void Refresh (Menu::Handle menu, 
 				  Menu::Item const * popup, 
 				  Cmd::Vector & cmdVector,
-				  bool hideDisabled = false) throw ()
+				  bool hideDisabled = false) 
 	{
 		menu.Clear ();
 		bool rememberAddSeparator = false;
@@ -109,7 +109,7 @@ void Menu::DropDown::AttachToWindow (Win::Dow::Handle hwnd)
         throw Win::Exception ("Internal error: Cannot attach menu.");
 }
 
-void Menu::DropDown::RefreshPopup (Menu::Handle menu, int itemNo, bool hideDisabled) throw ()
+void Menu::DropDown::RefreshPopup (Menu::Handle menu, int itemNo, bool hideDisabled) 
 {	
 	if (itemNo < 0 || itemNo >= _barItemCnt)
 		return;
@@ -162,7 +162,7 @@ void Menu::Tracker::TrackMenu (Win::Dow::Handle winOwner, int x, int y)
 	}
 }
 
-void Menu::Context::Refresh () throw ()
+void Menu::Context::Refresh () 
 {
 	Menu::Refresh (*this, _template, _cmdVector, true); // hide disabled commands
 }

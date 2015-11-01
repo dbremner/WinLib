@@ -72,7 +72,7 @@ public:
 		return tmp;
 	}
 
-	void reset (T * p = 0) throw ()
+	void reset (T * p = 0) 
 	{
 		if (p != _a)
 		{

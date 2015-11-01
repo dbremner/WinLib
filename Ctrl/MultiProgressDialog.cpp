@@ -47,7 +47,7 @@ bool Progress::MultiCtrlHandler::OnInitDialog () throw (Win::Exception)
 	return true;
 }
 
-bool Progress::MultiCtrlHandler::OnCancel () throw ()
+bool Progress::MultiCtrlHandler::OnCancel () 
 {
 	_overall.Cancel ();
 	EndCancel ();

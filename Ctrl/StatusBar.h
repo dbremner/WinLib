@@ -15,7 +15,7 @@ namespace Win
 		class DrawHandler: public OwnerDraw::Handler
 		{
 		public:
-			bool Draw (OwnerDraw::Item & item) throw ();
+			bool Draw (OwnerDraw::Item & item) ;
 			virtual bool Draw (Win::Canvas canvas, Win::Rect const & rect, int itemId) = 0;
 		};
 	public:

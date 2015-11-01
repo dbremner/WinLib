@@ -28,7 +28,7 @@ Thread::Handle ActiveObject::StartThread ()
 // FlushThread must reset all the events
 // on which the thread might be waiting.
 // return true of thread is dead
-bool ActiveObject::Kill (unsigned timeoutMs) throw ()
+bool ActiveObject::Kill (unsigned timeoutMs) 
 {
 	Detach (); // disconnect it from external objects
 	_isDying.Inc ();

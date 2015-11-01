@@ -95,7 +95,7 @@ void Out::Sink::DisplayException (Win::Exception const & ex,
 	}
 }
 
-void Out::Sink::Display (char const * msg, Severity sev, Win::Dow::Handle owner) const throw ()
+void Out::Sink::Display (char const * msg, Severity sev, Win::Dow::Handle owner) const 
 {
 	if (_verbose || sev == Error)
 	{
@@ -123,7 +123,7 @@ void Out::Sink::Display (char const * msg, Severity sev, Win::Dow::Handle owner)
 	}
 }
 
-void Out::Sink::DisplayModal (char const * msg, Severity sev) const throw ()
+void Out::Sink::DisplayModal (char const * msg, Severity sev) const 
 {
 	if (_verbose || sev == Error)
 	{
@@ -145,7 +145,7 @@ void Out::Sink::DisplayModal (char const * msg, Severity sev) const throw ()
 	}
 }
 
-void Out::Sink::Display (Win::Exception const & ex) const throw ()
+void Out::Sink::Display (Win::Exception const & ex) const 
 {
 	unsigned flag = MB_ICONERROR | MB_OK;
 	if (_topWin.IsNull ())
@@ -156,7 +156,7 @@ void Out::Sink::Display (Win::Exception const & ex) const throw ()
 	DisplayException (ex, _topWin, _appName.c_str (), "Exception", flag);
 }
 
-Out::Answer Out::Sink::Prompt (char const * question, PromptStyle style, Win::Dow::Handle owner) const throw ()
+Out::Answer Out::Sink::Prompt (char const * question, PromptStyle style, Win::Dow::Handle owner) const 
 {
 	Win::Dow::Handle own = (owner.IsNull ()) ? _topWin : owner;
 	unsigned flag = 0;
@@ -198,7 +198,7 @@ Out::Answer Out::Sink::Prompt (char const * question, PromptStyle style, Win::Do
 	};
 }
 
-Out::Answer Out::Sink::PromptModal (char const * question, PromptStyle style) const throw ()
+Out::Answer Out::Sink::PromptModal (char const * question, PromptStyle style) const 
 {
 	unsigned flag = 0;
 	if (_foreground)
@@ -241,7 +241,7 @@ Out::Answer Out::Sink::PromptModal (char const * question, PromptStyle style) co
 void Out::Sink::LogFile (
 			std::string const & srcFilePath,
 			std::string const & destFilename, 
-			std::string const & subfolderRelPath) throw ()
+			std::string const & subfolderRelPath) 
 {
 	try
 	{
@@ -261,7 +261,7 @@ void Out::Sink::LogFile (
 	}
 }
 
-void Out::Sink::LogNote (std::string const & logFilename, std::string const & note) throw ()
+void Out::Sink::LogNote (std::string const & logFilename, std::string const & note) 
 {
 	Assert (!_logsRoot.IsDirStrEmpty ());
 	try
@@ -281,7 +281,7 @@ void Out::Sink::LogNote (std::string const & logFilename, std::string const & no
 	}
 }
 
-unsigned Out::PromptStyle::CalcDefButton () const throw ()
+unsigned Out::PromptStyle::CalcDefButton () const 
 {
 	switch (_buttons)
 	{

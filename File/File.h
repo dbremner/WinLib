@@ -158,12 +158,12 @@ public:
 public:
 	File (std::string const & path, Mode mode, Attributes attrib);
 	File (std::string const & path, Mode mode);
-	~File () throw () { Close (); }
-	bool	FileOk () const throw () { return _hFile != INVALID_HANDLE_VALUE; }
+	~File ()  { Close (); }
+	bool	FileOk () const  { return _hFile != INVALID_HANDLE_VALUE; }
 	bool	Open (std::string const & path, Mode mode, bool quiet = false);
 	bool	Create (std::string const & path);
 	void	OpenReadOnly (std::string const & path, bool quiet = false);
-	void	Close () throw ();
+	void	Close () ;
 	bool	Flush () { return ::FlushFileBuffers (_hFile) != FALSE; }
 	void	Empty ();
 	void	GetWriteTime (FILETIME & lastWrite) const;
@@ -185,14 +185,14 @@ public:
 	static bool CreateFolder (char const * path, bool quiet = true);
 	static bool CreateNewFolder (char const * path, bool quiet = true);
 	static bool RemoveEmptyFolder (char const * path, bool quiet = true);
-	static bool IsReadOnly (std::string const & path) throw ();
+	static bool IsReadOnly (std::string const & path) ;
 	static void MakeReadOnly (char const * path);
 	static void MakeReadWrite (std::string const & path);
-	static bool MakeReadOnlyNoEx (std::string const & path) throw ();
-	static bool MakeReadWriteNoEx (std::string const & path) throw ();
+	static bool MakeReadOnlyNoEx (std::string const & path) ;
+	static bool MakeReadWriteNoEx (std::string const & path) ;
 	static void Touch (char const * path);
-	static bool TouchNoEx (std::string const & path) throw ();
-	static bool ForceTouchNoEx (std::string const & path) throw ();
+	static bool TouchNoEx (std::string const & path) ;
+	static bool ForceTouchNoEx (std::string const & path) ;
 	static void Delete (std::string const & path);
 	static bool DeleteNoEx (std::string const & path) throw ();
 	static bool Copy (char const * pathFrom, char const * pathTo);
@@ -243,17 +243,17 @@ protected:
 	{
 		InitHandle (file.Release ());
 	}
-	bool SimpleRead (void * buf, ULONG & size) throw ()
+	bool SimpleRead (void * buf, ULONG & size) 
 	{
 		ULONG sizeAsked = size;
 		return ::ReadFile (_hFile, buf, sizeAsked, & size, NULL)	!= FALSE;
 	}
-	bool SimpleWrite (void const * buf, ULONG & size) throw ()
+	bool SimpleWrite (void const * buf, ULONG & size) 
 	{
 		ULONG sizeAsked = size;
 		return ::WriteFile (_hFile, buf, sizeAsked, & size, NULL) != FALSE;
 	}
-	bool Rewind () throw ()
+	bool Rewind () 
 	{
 		return _sizer->Rewind ();
 	}
@@ -269,7 +269,7 @@ protected:
 	void InitSizer ();
 
 	static std::string RenameUnique (char const * path, char const * namePrefix);
-	static std::string RenameUniqueNoEx (char const * path, char const * namePrefix) throw ();
+	static std::string RenameUniqueNoEx (char const * path, char const * namePrefix) ;
 
 public:
 	// usage:

@@ -19,7 +19,7 @@ TopCtrl::TopCtrl ()
 TopCtrl::~TopCtrl ()
 {}
 
-bool TopCtrl::OnCreate (Win::CreateData const * create, bool & success) throw ()
+bool TopCtrl::OnCreate (Win::CreateData const * create, bool & success) 
 {
 	Win::Dow::Handle win = GetWindow ();
 	try
@@ -62,13 +62,13 @@ void TopCtrl::OnInit ()
 	winStream << std::endl; // flush
 }
 
-bool TopCtrl::OnDestroy () throw ()
+bool TopCtrl::OnDestroy () 
 {
 	Win::Quit ();
 	return true;
 }
 
-bool TopCtrl::OnRegisteredMessage (Win::Message & msg) throw ()
+bool TopCtrl::OnRegisteredMessage (Win::Message & msg) 
 {
 	if (msg == _initMsg)
 	{
@@ -78,7 +78,7 @@ bool TopCtrl::OnRegisteredMessage (Win::Message & msg) throw ()
 	return false;
 }
 
-bool TopCtrl::OnUserMessage (Win::UserMessage & msg) throw ()
+bool TopCtrl::OnUserMessage (Win::UserMessage & msg) 
 {
 	if (msg.GetMsg () == UM_FOLDER_CHANGE)
 	{
@@ -88,7 +88,7 @@ bool TopCtrl::OnUserMessage (Win::UserMessage & msg) throw ()
 	return false;
 }
 
-bool TopCtrl::OnTimer (int id) throw ()
+bool TopCtrl::OnTimer (int id) 
 {
 	static bool first = true;
 	if (first)
@@ -105,7 +105,7 @@ bool TopCtrl::OnTimer (int id) throw ()
 }
 
 
-bool TopCtrl::OnSize (int width, int height, int flag) throw ()
+bool TopCtrl::OnSize (int width, int height, int flag) 
 {
 	if (_ready)
 		_output.Move (0, 0, width, height);

@@ -13,7 +13,7 @@ public:
 	AboutDlgHandler () : Dialog::ControlHandler (IDD_ABOUT) {}
 	bool OnInitDialog () throw (Win::Exception); 
     bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception);
-	bool OnApply () throw ();
+	bool OnApply () ;
 };
 
 #endif

@@ -15,7 +15,7 @@
 using namespace Win;
 
 template<>
-void Win::Disposal<Win::window_handle>::Dispose (Win::window_handle h) throw ()
+void Win::Disposal<Win::window_handle>::Dispose (Win::window_handle h) 
 {
 	::DestroyWindow (h.ToNative ());
 }

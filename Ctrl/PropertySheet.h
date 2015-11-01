@@ -119,7 +119,7 @@ namespace PropPage
 			  Notify::PageHandler (pageId)
 		{
 		}
-		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 		{
 			return this;
 		}

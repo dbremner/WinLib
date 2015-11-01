@@ -21,7 +21,7 @@ public:
     {
 		Close ();
     }
-	void Close () throw ()
+	void Close () 
 	{
         if (IsValid ())
 		{
@@ -138,7 +138,7 @@ public:
 //	void Init (std::vector<std::string> const & folder);
 	void AddFolder (std::string const & folder, bool recursive);
 	void AddFolders (std::vector<std::string> const & folder);
-	void StopWatching (std::string const & folder) throw ();
+	void StopWatching (std::string const & folder) ;
 private:
     void Run ();
 private:

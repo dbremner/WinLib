@@ -6,7 +6,7 @@
 using namespace Accel;
 
 template<>
-void Win::Disposal<Accel::Handle>::Dispose (Accel::Handle h) throw ()
+void Win::Disposal<Accel::Handle>::Dispose (Accel::Handle h) 
 {
 	::DestroyAcceleratorTable (h.ToNative ());
 }

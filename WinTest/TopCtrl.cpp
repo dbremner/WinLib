@@ -28,7 +28,7 @@ TopCtrl::TopCtrl (char const * cmdLine, Win::MessagePrepro & msgPrepro)
 TopCtrl::~TopCtrl ()
 {}
 
-bool TopCtrl::OnCreate (Win::CreateData const * create, bool & success) throw ()
+bool TopCtrl::OnCreate (Win::CreateData const * create, bool & success) 
 {
 	Win::Dow::Handle win = GetWindow ();
 	ResString caption (win.GetInstance (), ID_CAPTION);
@@ -72,7 +72,7 @@ void TopCtrl::OnInit ()
 	// Put initialization code here
 }
 
-bool TopCtrl::OnDestroy () throw ()
+bool TopCtrl::OnDestroy () 
 {
 	try
 	{
@@ -85,7 +85,7 @@ bool TopCtrl::OnDestroy () throw ()
 	return true;
 }
 
-bool TopCtrl::OnRegisteredMessage (Win::Message & msg) throw ()
+bool TopCtrl::OnRegisteredMessage (Win::Message & msg) 
 {
 	if (msg == _initMsg)
 	{
@@ -108,14 +108,14 @@ bool TopCtrl::OnRegisteredMessage (Win::Message & msg) throw ()
 	return false;
 }
 
-bool TopCtrl::OnSize (int width, int height, int flag) throw ()
+bool TopCtrl::OnSize (int width, int height, int flag) 
 {
 	if (_ready)
 		_view->Size (width, height); 
 	return true;
 }
 
-bool TopCtrl::OnInitPopup (Menu::Handle menu, int pos) throw ()
+bool TopCtrl::OnInitPopup (Menu::Handle menu, int pos) 
 {
 	try
 	{
@@ -129,7 +129,7 @@ bool TopCtrl::OnInitPopup (Menu::Handle menu, int pos) throw ()
 	return true;
 }
 
-bool TopCtrl::OnMenuSelect (int id, Menu::State state, Menu::Handle menu) throw ()
+bool TopCtrl::OnMenuSelect (int id, Menu::State state, Menu::Handle menu) 
 {
 	if (state.IsDismissed ())
 	{
@@ -147,12 +147,12 @@ bool TopCtrl::OnMenuSelect (int id, Menu::State state, Menu::Handle menu) throw 
 	return true;
 }
 
-Notify::Handler * TopCtrl::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+Notify::Handler * TopCtrl::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 {
 	return 0;
 }
 
-bool TopCtrl::OnCommand (int cmdId, bool isAccel) throw ()
+bool TopCtrl::OnCommand (int cmdId, bool isAccel) 
 {
 	if (isAccel)
 	{

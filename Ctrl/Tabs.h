@@ -180,7 +180,7 @@ namespace Notify
 	{
 	public:
 		explicit TabHandler (unsigned id) : Handler (id) {}
-		virtual bool OnSelChange () throw ()
+		virtual bool OnSelChange () 
 			{ return false; }
 
 	protected:

@@ -81,7 +81,7 @@ namespace Progress
 		void Refresh ();
 
 		bool OnInitDialog () throw (Win::Exception);
-		bool OnCancel () throw ();
+		bool OnCancel () ;
 
 	private:
 		Win::StaticText		_caption;

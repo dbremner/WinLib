@@ -8,7 +8,7 @@
 #include <Win/Instance.h>
 
 template<>
-void Win::Disposal<Icon::Handle>::Dispose (Icon::Handle h) throw ()
+void Win::Disposal<Icon::Handle>::Dispose (Icon::Handle h) 
 {
 	::DestroyIcon (h.ToNative ());
 }

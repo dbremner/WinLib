@@ -39,7 +39,7 @@ bool Dialog::ControlHandler::OnControl (unsigned ctrlId,
 	return false;
 }
 
-bool Dialog::ControlHandler::OnHelp () throw ()
+bool Dialog::ControlHandler::OnHelp () 
 {
 	if (_helpEngine != 0 && GetId () != -1)
 	{
@@ -69,7 +69,7 @@ INT_PTR CALLBACK Dialog::Procedure (HWND hwnd, UINT message, WPARAM wParam, LPAR
 	return FALSE;
 }
 
-Notify::Handler * Dialog::Controller::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+Notify::Handler * Dialog::Controller::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 {
 	if (_ctrlHandler)
 		return _ctrlHandler->GetNotifyHandler (winFrom, idFrom);
@@ -96,7 +96,7 @@ bool Dialog::ModelessController::OnDeactivate (bool isMinimized, Win::Dow::Handl
 	return false; 
 }
 
-bool Dialog::ModelessController::OnDestroy () throw ()
+bool Dialog::ModelessController::OnDestroy () 
 {
 	Dialog::ControlHandler * handler = GetDlgControlHandler ();
 	if (handler)

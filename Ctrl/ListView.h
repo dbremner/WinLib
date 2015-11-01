@@ -728,27 +728,27 @@ namespace Notify
 	{
 	public:
 		explicit ListViewHandler (unsigned id): Notify::Handler (id) {}
-		virtual bool OnDblClick () throw ()
+		virtual bool OnDblClick () 
 			{ return false; }
-		virtual bool OnClick () throw ()
+		virtual bool OnClick () 
 			{ return false; }
 		virtual bool OnGetDispInfo (Win::ListView::Request const & request,
 									Win::ListView::State const & state,
-									Win::ListView::Item & item) throw ()
+									Win::ListView::Item & item) 
 			{ return false; }
-		virtual bool OnItemChanged (Win::ListView::ItemState & state) throw ()
+		virtual bool OnItemChanged (Win::ListView::ItemState & state) 
 			{ return false; }
 		virtual bool OnBeginLabelEdit (long & result) throw ()
 			{ return false; }
 		virtual bool OnEndLabelEdit (Win::ListView::Item * item, long & result) throw ()
 			{ return false; }
-		virtual bool OnColumnClick (int col) throw ()
+		virtual bool OnColumnClick (int col) 
 			{ return false; }
 		virtual bool OnSetFocus (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
 			{ return false; }
-		virtual Keyboard::Handler * GetKeyboardHandler () throw ()
+		virtual Keyboard::Handler * GetKeyboardHandler () 
 			{ return 0; }
-		virtual void OnBeginDrag (int itemIdx, bool isRightButtonDrag) throw ()
+		virtual void OnBeginDrag (int itemIdx, bool isRightButtonDrag) 
 			{}
 		virtual void OnCustomDraw (Win::ListView::CustomDraw & customDraw, long & result) throw ()
 		{ result = Win::ListView::CustomDraw::DoDefault; }

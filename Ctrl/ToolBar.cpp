@@ -218,7 +218,7 @@ unsigned Bar::GetButtonWidth (int idx) const
 	return rect.Width ();
 }
 
-void Bar::Disable () throw ()
+void Bar::Disable () 
 {
 	for (std::vector<int>::const_iterator iter = _curCmdIds.begin (); iter != _curCmdIds.end (); ++iter)
 	{

@@ -335,7 +335,7 @@ namespace XML
 		WriteClosingTag (out, indent);
 	}
 
-	Node const * Node::FindFirstChildNamed (std::string const & name) const throw ()
+	Node const * Node::FindFirstChildNamed (std::string const & name) const 
 	{
 		ConstChildIter it = 
 				std::find_if (_children.begin (),
@@ -357,7 +357,7 @@ namespace XML
 		return node;
 	}
 
-	Attribute const * Node::FindAttribute (std::string const & name) const throw ()
+	Attribute const * Node::FindAttribute (std::string const & name) const 
 	{
 		ConstAttribIter it = 
 				std::find_if (_attributes.begin (),

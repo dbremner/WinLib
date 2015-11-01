@@ -53,13 +53,13 @@ namespace Out
 		      _defaultAnswer (defaultAnswer),
 			  _sev (sev)
 		{}
-		operator unsigned () const throw () 
+		operator unsigned () const  
 		{ 
 			return _buttons | _sev | CalcDefButton (); 
 		}
 
 	private:
-		unsigned CalcDefButton () const throw ();
+		unsigned CalcDefButton () const ;
 
 		Buttons  _buttons; 
 		Answer   _defaultAnswer; 
@@ -91,28 +91,28 @@ namespace Out
 		}
 		void Display (char const * msg, 
 					  Severity sev = Information, 
-					  Win::Dow::Handle owner = 0) const throw ();
+					  Win::Dow::Handle owner = 0) const ;
 		void DisplayModal (char const * msg, 
-					  Severity sev = Information) const throw ();
-		void Display (Win::Exception const & ex) const throw ();
+					  Severity sev = Information) const ;
+		void Display (Win::Exception const & ex) const ;
 		Answer Prompt (char const * question, 
 					   PromptStyle const style = PromptStyle (), 
-					   Win::Dow::Handle owner = 0) const throw ();
+					   Win::Dow::Handle owner = 0) const ;
 		Answer PromptModal (char const * question, 
-					   PromptStyle const style = PromptStyle ()) const throw ();
+					   PromptStyle const style = PromptStyle ()) const ;
 
 		static std::string FormatExceptionMsg (Win::Exception const & ex); 
 		static void DisplayException (Win::Exception const & ex, 
 									  Win::Dow::Handle owner, 
 									  char const * appName = "Application",
 									  char const * title = "Internal problem", 
-									  int flags = MB_OK | MB_ICONEXCLAMATION) throw ();
+									  int flags = MB_OK | MB_ICONEXCLAMATION) ;
 
 		void LogFile (std::string const & srcFilePath,
 					  std::string const & destFilename, 
-					  std::string const & subfolderRelPath = std::string ()) throw ();
+					  std::string const & subfolderRelPath = std::string ()) ;
 
-		void LogNote (std::string const & logFilename, std::string const & note) throw ();
+		void LogNote (std::string const & logFilename, std::string const & note) ;
 
 	private:
 		Win::Dow::Handle _topWin;

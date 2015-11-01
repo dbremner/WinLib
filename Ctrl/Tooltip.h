@@ -59,9 +59,9 @@ namespace Notify
 	{
 	public:
 		explicit ToolTipHandler (unsigned id) : Notify::Handler (id) {}
-		virtual bool OnNeedText (Tool::TipForWindow * tip) throw ()
+		virtual bool OnNeedText (Tool::TipForWindow * tip) 
 			{ return false; }
-		virtual bool OnNeedText (Tool::TipForCtrl * tip) throw ()
+		virtual bool OnNeedText (Tool::TipForCtrl * tip) 
 			{ return false; }
 
 	protected:

@@ -11,7 +11,7 @@ View::View (Win::Dow::Handle win)
 {
 }
 
-void View::Size (int width, int height) throw ()
+void View::Size (int width, int height) 
 {
 	_xPix = width;
 	_yPix = height;

@@ -123,14 +123,14 @@ namespace Dialog
 			:_ctrlHandler (0)
 		{}
 		// Dialog end methods
-		virtual void EndOk () throw () { Assert (!"EndOk must be overridden"); }
-		virtual void EndCancel () throw () { Assert (!"EndCancel must be overridden"); }
+		virtual void EndOk ()  { Assert (!"EndOk must be overridden"); }
+		virtual void EndCancel ()  { Assert (!"EndCancel must be overridden"); }
 
-		Dialog::ControlHandler * GetDlgControlHandler () throw ()
+		Dialog::ControlHandler * GetDlgControlHandler () 
 		{
 			return _ctrlHandler;
 		}
-		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ();
+		Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) ;
 		void SetDlgControlHandler (Dialog::ControlHandler * handler)
 		{
 			_ctrlHandler = handler;
@@ -164,19 +164,19 @@ namespace Dialog
 		virtual bool OnDlgControl (unsigned id, unsigned notifyCode) throw (Win::Exception)
 			{ return false; }
 		// Called when user clicks the OK button (IDOK)
-		virtual bool OnApply () throw () 
+		virtual bool OnApply ()  
 		{
 			EndOk ();
 			return true;
 		}
 		// Called when user clicks the CANCEL button (IDCANCEL)
-		virtual bool OnCancel () throw () 
+		virtual bool OnCancel ()  
 		{
 			EndCancel ();
 			return true;
 		}
 		// Called when user clicks the HELP button (IDHELP). Default implementation uses help engine.
-		virtual bool OnHelp () throw (); 
+		virtual bool OnHelp () ; 
 		// Alternative dialog input (alternative to GUI)
 		virtual bool GetDataFrom (NamedValues const & source)
 			{ return false; }
@@ -185,17 +185,17 @@ namespace Dialog
 		virtual void OnDectivate () throw (Win::Exception) {}
 		virtual void OnDestroy () throw () {}
 		// These non-virtual methods should be called from OnApply and OnCancel
-		void EndOk () throw ()
+		void EndOk () 
 		{
 			Assert (_ctrl != 0);
 			_ctrl->EndOk ();
 		}
-		void EndCancel () throw ()
+		void EndCancel () 
 		{
 			Assert (_ctrl != 0);
 			_ctrl->EndCancel ();
 		}
-		void AttachHelp (Help::Engine * helpEngine) throw () 
+		void AttachHelp (Help::Engine * helpEngine)  
 		{
 			_helpEngine = helpEngine;
 		}
@@ -227,12 +227,12 @@ namespace Dialog
 		ModalController (int dlgId)
 			: Dialog::Controller (dlgId)
 		{}
-		void EndOk () throw ()
+		void EndOk () 
 		{
 			::EndDialog (GetWindow ().ToNative (), 1);
 			Win::ClearError ();
 		}
-		void EndCancel () throw ()
+		void EndCancel () 
 		{
 			::EndDialog (GetWindow ().ToNative (), 0);
 			Win::ClearError ();
@@ -245,7 +245,7 @@ namespace Dialog
 	{
 	public:
 		// Owned by Windows, accessed through window long, destroyed by Window procedure
-		bool MustDestroy () throw ()
+		bool MustDestroy () 
 			{ return true; }
 
 		ModelessController (Win::MessagePrepro & prepro, 
@@ -258,17 +258,17 @@ namespace Dialog
 			  _accel (accel)
 		{}
 
-		void EndOk () throw ()
+		void EndOk () 
 		{
 			Destroy ();
 			Win::ClearError ();
 		}
-		void EndCancel () throw ()
+		void EndCancel () 
 		{
 			Destroy ();
 			Win::ClearError ();
 		}
-		void Destroy () throw ()
+		void Destroy () 
 		{ 
 			::DestroyWindow (GetWindow ().ToNative ());
 		}

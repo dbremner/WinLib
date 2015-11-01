@@ -15,7 +15,7 @@ namespace Win
 		{
 		public:
 			virtual bool Draw (Win::Canvas canvas, Win::Rect const & rect, int itemId) = 0;
-			bool Draw (OwnerDraw::Item & item) throw ()
+			bool Draw (OwnerDraw::Item & item) 
 			{
 				return Draw (item.Canvas (), item.Rect (), item.ItemId ());
 			}

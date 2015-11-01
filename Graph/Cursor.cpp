@@ -5,7 +5,7 @@
 // Warning: Windows defines HCURSOR to be the same as HICON,
 
 template<>
-void Win::Disposal<Cursor::Shape>::Dispose (Cursor::Shape h) throw ()
+void Win::Disposal<Cursor::Shape>::Dispose (Cursor::Shape h) 
 {
 	::DestroyCursor (h.ToNative ());
 }

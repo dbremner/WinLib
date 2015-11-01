@@ -11,7 +11,7 @@ namespace Gdi
 	template<class BaseHandle>
 	struct Disposal
 	{
-		static void Dispose (BaseHandle h) throw () { ::DeleteObject (h.ToNative ()); }
+		static void Dispose (BaseHandle h)  { ::DeleteObject (h.ToNative ()); }
 	};
 }
 

@@ -17,7 +17,7 @@
 #include <Graph/Font.h>
 #include <Graph/Color.h>
 
-bool FocusBar::Ctrl::OnCreate (Win::CreateData const * create, bool & success) throw ()
+bool FocusBar::Ctrl::OnCreate (Win::CreateData const * create, bool & success) 
 {
 	UseSystemSettings ();
 	Win::ButtonMaker buttonMaker (_h, CLOSE_BUTTON_ID);
@@ -32,7 +32,7 @@ bool FocusBar::Ctrl::OnCreate (Win::CreateData const * create, bool & success) t
 	return true;
 }
 
-bool FocusBar::Ctrl::OnSize (int width, int height, int flag) throw ()
+bool FocusBar::Ctrl::OnSize (int width, int height, int flag) 
 {
 	_cx = width;
 	_cy = height;
@@ -53,7 +53,7 @@ bool FocusBar::Ctrl::OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveActi
 	return false;				// Pass this message to the parent window
 }
 
-bool FocusBar::Ctrl::OnPaint () throw ()
+bool FocusBar::Ctrl::OnPaint () 
 {
 	Win::PaintCanvas canvas (_h);
 	canvas.EraseBackground (_isOn ? Win::Color3d::Shadow () :
@@ -84,14 +84,14 @@ bool FocusBar::Ctrl::OnPaint () throw ()
 	return true;
 }
 
-bool FocusBar::Ctrl::OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) throw ()
+bool FocusBar::Ctrl::OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) 
 {
 	if (flags.IsNonClientMetrics ())
 		UseSystemSettings ();
 	return true;
 }
 
-bool FocusBar::Ctrl::OnControl (unsigned id, unsigned notifyCode) throw ()
+bool FocusBar::Ctrl::OnControl (unsigned id, unsigned notifyCode) 
 {
 	if (id == CLOSE_BUTTON_ID)
 	{

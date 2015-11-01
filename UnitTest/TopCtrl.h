@@ -16,12 +16,12 @@ class TopCtrl: public Win::Controller
 public:
 	TopCtrl ();
 	~TopCtrl ();
-	bool OnCreate (Win::CreateData const * create, bool & success) throw ();
-	bool OnDestroy () throw ();
-	bool OnSize (int width, int height, int flag) throw ();
-	bool OnRegisteredMessage (Win::Message & msg) throw ();
-	bool OnUserMessage (Win::UserMessage & msg) throw ();
-	bool OnTimer (int id) throw ();
+	bool OnCreate (Win::CreateData const * create, bool & success) ;
+	bool OnDestroy () ;
+	bool OnSize (int width, int height, int flag) ;
+	bool OnRegisteredMessage (Win::Message & msg) ;
+	bool OnUserMessage (Win::UserMessage & msg) ;
+	bool OnTimer (int id) ;
 
 	void FolderChange (FWatcher * watcher);
 private:

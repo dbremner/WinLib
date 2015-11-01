@@ -25,17 +25,17 @@ namespace Splitter
 			  _dragY (0)
 		{}
 
-		bool OnCreate (Win::CreateData const * create, bool & success) throw ();
-		bool OnSize (int width, int height, int flag) throw ()
+		bool OnCreate (Win::CreateData const * create, bool & success) ;
+		bool OnSize (int width, int height, int flag) 
 		{
 			_cx = width;
 			_cy = height;
 			return true;
 		}
-		bool OnLButtonDown (int x, int y, Win::KeyState kState) throw ();
-		bool OnLButtonUp (int x, int y, Win::KeyState kState) throw ();
-		bool OnMouseMove (int x, int y, Win::KeyState kState) throw ();
-		bool OnCaptureChanged (Win::Dow::Handle newCaptureWin) throw ();
+		bool OnLButtonDown (int x, int y, Win::KeyState kState) ;
+		bool OnLButtonUp (int x, int y, Win::KeyState kState) ;
+		bool OnMouseMove (int x, int y, Win::KeyState kState) ;
+		bool OnCaptureChanged (Win::Dow::Handle newCaptureWin) ;
 
 		virtual void BeginDrag (Win::Point const & parentOrigin,
 								Win::Point const & splitterOrigin,
@@ -70,7 +70,7 @@ namespace Splitter
 			: Ctrl (splitterId)
 		{}
 
-		bool OnPaint () throw ();
+		bool OnPaint () ;
 
 		void BeginDrag (Win::Point const & parentOrigin,
 						Win::Point const & splitterOrigin,
@@ -88,7 +88,7 @@ namespace Splitter
 			: Ctrl (splitterId)
 		{}
 
-		bool OnPaint () throw ();
+		bool OnPaint () ;
 
 		void BeginDrag (Win::Point const & parentOrigin,
 						Win::Point const & splitterOrigin,

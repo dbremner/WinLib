@@ -30,8 +30,8 @@ public:
 	bool IsDying () { return _isDying.IsNonZero (); }
 	// Kill will stop the thread and cause the eventual
 	// (asynchronous) deletion of the ActiveObject
-    bool Kill (unsigned timeoutMs = 0) throw ();
-	void KillSynchronous () throw () { Kill (INFINITE); }
+    bool Kill (unsigned timeoutMs = 0) ;
+	void KillSynchronous ()  { Kill (INFINITE); }
 	void Nuke () { _thread.Kill (); }
 protected:
 	Thread::Handle StartThread ();

@@ -247,39 +247,39 @@ namespace Notify
 		explicit TreeViewHandler (unsigned id) : Notify::Handler (id) {}
 		virtual bool OnGetDispInfo (Tree::View::Request const & request,
 				Tree::View::State const & state,
-				Tree::View::Item & item) throw ()
+				Tree::View::Item & item) 
 			{ return false; }
 		virtual bool OnItemExpanding (Tree::View::Item & item,
 									Tree::Notify::Action action,
-									bool & allow) throw ()
+									bool & allow) 
 			{ allow = false; return false; }
 		virtual bool OnItemExpanded (Tree::View::Item & item,
-									Tree::Notify::Action action) throw ()
+									Tree::Notify::Action action) 
 			{ return false; }
 		virtual bool OnItemCollapsing (Tree::View::Item & item,
 									Tree::Notify::Action action,
-									bool & allow) throw ()
+									bool & allow) 
 			{ allow = false; return false; }
 		virtual bool OnItemCollapsed (Tree::View::Item & item,
-									Tree::Notify::Action action) throw ()
+									Tree::Notify::Action action) 
 			{ return false; }
 		virtual bool OnSelChanging (Tree::View::Item & itemOld, 
 									Tree::View::Item & itemNew,
-									Tree::Notify::Action action) throw ()
+									Tree::Notify::Action action) 
 			{ return false; }
 		virtual bool OnSelChanged (Tree::View::Item & itemOld, 
 									Tree::View::Item & itemNew,
-									Tree::Notify::Action action) throw ()
+									Tree::Notify::Action action) 
 			{ return false; }
 		virtual bool OnSetFocus (Win::Dow::Handle winFrom, UINT_PTR idFrom)
 			{ return false; }
-		virtual bool OnClick (Win::Point pt) throw ()
+		virtual bool OnClick (Win::Point pt) 
 			{ return false; }
-		virtual bool OnRClick (Win::Point pt) throw ()
+		virtual bool OnRClick (Win::Point pt) 
 			{ return false; }
-		virtual bool OnDblClick (Win::Point pt) throw ()
+		virtual bool OnDblClick (Win::Point pt) 
 			{ return false; }
-		virtual Keyboard::Handler * GetKeyboardHandler () throw ()
+		virtual Keyboard::Handler * GetKeyboardHandler () 
 			{ return 0; }
 
 	protected:

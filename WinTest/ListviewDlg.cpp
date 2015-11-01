@@ -13,12 +13,12 @@ ListHandler::ListHandler (ListingCtrlHandler & ctrl)
 	  _ctrl (ctrl)
 {}
 
-bool ListHandler::OnDblClick () throw ()
+bool ListHandler::OnDblClick () 
 {
 	return _ctrl.OnDoubleClick ();
 }
 
-bool ListHandler::OnItemChanged (Win::ListView::ItemState & state) throw ()
+bool ListHandler::OnItemChanged (Win::ListView::ItemState & state) 
 {
 	if (state.GainedSelection ())
 		_ctrl.Select (state.Idx ());
@@ -71,7 +71,7 @@ bool ListingCtrlHandler::OnDlgControl (unsigned id, unsigned notifyCode) throw (
 }
 
 // Called when the user clicks the OK button
-bool ListingCtrlHandler::OnApply () throw ()
+bool ListingCtrlHandler::OnApply () 
 {
 	std::string itemName = _itemName.GetString ();
 	if (itemName.empty ())

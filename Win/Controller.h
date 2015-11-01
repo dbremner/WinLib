@@ -38,13 +38,13 @@ namespace Win
 			: _h (0)
 		{}
 		void SetWindowHandle (Win::Dow::Handle win) { _h = win; }
-		virtual bool MustDestroy () throw ()
+		virtual bool MustDestroy () 
 			{ return false; }
 
 		// For internal use only: made public because of difficulties with template friends
 	public:
 		static void Attach (Win::Dow::Handle win, Controller * ctrl);
-		bool Dispatch (UINT message, WPARAM wParam, LPARAM lParam, LRESULT & result) throw ();
+		bool Dispatch (UINT message, WPARAM wParam, LPARAM lParam, LRESULT & result) ;
 	public:
 		virtual ~Controller ()
 		{
@@ -56,13 +56,13 @@ namespace Win
 			{ return 0; }
 		virtual Control::Handler * GetControlHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
 			{ return 0; }
-		virtual Keyboard::Handler * GetKeyboardHandler () throw ()
+		virtual Keyboard::Handler * GetKeyboardHandler () 
 			{ return 0; }
-		virtual Dialog::ControlHandler * GetDlgControlHandler () throw ()
+		virtual Dialog::ControlHandler * GetDlgControlHandler () 
 			{ return 0; }
-		virtual AppCmdHandler * GetAppCmdHandler () throw ()
+		virtual AppCmdHandler * GetAppCmdHandler () 
 			{ return 0; }
-		virtual bool OnCreate (Win::CreateData const * create, bool & success) throw ()
+		virtual bool OnCreate (Win::CreateData const * create, bool & success) 
 			{ return false; }
         virtual bool OnDestroy () throw ()
 			{ return false; }
@@ -77,80 +77,80 @@ namespace Win
 			{ return false; }
 		virtual bool OnMouseActivate (Win::HitTest hitTest, Win::MouseActiveAction & activate) throw ()
 			{ return false; }
-		virtual bool OnFocus (Win::Dow::Handle winPrev) throw ()
+		virtual bool OnFocus (Win::Dow::Handle winPrev) 
 			{ return false; }
-		virtual bool OnKillFocus (Win::Dow::Handle winNext) throw ()
+		virtual bool OnKillFocus (Win::Dow::Handle winNext) 
 			{ return false; }
-		virtual bool OnEnable() throw ()
+		virtual bool OnEnable() 
 			{ return false; }
-		virtual bool OnDisable() throw ()
+		virtual bool OnDisable() 
 			{ return false; }
-		virtual bool OnSize (int width, int height, int flag) throw ()
+		virtual bool OnSize (int width, int height, int flag) 
 			{ return false; }
-		virtual bool OnClose () throw ()
+		virtual bool OnClose () 
 			{ return false; }
 		virtual bool OnEraseBkgnd(Win::Canvas canvas) throw()
 			{ return false; }
-		virtual bool OnPaint () throw ()
+		virtual bool OnPaint () 
 			{ return false; }
 		virtual bool OnShowWindow (bool show) throw ()
 			{ return false; }			
 		virtual bool OnSettingChange (Win::SystemWideFlags flags, char const * sectionName) throw ()
 			{ return false; }
-		virtual bool OnVScroll (int code, int pos, Win::Dow::Handle winCtrl) throw ()
+		virtual bool OnVScroll (int code, int pos, Win::Dow::Handle winCtrl) 
 			{ return false; }
-		virtual bool OnHScroll (int code, int pos, Win::Dow::Handle winCtrl) throw ()
+		virtual bool OnHScroll (int code, int pos, Win::Dow::Handle winCtrl) 
 			{ return false; }
 		// Commands
-		virtual bool OnCommand (int cmdId, bool isAccel) throw ()
+		virtual bool OnCommand (int cmdId, bool isAccel) 
 			{ return false; }
 		// Controls
 		virtual bool OnControl (Win::Dow::Handle control, unsigned id, unsigned notifyCode) throw ()
 			{ return false; }
 		// Standard dialog buttons
-		virtual bool OnApply () throw ()
+		virtual bool OnApply () 
 			{ return false; }
-		virtual bool OnCancel () throw ()
+		virtual bool OnCancel () 
 			{ return false; }
-		virtual bool OnHelp () throw ()
+		virtual bool OnHelp () 
 			{ return false; }
 
-		virtual bool OnInitPopup (Menu::Handle menu, int pos) throw ()
+		virtual bool OnInitPopup (Menu::Handle menu, int pos) 
 			{ return false; }
-		virtual bool OnExitMenuLoop (bool isContextMenu) throw ()
+		virtual bool OnExitMenuLoop (bool isContextMenu) 
 			{ return false; }
-		virtual bool OnInitSystemPopup (Menu::Handle menu, int pos) throw ()
+		virtual bool OnInitSystemPopup (Menu::Handle menu, int pos) 
 			{ return false; }
-		virtual bool OnPopupSelect (int idx, Menu::State state, Menu::Handle menu) throw ()
+		virtual bool OnPopupSelect (int idx, Menu::State state, Menu::Handle menu) 
 			{ return false; }
-		virtual bool OnSysMenuSelect (int id, Menu::State state, Menu::Handle menu) throw ()
+		virtual bool OnSysMenuSelect (int id, Menu::State state, Menu::Handle menu) 
 			{ return false; }
-		virtual bool OnMenuSelect (int id, Menu::State state, Menu::Handle menu) throw ()
+		virtual bool OnMenuSelect (int id, Menu::State state, Menu::Handle menu) 
 			{ return false; }
-		virtual bool OnContextMenu (Win::Dow::Handle wnd, int xPos, int yPos) throw ()
+		virtual bool OnContextMenu (Win::Dow::Handle wnd, int xPos, int yPos) 
 			{ return false; }
-		virtual bool OnTimer (int id) throw ()
+		virtual bool OnTimer (int id) 
 			{ return false; }
 		virtual bool OnDialogIdle(Win::Dow::Handle dlg) throw()
 			{ return false; }
 		// Mouse
-		virtual bool OnMouseMove (int x, int y, Win::KeyState kState) throw ()
+		virtual bool OnMouseMove (int x, int y, Win::KeyState kState) 
 			{ return false; }
-		virtual bool OnWheelMouse (int zDelta) throw ()
+		virtual bool OnWheelMouse (int zDelta) 
 			{ return false; }
-		virtual bool OnLButtonDown (int x, int y, Win::KeyState kState) throw ()
+		virtual bool OnLButtonDown (int x, int y, Win::KeyState kState) 
 			{ return false; }
-		virtual bool OnLButtonUp (int x, int y, Win::KeyState kState) throw ()
+		virtual bool OnLButtonUp (int x, int y, Win::KeyState kState) 
 			{ return false; }
-		virtual bool OnLButtonDblClick (int x, int y, Win::KeyState kState) throw ()
+		virtual bool OnLButtonDblClick (int x, int y, Win::KeyState kState) 
 			{ return false; }
-		virtual bool OnCaptureChanged (Win::Dow::Handle newCaptureWin) throw ()
+		virtual bool OnCaptureChanged (Win::Dow::Handle newCaptureWin) 
 			{ return false; }
 		// Drop target
-		virtual bool OnDropFiles (Win::FileDropHandle const & dropFile) throw ()
+		virtual bool OnDropFiles (Win::FileDropHandle const & dropFile) 
 			{ return false; }
 		// Keyboard
-		virtual bool OnChar (int vKey, int flags) throw ()
+		virtual bool OnChar (int vKey, int flags) 
 			{ return false; }
 		virtual bool OnCharToItem(int vKey, int nCaret, Win::Dow::Handle listbox) throw()
 			{ return false; }
@@ -201,7 +201,7 @@ namespace Win
 		friend class Maker;
 
 	protected:
-		bool MustDestroy () throw ()
+		bool MustDestroy () 
 			{ return true; }
 	};
 
