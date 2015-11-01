@@ -198,17 +198,17 @@ public:
 	static bool Copy (char const * pathFrom, char const * pathTo);
 	static bool CopyNoEx (char const * pathFrom, char const * pathTo) ;
 	static bool SafeCopy (char const * pathFrom, char const * pathTo);
-	static bool SafeCopyNoEx (char const * pathFrom, char const * pathTo) ;
+	static bool SafeCopyNoEx (char const * pathFrom, char const * pathTo);
 	static std::string Rename2Previous (char const * path);
-	static std::string Rename2PreviousNoEx (char const * path) ;
+	static std::string Rename2PreviousNoEx (char const * path);
 	static std::string Rename2CopyOf (char const * path);
-	static std::string Rename2CopyOfNoEx (char const * path) ;
+	static std::string Rename2CopyOfNoEx (char const * path);
 	static std::string CreateUniqueName (char const * path,
 										 std::string const & additionalNamePart = std::string ());
 	static void Move (char const * pathFrom, char const * pathTo);
-	static bool MoveNoEx (char const * pathFrom, char const * pathTo) ;
-	static void CopyOrDie (char const * pathFrom, char const * pathTo) throw (Win::ExitException);
-	static void Rename2PreviousOrDie (char const * path) throw (Win::ExitException);
+	static bool MoveNoEx (char const * pathFrom, char const * pathTo);
+	static void CopyOrDie (char const * pathFrom, char const * pathTo);
+	static void Rename2PreviousOrDie (char const * path);
 	static bool IsTreeEmpty (char const * root);
 	static bool CleanupTree (char const * root);
 	static void DeleteTree (std::string const & root);

@@ -80,7 +80,7 @@ namespace Progress
 
 		void Refresh ();
 
-		bool OnInitDialog () throw (Win::Exception);
+		bool OnInitDialog () ;
 		bool OnCancel () ;
 
 	private:

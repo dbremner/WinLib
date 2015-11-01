@@ -31,33 +31,33 @@ namespace Keyboard
 			{ return false;	}
 		virtual	bool OnPageDown	() 
 			{ return false;	}
-		virtual	bool OnUp ()  
+		virtual	bool OnUp ()
 			{ return false;	}
 		virtual	bool OnDown	() 	
 			{ return false;	}
 		virtual	bool OnLeft	() 	
 			{ return false;	}
-		virtual	bool OnRight ()	throw ()
+		virtual	bool OnRight ()
 			{ return false;	}
-		virtual	bool OnHome	() 
+		virtual	bool OnHome	()
 			{ return false;	}
-		virtual	bool OnEnd () throw	() 
+		virtual	bool OnEnd () 
 			{ return false;	}
 		virtual	bool OnReturn () 
 			{ return false;	}
 		virtual	bool OnDelete ()  
 			{ return false;	}
-		virtual	bool OnBackSpace ()	throw ()
+		virtual	bool OnBackSpace ()
 			{ return false;	}
-		virtual	bool OnEscape ()  
+		virtual	bool OnEscape () 
 			{ return false;	}
-		virtual bool OnTab () 
+		virtual bool OnTab ()
 			{ return false; }
-		virtual	bool OnCharKey (int	vKey) throw	() 
+		virtual	bool OnCharKey (int	vKey) 
 			{ return false;	}
-		virtual	bool OnNumpad (int vKey)  
+		virtual	bool OnNumpad (int vKey) 
 			{ return false;	}
-		virtual	bool OnFunctionKey (int	keyNo) 	
+		virtual	bool OnFunctionKey (int	keyNo)
 			{ return false;	}
 	};
 }

@@ -89,7 +89,7 @@ namespace Win
 			{ return false; }
 		virtual bool OnClose () 
 			{ return false; }
-		virtual bool OnEraseBkgnd(Win::Canvas canvas) throw()
+		virtual bool OnEraseBkgnd(Win::Canvas canvas)
 			{ return false; }
 		virtual bool OnPaint () 
 			{ return false; }
@@ -131,7 +131,7 @@ namespace Win
 			{ return false; }
 		virtual bool OnTimer (int id) 
 			{ return false; }
-		virtual bool OnDialogIdle(Win::Dow::Handle dlg) throw()
+		virtual bool OnDialogIdle(Win::Dow::Handle dlg)
 			{ return false; }
 		// Mouse
 		virtual bool OnMouseMove (int x, int y, Win::KeyState kState) 
@@ -152,9 +152,9 @@ namespace Win
 		// Keyboard
 		virtual bool OnChar (int vKey, int flags) 
 			{ return false; }
-		virtual bool OnCharToItem(int vKey, int nCaret, Win::Dow::Handle listbox) throw()
+		virtual bool OnCharToItem(int vKey, int nCaret, Win::Dow::Handle listbox)
 			{ return false; }
-		virtual bool OnVKeyToItem(int vKey, int nCaret, Win::Dow::Handle listbox) throw()
+		virtual bool OnVKeyToItem(int vKey, int nCaret, Win::Dow::Handle listbox)
 			{ return false; }
 		// DDE
 		virtual bool OnDdeInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic) 
@@ -187,7 +187,7 @@ namespace Win
 
 		virtual bool OnSetFont(Font::Handle font, bool fRedraw) 
 			{ return false; }
-		virtual bool OnTrainingCard(int, int) throw()
+		virtual bool OnTrainingCard(int, int)
 			{ return false; }
 		virtual bool OnAppCommand (unsigned cmd, unsigned device, unsigned virtKeys, Win::Dow::Handle window);
 	protected:

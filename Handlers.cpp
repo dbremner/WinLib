@@ -18,7 +18,7 @@ int MsNewHandler (size_t)
 	return 0;
 }
 
-void _cdecl SET::ExceptionTranslator (unsigned int exCode, PEXCEPTION_POINTERS ep) throw (Win::ExitException)
+void _cdecl SET::ExceptionTranslator (unsigned int exCode, PEXCEPTION_POINTERS ep)
 {
 	// For all structured exceptions we throw Win::ExitException
 	if (exCode == VcppException (ERROR_SEVERITY_ERROR, ERROR_MOD_NOT_FOUND) ||

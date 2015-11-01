@@ -158,10 +158,10 @@ namespace Dialog
 				return Win::Dow::Handle ();
 		}
 		// These methods are usually specialized by the client
-		virtual bool OnInitDialog () throw (Win::Exception) 
+		virtual bool OnInitDialog ()  
 			{ return true; }
 		// Use to process messages from dialog controls other than IDOK, IDCANCEL, and IDHELP
-		virtual bool OnDlgControl (unsigned id, unsigned notifyCode) throw (Win::Exception)
+		virtual bool OnDlgControl (unsigned id, unsigned notifyCode) 
 			{ return false; }
 		// Called when user clicks the OK button (IDOK)
 		virtual bool OnApply ()  
@@ -181,8 +181,8 @@ namespace Dialog
 		virtual bool GetDataFrom (NamedValues const & source)
 			{ return false; }
 		// Used in modeless dialogs
-		virtual void OnActivate () throw (Win::Exception) {}
-		virtual void OnDectivate () throw (Win::Exception) {}
+		virtual void OnActivate ()  {}
+		virtual void OnDectivate ()  {}
 		virtual void OnDestroy ()  {}
 		// These non-virtual methods should be called from OnApply and OnCancel
 		void EndOk () 
@@ -199,13 +199,13 @@ namespace Dialog
 		{
 			_helpEngine = helpEngine;
 		}
-		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+		virtual Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 		{
 			return 0;
 		}
 	public: // For internal use: made public because of problems with templated friends
 		void Attach (Dialog::Controller * ctrl) { _ctrl = ctrl; }
-		bool OnControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception);
+		bool OnControl (unsigned ctrlId, unsigned notifyCode) ;
 	private:
 		Dialog::Controller *_ctrl;
 		Help::Engine *		_helpEngine;
@@ -272,9 +272,9 @@ namespace Dialog
 		{ 
 			::DestroyWindow (GetWindow ().ToNative ());
 		}
-		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) throw (Win::Exception); 
-		bool OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd) throw (Win::Exception);
-        bool OnDestroy () throw ();
+		bool OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) ; 
+		bool OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd) ;
+        bool OnDestroy () ;
 	protected:
 		Win::MessagePrepro & _prepro;
 		Win::Dow::Handle	_accelWin;

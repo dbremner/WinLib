@@ -11,12 +11,12 @@
 // Note: Strictly speaking, in this particular case, 
 // OnInitDialog doesn't have to be overridden
 // because the default OnInitDialog does exactly the same.
-bool AboutDlgHandler::OnInitDialog () throw (Win::Exception) 
+bool AboutDlgHandler::OnInitDialog ()  
 {
 	return true;
 }
 
-bool AboutDlgHandler::OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception)
+bool AboutDlgHandler::OnDlgControl (unsigned ctrlId, unsigned notifyCode) 
 {
 	switch (ctrlId)
 	{

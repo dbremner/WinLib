@@ -242,15 +242,15 @@ namespace DDE
 			{ return false; }
 		virtual bool OnTimeout () 
 			{ return false; }
-		virtual bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) throw () = 0;
-		virtual void OnAck (Win::Dow::Handle partner, DDE::Ack ack, int handle) throw () = 0;
-		virtual bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise) throw () = 0;
-		virtual bool OnData (Win::Dow::Handle server, ATOM dataItem, DDE::Data const & data, DDE::Ack & ack) throw () = 0;
-		virtual bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack) throw () = 0;
-		virtual bool OnPoke (Win::Dow::Handle client,  ATOM dataItem, DDE::Poke const & poke) throw () = 0;
-		virtual bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) throw () = 0;
-		virtual void OnTerminate (Win::Dow::Handle partner) throw () = 0;
-		virtual bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) throw () = 0;
+		virtual bool OnInitiate (Win::Dow::Handle client, std::string const & app, std::string const & topic, Win::Dow::Handle & server) = 0;
+		virtual void OnAck (Win::Dow::Handle partner, DDE::Ack ack, int handle) = 0;
+		virtual bool OnAdvise (Win::Dow::Handle client, ATOM requestedItem, Advise const * advise) = 0;
+		virtual bool OnData (Win::Dow::Handle server, ATOM dataItem, DDE::Data const & data, DDE::Ack & ack) = 0;
+		virtual bool OnExecute (Win::Dow::Handle clinet, char const * cmd, DDE::Ack & ack) = 0;
+		virtual bool OnPoke (Win::Dow::Handle client,  ATOM dataItem, DDE::Poke const & poke) = 0;
+		virtual bool OnRequest (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) = 0;
+		virtual void OnTerminate (Win::Dow::Handle partner) = 0;
+		virtual bool OnUnadvise (Win::Dow::Handle client, ATOM requestedItem, Clipboard::Format format) = 0;
 
 		bool IsTerminating () const { return _terminating; }
 		void SetTerminating (bool flag) { _terminating = flag; }

@@ -56,8 +56,8 @@ public:
 	ListingCtrlHandler (TableData & dlgData);
 	Notify::Handler * GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) ;
 
-	bool OnInitDialog () throw (Win::Exception);
-	bool OnDlgControl (unsigned id, unsigned notifyCode) throw (Win::Exception);
+	bool OnInitDialog () ;
+	bool OnDlgControl (unsigned id, unsigned notifyCode) ;
 	bool OnApply () ;
 private:
 	// Called by ListView handler

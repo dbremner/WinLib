@@ -11,8 +11,8 @@ class AboutDlgHandler : public Dialog::ControlHandler
 {
 public:
 	AboutDlgHandler () : Dialog::ControlHandler (IDD_ABOUT) {}
-	bool OnInitDialog () throw (Win::Exception); 
-    bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception);
+	bool OnInitDialog () ; 
+    bool OnDlgControl (unsigned ctrlId, unsigned notifyCode) ;
 	bool OnApply () ;
 };
 

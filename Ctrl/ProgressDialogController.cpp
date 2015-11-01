@@ -13,7 +13,7 @@ Progress::DialogController::DialogController (Progress::CtrlHandler & handler,
 	  _ctrlHandler (handler)
 {}
 
-bool Progress::DialogController::OnTimer (int id) throw (Win::Exception)
+bool Progress::DialogController::OnTimer (int id) 
 {
 	if (id != Progress::CtrlHandler::TimerId)
 		return false;

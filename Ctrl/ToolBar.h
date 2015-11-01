@@ -218,7 +218,7 @@ namespace Tool
 			_executor (executor)
 		{}
 
-		bool OnControl (unsigned id, unsigned notifyCode) throw (Win::Exception);
+		bool OnControl (unsigned id, unsigned notifyCode) ;
 
 		void ClearButtonIds () { _myButtonIds.clear (); }
 		void AddButtonIds (Tool::Bar::ButtonIdIter first, Tool::Bar::ButtonIdIter last);

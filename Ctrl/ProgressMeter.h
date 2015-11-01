@@ -20,7 +20,7 @@ namespace Progress
 		virtual void SetActivity (std::string const & activity) {}
 		virtual void StepIt () {}
 		virtual void StepTo (int step) {}
-		virtual void StepAndCheck () throw (Win::Exception) {}
+		virtual void StepAndCheck ()  {}
 		virtual bool WasCanceled () { return false; }
 		virtual void Close () {}
 	};

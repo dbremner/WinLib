@@ -26,7 +26,7 @@ namespace Win
 
 		void SetRange (int min, int max, int step);
 		void StepIt ();
-		void StepAndCheck () throw (Win::Exception) { StepIt (); }
+		void StepAndCheck ()  { StepIt (); }
 		void StepTo (int min);
 	};
 

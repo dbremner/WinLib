@@ -486,7 +486,7 @@ bool File::MoveNoEx (char const * pathFrom, char const * pathTo)
 	return ::MoveFile (pathFrom, pathTo) != FALSE;
 }
 
-void File::CopyOrDie (char const * pathFrom, char const * pathTo) throw (Win::ExitException)
+void File::CopyOrDie (char const * pathFrom, char const * pathTo)
 {
 	bool isError = false;
 	File::Attributes attrs (pathTo);
@@ -508,7 +508,7 @@ void File::CopyOrDie (char const * pathFrom, char const * pathTo) throw (Win::Ex
 }
 
 
-void File::Rename2PreviousOrDie (char const * path) throw (Win::ExitException)
+void File::Rename2PreviousOrDie (char const * path)
 {
 	if (Exists (path))
 	{

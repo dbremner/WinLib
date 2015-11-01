@@ -83,7 +83,7 @@ namespace OwnerDraw
 		Win::Dow::Handle Parent () const { return _winParent; }
 		unsigned CtrlId () const { return _ctrlId; }
 
-		virtual bool Draw (OwnerDraw::Item & item)  = 0;
+		virtual bool Draw (OwnerDraw::Item & item) = 0;
 	private:
 		Win::Dow::Handle	_winParent;
 		unsigned			_ctrlId;

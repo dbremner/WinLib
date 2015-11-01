@@ -154,7 +154,7 @@ void Progress::ChannelHandler::StepTo (int step)
 	_channel.StepTo (step);
 }
 
-void Progress::ChannelHandler::StepAndCheck () throw (Win::Exception)
+void Progress::ChannelHandler::StepAndCheck () 
 {
 	if (WasCanceled ())
 		throw Win::Exception ();

@@ -36,7 +36,7 @@ ListingCtrlHandler::ListingCtrlHandler (TableData & tableData)
 {}
 
 // Give Window Procedure access to ListView notification handler 
-Notify::Handler * ListingCtrlHandler::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) throw ()
+Notify::Handler * ListingCtrlHandler::GetNotifyHandler (Win::Dow::Handle winFrom, unsigned idFrom) 
 {
 	if (_notifyHandler.IsHandlerFor (idFrom))
 		return &_notifyHandler;
@@ -44,7 +44,7 @@ Notify::Handler * ListingCtrlHandler::GetNotifyHandler (Win::Dow::Handle winFrom
 		return 0;
 }
 
-bool ListingCtrlHandler::OnInitDialog () throw (Win::Exception)
+bool ListingCtrlHandler::OnInitDialog () 
 {
 	Win::Dow::Handle dlgWin = GetWindow ();
 	_content.Init (dlgWin, IDC_LIST_CONTENT);
@@ -64,7 +64,7 @@ bool ListingCtrlHandler::OnInitDialog () throw (Win::Exception)
 	return true;
 }
 
-bool ListingCtrlHandler::OnDlgControl (unsigned id, unsigned notifyCode) throw (Win::Exception)
+bool ListingCtrlHandler::OnDlgControl (unsigned id, unsigned notifyCode) 
 {
 	// Here one would process messages from buttons or other controls
 	return false;

@@ -102,7 +102,7 @@ namespace Win
 			CommonControlsRegistry::Instance()->Add(CommonControlsRegistry::LISTVIEW);
 		}
 
-		static char const *ClassName() throw()
+		static char const *ClassName()
 		{
 			return WC_HEADER;
 		}

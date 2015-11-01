@@ -64,7 +64,7 @@ Progress::SingleCtrlHandler::SingleCtrlHandler (Progress::MeterDialogData & data
 {
 }
 
-bool Progress::SingleCtrlHandler::OnInitDialog () throw (Win::Exception)
+bool Progress::SingleCtrlHandler::OnInitDialog () 
 {
 	Win::Dow::Handle dlgWin (GetWindow ());
 	_caption.Init (dlgWin, Progress::MeterDialog::CaptionId);

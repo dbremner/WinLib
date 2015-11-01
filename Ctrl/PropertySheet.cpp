@@ -10,7 +10,7 @@
 #include <Sys/SysVer.h>
 #include <Ctrl/Output.h>
 
-void Notify::PageHandler::OnPrev (LRESULT & result) throw (Win::Exception)
+void Notify::PageHandler::OnPrev (LRESULT & result) 
 {
 	result = -1;
 	if (_navigator)
@@ -19,7 +19,7 @@ void Notify::PageHandler::OnPrev (LRESULT & result) throw (Win::Exception)
 			result = _navigator->Prev ();
 	}
 }
-void Notify::PageHandler::OnNext (LRESULT & result) throw (Win::Exception)
+void Notify::PageHandler::OnNext (LRESULT & result) 
 {
 	result = -1;
 	if (_navigator)
@@ -173,7 +173,7 @@ namespace PropPage
 
 namespace Notify
 {
-	bool PageHandler::OnNotify (NMHDR * hdr, LRESULT & result) throw (Win::Exception)
+	bool PageHandler::OnNotify (NMHDR * hdr, LRESULT & result) 
 	{
 		// hdr->code
 		// hdr->idFrom;

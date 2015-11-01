@@ -292,7 +292,7 @@ bool ToolTipHandler::OnNotify (NMHDR * hdr, long & result)
 // Button Controller
 //------------------
 
-bool Tool::ButtonCtrl::OnControl (unsigned id, unsigned notifyCode) throw (Win::Exception)
+bool Tool::ButtonCtrl::OnControl (unsigned id, unsigned notifyCode) 
 {
 	// Notification from the tool bar button
 	_executor.ExecuteCommand (id);

@@ -33,17 +33,17 @@ namespace Notify
 		{
 			_navigator = navigator;
 		}
-		virtual void OnSetActive (LRESULT & result) throw (Win::Exception)	{}
-		virtual void OnKillActive (LRESULT & result) throw (Win::Exception) {}
-		virtual void OnFinish (LRESULT & result) throw (Win::Exception) {}
-		virtual void OnCancel (LRESULT & result) throw (Win::Exception) {}
-		virtual void OnApply (LRESULT & result) throw (Win::Exception) {}
-		virtual void OnReset () throw (Win::Exception) {}
-		virtual void OnHelp () const throw (Win::Exception) {}
-		virtual void OnPrev (LRESULT & result) throw (Win::Exception);
-		virtual void OnNext (LRESULT & result) throw (Win::Exception);
+		virtual void OnSetActive (LRESULT & result) 	{}
+		virtual void OnKillActive (LRESULT & result)  {}
+		virtual void OnFinish (LRESULT & result)  {}
+		virtual void OnCancel (LRESULT & result)  {}
+		virtual void OnApply (LRESULT & result)  {}
+		virtual void OnReset ()  {}
+		virtual void OnHelp () const  {}
+		virtual void OnPrev (LRESULT & result) ;
+		virtual void OnNext (LRESULT & result) ;
 	protected:
-		bool OnNotify (NMHDR * hdr, LRESULT & result) throw (Win::Exception);
+		bool OnNotify (NMHDR * hdr, LRESULT & result) ;
 		// For use in wizards
 		virtual bool GoNext (LRESULT & nextPage) { return false; }
 		virtual bool GoPrevious () { return false; }

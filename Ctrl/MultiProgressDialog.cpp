@@ -15,7 +15,7 @@ Progress::MultiCtrlHandler::MultiCtrlHandler (Progress::MeterDialogData & data,
 	  _specific (specific)
 {}
 
-bool Progress::MultiCtrlHandler::OnInitDialog () throw (Win::Exception)
+bool Progress::MultiCtrlHandler::OnInitDialog () 
 {
 	Win::Dow::Handle dlgWin (GetWindow ());
 	_caption.Init (dlgWin, Progress::MultiMeterDialog::CaptionId);

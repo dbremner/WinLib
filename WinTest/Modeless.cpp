@@ -25,14 +25,14 @@ ModelessHandler::ModelessHandler (ModelessManager & man)
 {
 }
 
-bool ModelessHandler::OnInitDialog () throw (Win::Exception)
+bool ModelessHandler::OnInitDialog () 
 {
 	_check.Init (GetWindow (), IDC_CHECK);
 	if (_man.IsFlag ())
 		_check.Check ();
 	return true;
 }
-bool ModelessHandler::OnDlgControl (unsigned ctrlId, unsigned notifyCode) throw (Win::Exception)
+bool ModelessHandler::OnDlgControl (unsigned ctrlId, unsigned notifyCode) 
 {
 	switch (ctrlId)
 	{

@@ -58,8 +58,7 @@ public:
 	}
 
 private:
-	static void _cdecl ExceptionTranslator (unsigned int exCode, PEXCEPTION_POINTERS ep)
-		throw (Win::ExitException);
+	static void _cdecl ExceptionTranslator(unsigned int exCode, PEXCEPTION_POINTERS ep);
 };
 
 #endif

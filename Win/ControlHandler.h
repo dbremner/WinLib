@@ -19,7 +19,7 @@ namespace Control
 			return id == _id;
 		}
 		unsigned GetId () const { return _id; }
-		virtual bool OnControl (unsigned id, unsigned notifyCode) throw (Win::Exception) = 0;
+		virtual bool OnControl (unsigned id, unsigned notifyCode) = 0;
 
 	protected:
 		unsigned	_id;

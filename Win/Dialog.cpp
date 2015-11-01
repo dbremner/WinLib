@@ -14,7 +14,7 @@ void Dialog::Handle::MapRectangle (Win::Rect & rect)
 }
 
 bool Dialog::ControlHandler::OnControl (unsigned ctrlId, 
-										unsigned notifyCode) throw (Win::Exception)
+										unsigned notifyCode) 
 {
 	if (ctrlId == Out::OK)
 	{
@@ -77,7 +77,7 @@ Notify::Handler * Dialog::Controller::GetNotifyHandler (Win::Dow::Handle winFrom
 		return 0;
 }
 
-bool Dialog::ModelessController::OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd) throw (Win::Exception) 
+bool Dialog::ModelessController::OnActivate (bool isClickActivate, bool isMinimized, Win::Dow::Handle prevWnd)  
 {
 	_prepro.SetDialogFilter (GetWindow (), _accelWin, _accel);
 	Dialog::ControlHandler * handler = GetDlgControlHandler ();
@@ -86,7 +86,7 @@ bool Dialog::ModelessController::OnActivate (bool isClickActivate, bool isMinimi
 	return false; 
 }
 
-bool Dialog::ModelessController::OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd) throw (Win::Exception)
+bool Dialog::ModelessController::OnDeactivate (bool isMinimized, Win::Dow::Handle prevWnd) 
 {
 	Dialog::ControlHandler * handler = GetDlgControlHandler ();
 	if (handler)
