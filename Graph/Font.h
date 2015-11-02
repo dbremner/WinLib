@@ -106,7 +106,7 @@ namespace Font
 		}
 		void SetCharSet (int charSet)
 		{
-			lfCharSet = charSet;
+			lfCharSet = static_cast<BYTE>(charSet);
 		}
 
 		Font::AutoHandle Create ();

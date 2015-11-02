@@ -159,12 +159,12 @@ inline bool IsUpper (char c)
 
 inline char ToUpper (char c)
 {
-	return std::toupper (c);
+	return static_cast<char>(std::toupper (c));
 }
 
 inline char ToLower (char c)
 {
-	return std::tolower (c);
+	return static_cast<char>(std::tolower (c));
 }
 
 inline bool IsGraph (char c)

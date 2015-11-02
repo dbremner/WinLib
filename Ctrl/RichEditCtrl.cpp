@@ -258,7 +258,7 @@ void RichEdit::CharFormat::SetFaceName (char const * faceName)
 
 void RichEdit::CharFormat::SetWeight (int weight)
 {
-	wWeight = weight;
+	wWeight = static_cast<WORD>(weight);
 	dwMask |= CFM_WEIGHT;
 }
 

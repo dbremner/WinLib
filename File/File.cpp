@@ -445,7 +445,6 @@ std::string File::CreateUniqueName (char const * path,
 			return std::string (newPath);
 	}
 	throw Win::Exception ("Internal error: cannot create unique file name.", path);
-	return std::string ();
 }
 
 std::string File::RenameUnique (char const * path, char const * namePrefix)

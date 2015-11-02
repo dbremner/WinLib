@@ -183,7 +183,7 @@ namespace Ftp
 									  Internet::Callback * callback)
 	{
 		INTERNET_PORT port = 0;
-		DWORD service;
+		DWORD service = 0;
 		switch (protocol)
 		{
 		case Internet::FTP:

@@ -25,7 +25,7 @@ namespace Focus
 	class Ring
 	{
 	public:
-		static const unsigned invalidId = -1;
+		static const unsigned invalidId = static_cast<unsigned>(-1);
 
 	public:
 		Ring ()

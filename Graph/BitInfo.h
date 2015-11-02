@@ -65,7 +65,7 @@ namespace Bitmap
 				||  bitsPerPixel == 4
 				||  bitsPerPixel == 8
 				||  bitsPerPixel == 24);
-			biBitCount = bitsPerPixel;
+			biBitCount = static_cast<WORD>(bitsPerPixel);
 			biCompression = BI_RGB; // no compression
 			biSizeImage = 0;
 			biXPelsPerMeter = 0;

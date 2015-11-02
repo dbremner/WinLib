@@ -10,7 +10,7 @@ Win::GlobalAtom::String::String (unsigned atom)
 {
 	char nameBuf [256];
 	memset (nameBuf, 0, sizeof (nameBuf));
-	int nameLen = ::GlobalGetAtomName (atom, nameBuf, sizeof (nameBuf));
+	int nameLen = ::GlobalGetAtomName (static_cast<ATOM>(atom), nameBuf, sizeof (nameBuf));
 	if (nameLen != 0)
 	{
 		assign (nameBuf);

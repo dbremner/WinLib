@@ -120,7 +120,7 @@ void Dialog::TemplateMaker::Create (Dialog::Template & tmpl)
 	// DWORD style;
 	out.PutDWord (_style.GetStyleBits ());
 	// WORD cDlgItems;
-	out.PutWord (_items.size ());
+	out.PutWord (static_cast<WORD>(_items.size ()));
 	// short x, y, cx, cy;
 	out.PutShort (_rect.Left ());
 	out.PutShort (_rect.Top ());

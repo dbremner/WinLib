@@ -74,7 +74,7 @@ void MultipartMixedPart::Send (Socket & socket) const
 void PlainTextPart::AgreeOnBoundary (std::string & boundary) const
 {
 	std::string::size_type startPos = 0;
-	do 
+	for (;;)
 	{
 		startPos = _text.find (boundary, startPos);
 		if (startPos == std::string::npos)
@@ -105,7 +105,7 @@ void PlainTextPart::AgreeOnBoundary (std::string & boundary) const
 
 		boundary.append (hexDigit.str ());
 
-	} while (true);
+	}
 }
 
 void PlainTextPart::Send (Socket & socket) const

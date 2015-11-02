@@ -130,10 +130,10 @@ void DirSeq::Advance ()
 {
 	Assert (!AtEnd ());
 	// advance and skip non-directories
-    do
+	for (;;)
     {
         FileSeq::Advance ();
         if (AtEnd () || IsFolder ())
 			break;
-    } while (true);
+    }
 }

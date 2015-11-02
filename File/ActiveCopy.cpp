@@ -106,7 +106,7 @@ void ActiveCopy::Worker::Run ()
 		char buf [ChunkSize];
 		unsigned long size = 0;
 		int sizeTransferred = 0;
-		do
+		for (;;)
 		{
 			size = sizeof (buf);
 			// modifies size
@@ -124,7 +124,7 @@ void ActiveCopy::Worker::Run ()
 			if (!_sink.OnProgress (srcFileSize, sizeTransferred))
 				return;
 
-		} while (true);
+		}
 
 		_destFile.Commit ();
 		_sink.OnCompleted (CopyProgressSink::Success);

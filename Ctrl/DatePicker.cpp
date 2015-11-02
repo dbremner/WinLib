@@ -25,9 +25,9 @@ namespace Win
 	{
 		SYSTEMTIME st;
 		memset(&st, 0, sizeof(st));
-		st.wYear = year;
-		st.wMonth = month;
-		st.wDay = day;
+		st.wYear = static_cast<WORD>(year);
+		st.wMonth = static_cast<WORD>(month);
+		st.wDay = static_cast<WORD>(day);
 		SendMsg(DTM_SETFORMAT);	//	set to default format
 		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, (LPARAM) &st);
 	}

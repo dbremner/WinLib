@@ -426,12 +426,12 @@ namespace BITS
 					dbg << "BITS job modification: job already cancelled or completed." << std::endl;
 					status = CopyProgressSink::AlreadyHandled;
 				}
-				else if (BG_S_PARTIAL_COMPLETE)
+				else if (result == BG_S_PARTIAL_COMPLETE)
 				{
 					dbg << "BITS job modification: partial complete." << std::endl;
 					status = CopyProgressSink::PartialSuccess;
 				}
-				else if (BG_S_UNABLE_TO_DELETE_FILES)
+				else if (result == BG_S_UNABLE_TO_DELETE_FILES)
 				{
 					dbg << "BITS job modification: cannot delete temporary files." << std::endl;
 					status = CopyProgressSink::CannotDeleteTempFiles;

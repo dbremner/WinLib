@@ -75,9 +75,9 @@ std::string Date::ToString (bool shortFormat) const
 	Assert (IsValid ());
 	SYSTEMTIME sysTime;
 	memset (&sysTime, 0, sizeof (SYSTEMTIME));
-	sysTime.wDay = _day;
-	sysTime.wMonth = _month;
-	sysTime.wYear = _year;
+	sysTime.wDay = static_cast<WORD>(_day);
+	sysTime.wMonth = static_cast<WORD>(_month);
+	sysTime.wYear = static_cast<WORD>(_year);
 	// Format date using locale information
 	std::string date;
 	unsigned long flags = shortFormat ? DATE_SHORTDATE : DATE_LONGDATE;
