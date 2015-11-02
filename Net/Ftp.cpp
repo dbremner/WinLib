@@ -182,7 +182,7 @@ namespace Ftp
 	Ftp::AutoHandle Session::Connect (Internet::Protocol protocol, 
 									  Internet::Callback * callback)
 	{
-		INTERNET_PORT port;
+		INTERNET_PORT port = 0;
 		DWORD service;
 		switch (protocol)
 		{

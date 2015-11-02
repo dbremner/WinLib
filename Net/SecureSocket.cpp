@@ -407,6 +407,7 @@ Schannel::OutgoingMessage::OutgoingMessage (
 	_msg.cBuffers  = 4;
 	_msg.pBuffers  = _buffers;
 
+  _msgSize = 0;
 }
 
 void Schannel::OutgoingMessage::Encrypt (CtxtHandle context)

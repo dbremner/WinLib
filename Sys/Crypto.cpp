@@ -155,7 +155,9 @@ Crypt::Streamer::Streamer (std::string const & password)
 : _context (), 
   _hash (_context, password), 
   _key (_context, _hash),
-  _inBlockLen (1000 - 1000 % ENCRYPT_BLOCK_SIZE) // multiple of block size
+  _inBlockLen (1000 - 1000 % ENCRYPT_BLOCK_SIZE), // multiple of block size
+  _inBuf (nullptr),
+  _inSize (0)
 {
 	// Determine the output size. 
 	// Stream cyphers don't change the length

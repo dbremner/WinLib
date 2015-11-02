@@ -51,7 +51,7 @@ void Handle::AddWindow (Win::Dow::Handle overlayWin, Win::Dow::Handle toolTipHan
 	OveralyWindow  toolWnd (overlayWin, toolTipHandlerWin);
     HWND hwndTT = reinterpret_cast<HWND> (SendMsg (TB_GETTOOLTIPS, 0, 0));
 	if (hwndTT == 0)
-		Win::Exception ("Internal error: Cannot add window tool to the tool bar.");
+		throw Win::Exception ("Internal error: Cannot add window tool to the tool bar.");
     ::SendMessage (hwndTT, TTM_ADDTOOL, 0, reinterpret_cast<LPARAM>(&toolWnd));
 }
 
@@ -69,7 +69,7 @@ unsigned Handle::GetToolTipDelay () const
 {
     HWND hwndTT = reinterpret_cast<HWND> (SendMsg (TB_GETTOOLTIPS, 0, 0));
 	if (hwndTT == 0)
-		Win::Exception ("Internal error: Cannot get the tool bar tool tip delay.");
+		throw Win::Exception("Internal error: Cannot get the tool bar tool tip delay.");
     return ::SendMessage (hwndTT, TTM_GETDELAYTIME, TTDT_AUTOPOP, 0);
 }
 
@@ -77,7 +77,7 @@ void Handle::SetToolTipDelay (unsigned milliSeconds) const
 {
     HWND hwndTT = reinterpret_cast<HWND> (SendMsg (TB_GETTOOLTIPS, 0, 0));
 	if (hwndTT == 0)
-		Win::Exception ("Internal error: Cannot set the tool bar tool tip delay.");
+		throw Win::Exception ("Internal error: Cannot set the tool bar tool tip delay.");
     ::SendMessage (hwndTT, TTM_SETDELAYTIME, TTDT_AUTOPOP, milliSeconds);
 }
 

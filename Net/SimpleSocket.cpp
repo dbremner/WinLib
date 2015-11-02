@@ -5,7 +5,8 @@
 #include "SimpleSocket.h"
 
 SimpleSocket::SimpleSocket ()
-:_sock (::socket(AF_INET, SOCK_STREAM, 0))
+:_sock (::socket(AF_INET, SOCK_STREAM, 0)),
+ _port (0)
 {
 	if (_sock == INVALID_SOCKET)
 		throw Win::SocketException ("Cannot open internet socket.");

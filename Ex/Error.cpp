@@ -78,6 +78,8 @@ SysMsg::SysMsg (DWORD errCode, HINSTANCE hModule)
 		{
 			int len = 0;
 			_msg = static_cast<char *> (::LocalAlloc (LPTR, 64));
+			if (!_msg)
+				return;
 			strcpy (_msg, "Error ");
 			len = strlen (_msg);
 			_ultoa (errCode, _msg + len, 10);

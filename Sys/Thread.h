@@ -34,7 +34,7 @@ namespace Thread
     	}
 		bool IsAlive () const
 		{
-			unsigned long code;
+			unsigned long code = 0;
 			::GetExitCodeThread (H (), &code);
 			return code == STILL_ACTIVE;
 		}

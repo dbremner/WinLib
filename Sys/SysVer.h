@@ -13,6 +13,7 @@ public:
     {
         memset (this, 0, sizeof (OSVERSIONINFO));
         dwOSVersionInfoSize = sizeof (OSVERSIONINFO);
+#pragma warning(suppress: 28159) // Revisit: look at VerifyVersionInfo and VersionHelpers
         _isOK = ::GetVersionEx (this) != 0;
     }
 

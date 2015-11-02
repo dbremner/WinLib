@@ -68,7 +68,6 @@ void FolderWatcher::Run ()
             // Wait failed
 			throw Win::Exception ("Failed wait for changes in folder", 
 									_folderEvent.GetDir ().c_str ());
-			return;
         }
     }
 }
