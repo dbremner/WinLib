@@ -12,10 +12,7 @@
 using namespace Net;
 
 ShareNT::ShareNT ()
-	: _dll ("netapi32.dll")
-{		
-	_dll.GetFunction<ShareAdd> ("NetShareAdd", _pNetShareAdd);
-	_dll.GetFunction<ShareDel> ("NetShareDel", _pNetShareDel);
+{
 }
 
 void ShareNT::Add (SharedObject const & object)
@@ -35,7 +32,7 @@ void ShareNT::Add (SharedObject const & object)
 
 	shareInfo.SetSecurity (secDesc);
 	// add netshare
-	NET_API_STATUS status = (_pNetShareAdd) (
+	NET_API_STATUS status = NetShareAdd (
 		0,						// server name (0 - local)
 		shareInfo.Level (),			// information level
 		reinterpret_cast<unsigned char*> (&shareInfo),	// share info 
@@ -67,7 +64,7 @@ void ShareNT::Delete (std::string const & netname)
 	wname.assign (netname.begin (), netname.end ());
 
 	// delete netshare
-	NET_API_STATUS status = (_pNetShareDel) (
+	NET_API_STATUS status = NetShareDel (
 		0,					// server name (0 - local)
 		&wname [0],			// share netname
 		0);					// reserved

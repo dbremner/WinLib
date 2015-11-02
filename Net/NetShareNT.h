@@ -11,14 +11,6 @@ namespace Net
 {
 	class ShareNT: public ShareImpl
 	{
-		typedef NET_API_STATUS (__stdcall *ShareAdd) (LPWSTR servername,
-														 DWORD level,
-														 LPBYTE buf,
-														 LPDWORD parm_err);
-
-		typedef	NET_API_STATUS (__stdcall *ShareDel) (LPWSTR servername,
-														 LPWSTR netname,
-														 DWORD reserved);
 
 	public:
 		ShareNT ();
@@ -27,9 +19,6 @@ namespace Net
 		void Delete (std::string const & netname);
 
 	private:
-		Dll			_dll;
-		ShareAdd	_pNetShareAdd;
-		ShareDel	_pNetShareDel;
 	};
 }
 #endif
