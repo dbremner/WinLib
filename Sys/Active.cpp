@@ -115,7 +115,5 @@ namespace UnitTest
 		tester.reset (new Tester);
 		tester.reset ();
 		out << "End active object test" << std::endl;
-#if 0
-#endif
 	}
 }

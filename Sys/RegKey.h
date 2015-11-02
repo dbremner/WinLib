@@ -9,11 +9,6 @@
 namespace Win
 {
     class Placement;
-
-#ifdef BORLAND_COMPILER
-    template<>
-    void Disposal<HKEY>::Dispose (RegKey::Handle h);
-#endif
 }
 
 class MultiString;
