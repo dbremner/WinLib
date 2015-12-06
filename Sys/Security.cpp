@@ -48,7 +48,7 @@ ExplicitAccess::ExplicitAccess (TrusteeId & trustee, bool isInheritable)
 	grfInheritance= isInheritable ? SUB_CONTAINERS_AND_OBJECTS_INHERIT : NO_INHERITANCE;
 	Trustee.TrusteeForm = trustee.Form ();
 	Trustee.TrusteeType = trustee.Type ();
-	Trustee.ptstrName  = (LPWSTR) trustee.Get ();
+	Trustee.ptstrName  = static_cast<LPWSTR>(trustee.Get ());
 }
 
 Acl::Acl (File & file)
@@ -92,7 +92,7 @@ void Descriptor::SetAcl (Acl acl)
 
 DescriptorNew::DescriptorNew ()
 {
-	_security = (PSECURITY_DESCRIPTOR) ::LocalAlloc(LPTR, SECURITY_DESCRIPTOR_MIN_LENGTH);
+	_security = static_cast<PSECURITY_DESCRIPTOR>(::LocalAlloc(LPTR, SECURITY_DESCRIPTOR_MIN_LENGTH));
 	// Advapi32.lib
 	if (!::InitializeSecurityDescriptor (_security, SECURITY_DESCRIPTOR_REVISION))
 		throw Win::Exception ("Could not initialize security descriptor");

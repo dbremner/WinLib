@@ -34,7 +34,7 @@ FileGetter::FileGetter ()
     nFileOffset = 0;        // out: offset of file name in buf 
     nFileExtension = 0;     // out: offset of extension
     lpstrDefExt = 0;        // default extension to append
-    lCustData = (LPARAM)this; // the "this" pointer
+    lCustData = reinterpret_cast<LPARAM>(this); // the "this" pointer
     lpfnHook = 0; 
     lpTemplateName = 0; 
 }
@@ -121,7 +121,7 @@ void PathIter::Advance ()
 char const * PathIter::GetPath (char * bufPath, int size)
 {
     int lenPath = strlen (&_buf [_iPath]);
-    if (lenPath + 1 + (int)strlen (&_buf [_iName]) + 1 > size)
+    if (lenPath + 1 + static_cast<int>(strlen (&_buf [_iName])) + 1 > size)
         return 0;
 
     strcpy (bufPath, &_buf [_iPath]);

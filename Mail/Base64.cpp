@@ -69,7 +69,7 @@ void Base64::Encode (char const * src, unsigned int srcSize, GenericOutput & out
 		}
 		for (unsigned int k = 0; k < 4; ++k)
 		{
-			unsigned char idx = (unsigned char)(trio >> 26);
+			unsigned char idx = static_cast<unsigned char>(trio >> 26);
 			output.Put (static_cast<char>(Base64::CodingTable [idx]));
 			trio <<= 6;
 		}
@@ -87,7 +87,7 @@ void Base64::Encode (char const * src, unsigned int srcSize, GenericOutput & out
 		trio <<= 8 * (3 - numberOfDataBytesInLastTrio);
 		for (unsigned int k = 0; k < numberOfDataBytesInLastTrio + 1; ++k)
 		{
-			unsigned char idx = (unsigned char)(trio >> 26);
+			unsigned char idx = static_cast<unsigned char>(trio >> 26);
 			output.Put (static_cast<char>(Base64::CodingTable [idx]));
 			trio <<= 6;
 		}

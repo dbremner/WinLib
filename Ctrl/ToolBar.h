@@ -64,32 +64,32 @@ namespace Tool
 		}
 		void EnableButton (int cmdID)
 		{
-			SendMsg (TB_ENABLEBUTTON, (WPARAM) cmdID, MAKELPARAM (TRUE, 0));
+			SendMsg (TB_ENABLEBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (TRUE, 0));
 		}
 
 		void DisableButton (int cmdID)
 		{
-			SendMsg (TB_ENABLEBUTTON, (WPARAM) cmdID, MAKELPARAM (FALSE, 0));
+			SendMsg (TB_ENABLEBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (FALSE, 0));
 		}
 
 		void HideButton (int cmdID)
 		{
-			SendMsg (TB_HIDEBUTTON, (WPARAM) cmdID, MAKELPARAM (TRUE, 0));
+			SendMsg (TB_HIDEBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (TRUE, 0));
 		}
 
 		void ShowButton (int cmdID)
 		{
-			SendMsg (TB_HIDEBUTTON, (WPARAM) cmdID, MAKELPARAM (FALSE, 0));
+			SendMsg (TB_HIDEBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (FALSE, 0));
 		}
 
 		void PressButton (int cmdID)
 		{
-			SendMsg (TB_PRESSBUTTON, (WPARAM) cmdID, MAKELPARAM (TRUE, 0));
+			SendMsg (TB_PRESSBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (TRUE, 0));
 		}
 
 		void ReleaseButton (int cmdID)
 		{
-			SendMsg (TB_PRESSBUTTON, (WPARAM) cmdID, MAKELPARAM (FALSE, 0));
+			SendMsg (TB_PRESSBUTTON, static_cast<WPARAM>(cmdID), MAKELPARAM (FALSE, 0));
 		}
 		
 		void InsertSeparator (int idx, int width);

@@ -25,7 +25,7 @@ namespace Win
 		}
 		void Select (int offStart, int offEnd)
 		{
-			SendMsg (EM_SETSEL, (WPARAM) offStart, (LPARAM) offEnd);
+			SendMsg (EM_SETSEL, static_cast<WPARAM>(offStart), static_cast<LPARAM>(offEnd));
 		}
 	};
 
@@ -78,12 +78,12 @@ namespace Win
 
 		void Select (int offStart, int offEnd)
 		{
-			SendMsg (EM_SETSEL, (WPARAM) offStart, (LPARAM) offEnd);
+			SendMsg (EM_SETSEL, static_cast<WPARAM>(offStart), static_cast<LPARAM>(offEnd));
 		}
 
 		void SetReadonly (bool flag)
 		{
-			SendMsg (EM_SETREADONLY, (WPARAM) (flag ? TRUE : FALSE), 0);
+			SendMsg (EM_SETREADONLY, static_cast<WPARAM>(flag ? TRUE : FALSE), 0);
 		}
 
 		void LimitText (int limit)
@@ -127,7 +127,7 @@ namespace Win
 
 		void GetString (char * buf, int len) const
 		{
-			SendMsg (WM_GETTEXT, (WPARAM) len, (LPARAM) buf);
+			SendMsg (WM_GETTEXT, static_cast<WPARAM>(len), reinterpret_cast<LPARAM>(buf));
 		}
 
 		bool GetInt (int & value);

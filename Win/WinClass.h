@@ -46,7 +46,7 @@ namespace Win
 			Win::Class::Style & Style () { return reinterpret_cast<Win::Class::Style &> (style); }
 			void SetBgSysColor (int sysColor)
 			{
-				hbrBackground = (HBRUSH) (sysColor + 1);
+				hbrBackground = reinterpret_cast<HBRUSH>(sysColor + 1);
 			}
 
 			void SetBgBrush (Brush::Handle hbr)

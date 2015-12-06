@@ -104,7 +104,7 @@ Crypt::Hash::Hash (Crypt::Context const & context, std::string const & str)
 	}
 	if(!::CryptHashData(
 		_hash, 
-		(BYTE *)str.c_str (), 
+		reinterpret_cast<LPBYTE>(const_cast<char*>(str.c_str ())), 
 		str.size (), 
 		0))
 	{

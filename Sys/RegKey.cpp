@@ -164,7 +164,7 @@ namespace RegKey
 									valueName.c_str (),
 									0,
 									REG_BINARY,
-									(BYTE const *) valueBuffer,
+									static_cast<BYTE const *>(valueBuffer),
 									bufferSize);
 		if (!quiet && err != ERROR_SUCCESS)
 		{
@@ -298,7 +298,7 @@ namespace RegKey
 									  valueName.c_str (),
 									  0,
 									  &type,
-									  (LPBYTE) valueBuffer,
+									  static_cast<LPBYTE>(valueBuffer),
 									  &cb);
 
 		if (err == ERROR_FILE_NOT_FOUND)

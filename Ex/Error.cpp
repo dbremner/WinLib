@@ -15,7 +15,7 @@ LastSysErr::LastSysErr ()
         NULL,
         _err,
         MAKELANGID (LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-        (LPTSTR) &_msg,
+        reinterpret_cast<LPTSTR>(&_msg),
         0,
         NULL);
 }
@@ -59,7 +59,7 @@ SysMsg::SysMsg (DWORD errCode, HINSTANCE hModule)
             hModule,
             errCode,
             MAKELANGID (LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-            (LPTSTR) &_msg,
+            reinterpret_cast<LPTSTR>(&_msg),
             0,
             NULL);
 		if (_msg == 0 && hModule != 0)
@@ -70,7 +70,7 @@ SysMsg::SysMsg (DWORD errCode, HINSTANCE hModule)
 				0,
 				errCode,
 				MAKELANGID (LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-				(LPTSTR) &_msg,
+				reinterpret_cast<LPTSTR>(&_msg),
 				0,
 				NULL);
 		}

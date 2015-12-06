@@ -9,13 +9,13 @@ namespace Win
 {
 	void DatePicker::SetNoDate()
 	{
-		SendMsg(DTM_SETFORMAT, 0, (LPARAM) "' no date'");
+		SendMsg(DTM_SETFORMAT, 0, reinterpret_cast<LPARAM>("' no date'"));
 
 		//	We set the control's date to today so that if the user toggles it
 		//	they'll get today's date instead of whatever it was
 		SYSTEMTIME st;
 		::GetLocalTime(&st);
-		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, (LPARAM) &st);
+		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, reinterpret_cast<LPARAM>(&st));
 
 		//	clears the check box
 		SendMsg(DTM_SETSYSTEMTIME, GDT_NONE);
@@ -29,7 +29,7 @@ namespace Win
 		st.wMonth = static_cast<WORD>(month);
 		st.wDay = static_cast<WORD>(day);
 		SendMsg(DTM_SETFORMAT);	//	set to default format
-		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, (LPARAM) &st);
+		SendMsg(DTM_SETSYSTEMTIME, GDT_VALID, reinterpret_cast<LPARAM>(&st));
 	}
 
 	bool DatePicker::Handler::OnNotify(NMHDR *hdr, LRESULT &result) 

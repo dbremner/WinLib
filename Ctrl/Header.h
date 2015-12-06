@@ -34,7 +34,7 @@ namespace Win
 
 		void SetImageList (ImageList::Handle images = ImageList::Handle ())
 		{
-			SendMsg (HDM_SETIMAGELIST, 0, (LPARAM) images.ToNative ());
+			SendMsg (HDM_SETIMAGELIST, 0, reinterpret_cast<LPARAM>(images.ToNative ()));
 		}
 
 		void SetColumnImage (unsigned int iCol, int iImage);

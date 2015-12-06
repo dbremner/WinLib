@@ -53,7 +53,7 @@ namespace Ftp
 	{
 		std::string buf;
 		buf.reserve (MAX_PATH);
-		unsigned long bufLen = buf.capacity ();
+		DWORD bufLen = static_cast<DWORD>(buf.capacity ());
 		if (::FtpGetCurrentDirectory (ToNative (), writable_string (buf), &bufLen) == FALSE)
 			buf.clear ();
 		return buf;

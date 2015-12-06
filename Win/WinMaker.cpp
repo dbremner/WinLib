@@ -133,7 +133,7 @@ namespace Win
 	{
 		_style << Win::Style::Child;
 		_hWndParent = hwndParent;
-		_hMenu = (HMENU) childId;
+		_hMenu = reinterpret_cast<HMENU>(childId);
 	}
 
 	ChildMaker::ChildMaker (char const * className, Win::Dow::Handle hwndParent, int childId)
@@ -141,7 +141,7 @@ namespace Win
 	{
 		_style << Win::Style::Child;
 		_hWndParent = hwndParent;
-		_hMenu = (HMENU) childId;
+		_hMenu = reinterpret_cast<HMENU>(childId);
 	}
 
 	PopupMaker::PopupMaker (int idClassName, Win::Instance hInst)

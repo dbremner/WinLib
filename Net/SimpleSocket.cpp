@@ -28,7 +28,7 @@ void SimpleSocket::Connect (std::string const & host, short port, int timeout)
 	name.sin_port = htons (port);
 	name.sin_addr = info._addr;
 	memset (&(name.sin_zero), 0, 8); 
-	if (::connect (_sock, (sockaddr *)&name, sizeof (sockaddr)) != 0)
+	if (::connect (_sock, reinterpret_cast<sockaddr *>(&name), sizeof (sockaddr)) != 0)
 		throw Win::SocketException ("Socket connection failed.", host.c_str ());
 
 	if (timeout > 0)
@@ -37,8 +37,8 @@ void SimpleSocket::Connect (std::string const & host, short port, int timeout)
 		// SO_RCVTIMEO and SO_SNDTIMEO options are available in 
 		// the Microsoft implementation of Windows Sockets 2
 		// consciously ignoring errors during these calls
-		::setsockopt (_sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&timeout, sizeof (timeout));
-		::setsockopt (_sock, SOL_SOCKET, SO_SNDTIMEO, (const char*)&timeout, sizeof (timeout));
+		::setsockopt (_sock, SOL_SOCKET, SO_RCVTIMEO, reinterpret_cast<const char*>(&timeout), sizeof (timeout));
+		::setsockopt (_sock, SOL_SOCKET, SO_SNDTIMEO, reinterpret_cast<const char*>(&timeout), sizeof (timeout));
 	}
 }
 
@@ -72,5 +72,5 @@ HostName::HostName (std::string const & host)
 		throw Win::SocketException ("Cannot get host by name", host.c_str ());
 	}
 	char * address = he->h_addr_list [0];
-	_addr = *((in_addr *) address);
+	_addr = *reinterpret_cast<in_addr *>(address);
 }

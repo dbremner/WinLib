@@ -86,7 +86,7 @@ public:
 	operator T *() const { return get_buf (); }
 	T * get_buf () const
 	{
-		return (T *) &_buf[0];
+		return const_cast<T *>(&_buf[0]);
 	}
 
 private:
@@ -134,27 +134,27 @@ inline bool IsAscii (char c)
 
 inline bool IsSpace (char c)
 {
-	return (unsigned)(c + 1) <= 256 && std::isspace (c) != 0;
+	return static_cast<unsigned>(c + 1) <= 256 && std::isspace (c) != 0;
 }
 
 inline bool IsAlnum (char c)
 {
-	return (unsigned)(c + 1) <= 256 && std::isalnum (c) != 0;
+	return static_cast<unsigned>(c + 1) <= 256 && std::isalnum (c) != 0;
 }
 
 inline bool IsAlpha (char c)
 {
-	return (unsigned)(c + 1) <= 256 && std::isalpha (c) != 0;
+	return static_cast<unsigned>(c + 1) <= 256 && std::isalpha (c) != 0;
 }
 
 inline bool IsDigit (char c)
 {
-	return (unsigned)(c + 1) <= 256 && std::isdigit (c) != 0;
+	return static_cast<unsigned>(c + 1) <= 256 && std::isdigit (c) != 0;
 }
 
 inline bool IsUpper (char c)
 {
-	return (unsigned)(c + 1) <= 256 && std::isupper (c) != 0;
+	return static_cast<unsigned>(c + 1) <= 256 && std::isupper (c) != 0;
 }
 
 inline char ToUpper (char c)

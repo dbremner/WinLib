@@ -505,7 +505,7 @@ bool Win::Controller::Dispatch (UINT message, WPARAM wParam, LPARAM lParam, LRES
 		{
 			if (wParam == MSGF_DIALOGBOX)
 			{
-				if (OnDialogIdle((HWND) lParam))
+				if (OnDialogIdle(reinterpret_cast<HWND>(lParam)))
 				{
 					return true;
 				}

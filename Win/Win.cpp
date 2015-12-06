@@ -142,7 +142,7 @@ void Dow::Handle::SetClassBgBrush (Brush::Handle brush)
 
 void Dow::Handle::PostSetText (char const * text)
 {
-	::PostMessage (H (), WM_SETTEXT, 0, (LPARAM) text);
+	::PostMessage (H (), WM_SETTEXT, 0, reinterpret_cast<LPARAM>(text));
 }
 
 std::string Dow::Handle::GetText ()
@@ -162,12 +162,12 @@ Font::Handle Dow::Handle::GetFont() const
 void Dow::Handle::SetFont (Font::Handle font)
 {
 	BOOL fRedraw = TRUE;
-	SendMsg (WM_SETFONT, (WPARAM) font.ToNative (), MAKELPARAM(fRedraw, 0));
+	SendMsg (WM_SETFONT, reinterpret_cast<WPARAM>(font.ToNative ()), MAKELPARAM(fRedraw, 0));
 }
 
 void Dow::Handle::SetIcon (Icon::Handle icon)
 {
-	Win::Message msg (WM_SETICON, true, LPARAM (icon.ToNative ()));
+	Win::Message msg (WM_SETICON, true, reinterpret_cast<LPARAM>(icon.ToNative ()));
 	SendMsg (msg);
 }
 

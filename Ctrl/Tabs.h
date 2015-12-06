@@ -73,7 +73,7 @@ namespace Tab
 		}
 		void SetImageList (ImageList::Handle images = ImageList::Handle ())
 		{
-			SendMsg (TCM_SETIMAGELIST, 0, (LPARAM) images.ToNative ());
+			SendMsg (TCM_SETIMAGELIST, 0, reinterpret_cast<LPARAM>(images.ToNative ()));
 		}
 		// Given window rectangle in which tabs and page must fit
 		// return display area for application to use (below tabs)
@@ -92,11 +92,11 @@ namespace Tab
 	protected:
 		bool SetItem (int itemIdx, TC_ITEM * item)
 		{
-			return SendMsg (TCM_SETITEM, itemIdx, (LPARAM) item) != 0;
+			return SendMsg (TCM_SETITEM, itemIdx, reinterpret_cast<LPARAM>(item)) != 0;
 		}
 		bool GetItem (int itemIdx, TC_ITEM * item) const
 		{
-			return SendMsg (TCM_GETITEM, itemIdx, (LPARAM) item) != 0;
+			return SendMsg (TCM_GETITEM, itemIdx, reinterpret_cast<LPARAM>(item)) != 0;
 		}
 	};
 

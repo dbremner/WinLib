@@ -36,7 +36,7 @@ namespace Win
 			lpszMenuName = 0;
 			cbClsExtra = 0;
 			cbWndExtra = 0;
-			hbrBackground = (HBRUSH) (COLOR_WINDOW + 1);
+			hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
 			hCursor = ::LoadCursor (0, IDC_ARROW);
 		}
 

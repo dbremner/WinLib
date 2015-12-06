@@ -57,12 +57,12 @@ void Handle::AddWindow (Win::Dow::Handle overlayWin, Win::Dow::Handle toolTipHan
 
 void Handle::GetButtonRect (int buttonIdx, Win::Rect & rect) const
 {
-	SendMsg (TB_GETITEMRECT, (WPARAM) buttonIdx, (LPARAM) (&rect));
+	SendMsg (TB_GETITEMRECT, static_cast<WPARAM>(buttonIdx), reinterpret_cast<LPARAM>(&rect));
 }
 
 int Handle::CmdIdToButtonIndex (int cmdId)
 {
-	return SendMsg (TB_COMMANDTOINDEX, (WPARAM) cmdId);
+	return SendMsg (TB_COMMANDTOINDEX, static_cast<WPARAM>(cmdId));
 }
 
 unsigned Handle::GetToolTipDelay () const

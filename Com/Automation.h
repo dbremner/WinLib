@@ -40,7 +40,7 @@ namespace Automation
 	public:
 		DispObject (CLSID const & classId) : _iDisp ( 0 )
 		{
-			HRESULT hr = ::CoCreateInstance (classId, 0, CLSCTX_ALL, IID_IDispatch, (void**)&_iDisp);
+			HRESULT hr = ::CoCreateInstance (classId, 0, CLSCTX_ALL, IID_IDispatch, reinterpret_cast<void**>(&_iDisp));
 			if (FAILED (hr))
 			{
 				if (hr == E_NOINTERFACE)

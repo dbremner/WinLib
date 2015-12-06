@@ -61,7 +61,7 @@ namespace Win
 		}
 		void SetIcon (Icon::Handle icon)
 		{
-			SendMsg (BM_SETIMAGE, IMAGE_ICON, (LPARAM)icon.ToNative ());
+			SendMsg (BM_SETIMAGE, IMAGE_ICON, reinterpret_cast<LPARAM>(icon.ToNative ()));
 		}
 		void SetOwnerDraw (Button::DrawHandler * handler, unsigned int idx = 0)
 		{
@@ -112,7 +112,7 @@ namespace Win
 		}
 		void Check()
 		{
-			SendMsg (BM_SETCHECK, (WPARAM)1);
+			SendMsg (BM_SETCHECK, static_cast<WPARAM>(1));
 		}
 		void UnCheck()
 		{

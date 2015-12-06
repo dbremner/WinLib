@@ -553,7 +553,7 @@ namespace Win
 		void DeleteColumn (unsigned int iCol);
 		Win::Header GetHeader () const
 		{
-			return Win::Header ((HWND)SendMsg (LVM_GETHEADER));
+			return Win::Header (reinterpret_cast<HWND>(SendMsg (LVM_GETHEADER)));
 		}
 		void RemoveColumnImage (unsigned int iCol);
 		void SetColumnImage (unsigned int iCol, int iImage, bool imageOnTheRight = true);

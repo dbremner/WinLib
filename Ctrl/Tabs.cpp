@@ -25,7 +25,7 @@ int Tab::Handle::AddTab (int itemIdx, char const * caption, LPARAM param)
 		tie.mask |= TCIF_PARAM;
 		tie.lParam = param;
 	}
-    int index = SendMsg (TCM_INSERTITEM, itemIdx, (LPARAM) &tie);
+    int index = SendMsg (TCM_INSERTITEM, itemIdx, reinterpret_cast<LPARAM>(&tie));
     if (index == -1)
         throw Win::Exception ("Internal error: Cannot add tab item to tab control.");
 	return index;
@@ -33,7 +33,7 @@ int Tab::Handle::AddTab (int itemIdx, char const * caption, LPARAM param)
 
 int Tab::Handle::AddTab (int itemIdx, Tab::Item const & tabItem)
 {
-    int index = SendMsg (TCM_INSERTITEM, itemIdx, (LPARAM) &tabItem);
+    int index = SendMsg (TCM_INSERTITEM, itemIdx, reinterpret_cast<LPARAM>(&tabItem));
     if (index == -1)
         throw Win::Exception ("Cannot add tab item to tab control.");
 	return index;
@@ -76,12 +76,12 @@ void Tab::Handle::RemoveImage (int itemIdx)
 
 void Tab::Handle::GetDisplayArea (Win::Rect & bigRectangle)
 {
-	SendMsg (TCM_ADJUSTRECT, (WPARAM) FALSE, (LPARAM) &bigRectangle);
+	SendMsg (TCM_ADJUSTRECT, static_cast<WPARAM>(FALSE), reinterpret_cast<LPARAM>(&bigRectangle));
 }
 
 void Tab::Handle::GetWindowRect (Win::Rect & bigRectangle)
 {
-	SendMsg (TCM_ADJUSTRECT, (WPARAM) TRUE, (LPARAM) &bigRectangle);
+	SendMsg (TCM_ADJUSTRECT, static_cast<WPARAM>(TRUE), reinterpret_cast<LPARAM>(&bigRectangle));
 }
 
 bool TabHandler::OnNotify (NMHDR * hdr, LRESULT & result)

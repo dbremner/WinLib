@@ -16,7 +16,7 @@ namespace Automation
 		}
 		if (_iUnk == 0)
 		{
-			hr = ::CoCreateInstance (classId, 0, CLSCTX_SERVER, IID_IUnknown, (void**)&_iUnk);
+			hr = ::CoCreateInstance (classId, 0, CLSCTX_SERVER, IID_IUnknown, reinterpret_cast<void**>(&_iUnk));
 		}
 		if (FAILED (hr))
 			throw Com::Exception (hr, "Couldn't create instance");
